@@ -1,8 +1,5 @@
-# React + Vite
+# Proyecto Final de GOIT ( TEAM-1 ) 
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+ESTE PROYECTO FINAL SE REALIZA UTILIZANDO EL FRAMEWORK DE REACT Y NODE JS. 
+CONSISTE EN CALCULAR LAS CALORIAS QUE CONSUME UN USUARIO POR DÍA Y LLEVAR UN HISTÓRICO DE LA INGESTA DE ALIMENTOS PARA EL CONTROL DE PESO. 
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
