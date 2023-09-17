@@ -1,5 +1,3 @@
-# Proyecto Final de GOIT ( TEAM-1 ) 
+Backend repository: https://github.com/tipanazar/Slim-Mom--backend</br>
 
-ESTE PROYECTO FINAL SE REALIZA UTILIZANDO EL FRAMEWORK DE REACT Y NODE JS. 
-CONSISTE EN CALCULAR LAS CALORIAS QUE CONSUME UN USUARIO POR DÍA Y LLEVAR UN HISTÓRICO DE LA INGESTA DE ALIMENTOS PARA EL CONTROL DE PESO. 
-
+Backend documentation: https://app.swaggerhub.com/apis-docs/tipanazar/Slim-Mom/1#/
