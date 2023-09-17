@@ -1,3 +1,3 @@
-Backend repository: https://github.com/tipanazar/Slim-Mom--backend</br>
+    Proyecto final GOIT 
 
-Backend documentation: https://app.swaggerhub.com/apis-docs/tipanazar/Slim-Mom/1#/
+    Este el proyecto final de GOIT donde se aplica lo aprendido en React y Node Js. 
