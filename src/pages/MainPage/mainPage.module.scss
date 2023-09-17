@@ -1,4 +1,10 @@
-@import "../../../sass/main.scss";
+@import "../../sass/main.scss";
+
+.mainBox { 
+  display: flex;
+  justify-content: space-between;
+  padding-top: 150px;
+}
 
 .backgroundMedium {
   display: none;
