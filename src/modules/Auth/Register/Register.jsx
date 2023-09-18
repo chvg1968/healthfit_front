@@ -50,10 +50,10 @@ const Register = () => {
 
   const MessageConfirmation = (
     <p className={style.confirm_message}>
-      Для завершення реєстрації Вам надіслано листа. Перейдіть до своєї
-      електронної пошти {userEmail} та{" "}
-      <span className={style.form_title}>підтвердіть реєстрацію</span>. Після
-      цього залогіньтеся.
+      Se le ha enviado un correo electrónico para completar el registro. Diríjase a su correo
+      correo electrónico {userEmail} y{" "}
+      <span className={style.form_title}>confirmar registro</span>. Después
+      inicia sesión.
     </p>
   );
 
@@ -65,8 +65,8 @@ const Register = () => {
 
   const MessageNothing = (
     <p className={style.error_message}>
-      Ой, щось пішло не так.{" "}
-      <span className={style.form_title}>Спробуйте ще раз !</span>
+      Huy! Algo salió mal.{" "}
+      <span className={style.form_title}>Inténtalo otra vez !</span>
     </p>
   );
 
@@ -86,7 +86,7 @@ const Register = () => {
     <Button
       type="button"
       onClickBtn={onButtonToSignin}
-      btnText="Увійти"
+      btnText="Iniciar sesión"
       className={style.button}
     />
   );
@@ -95,7 +95,7 @@ const Register = () => {
     <Button
       type="button"
       onClickBtn={onButtonToSignup}
-      btnText="Добре"
+      btnText="Aceptar"
       className={style.button}
     />
   );
@@ -104,7 +104,7 @@ const Register = () => {
     <Button
       type="button"
       onClickBtn={onButtonToSignup}
-      btnText="До реєстрації"
+      btnText="Hacia el registro"
       className={style.button}
     />
   );
@@ -125,7 +125,7 @@ const Register = () => {
     <Button
       type="submit"
       onClickBtn={handleSubmit}
-      btnText="Реєстрація"
+      btnText="Registro"
       className={style.button}
     />
   );
@@ -199,11 +199,11 @@ const Register = () => {
         </Modal>
       )}
       <div className={style.form_wrapper}>
-        <h2 className={style.form_title}>Реєстрація</h2>
+        <h2 className={style.form_title}>Registro</h2>
         <form className={style.form} onSubmit={handleSubmit(onSubmit)}>
           <div className={style.inputs_wrapper}>
             <label htmlFor="name" className={style.label}>
-              Ім'я *
+              Nombre *
             </label>
             <Input
               id="name"
@@ -211,18 +211,18 @@ const Register = () => {
               color={"warning"}
               fontSize={"14px"}
               {...register("name", {
-                required: "Поле обов'язково для заповнення",
+                required: "Campo obligatorio",
                 pattern: {
                   value: nameRegexp,
-                  message: "Не допустимі символи!",
+                  message: "No se permiten estos caracteres!",
                 },
                 minLength: {
                   value: 2,
-                  message: "Мінімальна кількість букв - 2!",
+                  message: "Número mínimo de letras - 2!",
                 },
                 maxLength: {
                   value: 16,
-                  message: "Максимальна кількість букв - 16!",
+                  message: "Número máximo de letras - 16!",
                 },
               })}
             />
@@ -231,17 +231,17 @@ const Register = () => {
             </div>
 
             <label htmlFor="mail" className={style.label}>
-              Електронна пошта *
+              Email *
             </label>
             <Input
               id="mail"
               className={style.input}
               color={"warning"}
               {...register("email", {
-                required: "Поле обов'язково для заповнення",
+                required: "Campo obligatorio",
                 pattern: {
                   value: emailRegexp,
-                  message: "Не допустимий формат, перевірте адресу!",
+                  message: "Formato no válido, por favor revisa la dirección!",
                 },
               })}
             />
@@ -272,14 +272,14 @@ const Register = () => {
                 </InputAdornment>
               }
               {...register("password", {
-                required: "Поле обов'язково для заповнення",
+                required: "Campo obligatorio",
                 minLength: {
                   value: 6,
-                  message: "Мінімальна кількість знаків - 6!",
+                  message: "Número mínimo de símbolos - 6!",
                 },
                 maxLength: {
                   value: 20,
-                  message: "Максимальна кількість знаків - 20!",
+                  message: "Número máximo de símbolos - 20!",
                 },
               })}
             />
@@ -288,7 +288,7 @@ const Register = () => {
             </div>
 
             <label htmlFor="passwordConfirmation" className={style.label}>
-              Повторіть пароль *
+            Repita la contraseña *
             </label>
             <Input
               id="passwordConfirmation"
@@ -310,14 +310,14 @@ const Register = () => {
                 </InputAdornment>
               }
               {...register("passwordConfirmation", {
-                required: "Поле обов'язково для заповнення",
+                required: "Campo obligatorio",
                 minLength: {
                   value: 6,
-                  message: "Мінімальна кількість знаків - 6!",
+                  message: "Número máximo de símbolos - 6!",
                 },
                 maxLength: {
                   value: 20,
-                  message: "Максимальна кількість знаків - 20!",
+                  message: "Número mínimo de símbolos - 20!",
                 },
               })}
             />
@@ -326,7 +326,7 @@ const Register = () => {
                 <p>{errors?.passwordConfirmation?.message}</p>
               )}
               {password !== passwordConfirmation && (
-                <p>Введені паролі не співпадають!</p>
+                <p>Las contraseñas introducidas no coinciden!</p>
               )}
             </div>
           </div>

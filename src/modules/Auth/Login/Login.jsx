@@ -143,13 +143,13 @@ const Login = () => {
           >
             <Box sx={modalStyle}>
               <Typography id="modal-modal-title" variant="h6" component="h2">
-                Ви не верифікували свій Email
+              No has verificado tu correo electrónico
               </Typography>
               <Typography
                 id="modal-modal-description"
                 sx={{ mt: 1, mb: 2, fontSize: 16 }}
               >
-                Надіслати повторно листа на "{userInfo.email}"?
+                Reenviar email a "{userInfo.email}"?
               </Typography>
 
               <div className={styles.buttonwraper}>
@@ -158,14 +158,14 @@ const Login = () => {
                   onClick={resendVerification}
                   style={{ marginTop: 10, marginRight: 0 }}
                 >
-                  Так
+                  Aceptar
                 </ButtonColor>
                 <ButtonColor
                   type="button"
                   onClick={closeModal}
                   style={{ marginTop: 10, marginRight: 0 }}
                 >
-                  Ні
+                  Cancelar
                 </ButtonColor>
               </div>
             </Box>
@@ -179,7 +179,7 @@ const Login = () => {
             onClose={closeModal}
           >
             <Alert severity="error" sx={{ width: "100%" }} onClose={closeModal}>
-              Введіть email с равликом(@) та доменом
+            Ingrese un correo electrónico con (@) y un dominio
             </Alert>
           </Snackbar>
         )}

@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import style from "./calculatorСalorieForm.module.scss";
 
 const CalculatorСalorieForm = ({
-  title = "Тут може бути ваша реклама, але ніхто не спонсує :(",
+  title = "Puedes tener tu anuncio aquí, pero nadie te patrocina :(",
   onChange,
 }) => {
   const {
@@ -35,14 +35,14 @@ const CalculatorСalorieForm = ({
             <div className={style.inputs_wrapper}>
               <input
                 className={style.input}
-                placeholder={"Зріст *"}
+                placeholder={"Altura *"}
                 {...register("height", {
-                  min: { value: 100, message: "Мінімальний зріст 100см!" },
-                  max: { value: 220, message: "Максимальний зріст 220см!" },
-                  required: "Введіть свій зріст! Поле обов'язкове!",
+                  min: { value: 100, message: "La altura mínima es de 100 cm!" },
+                  max: { value: 220, message: "La altura máxima es de 220 cm!" },
+                  required: "¡Ingresa tu altura! ¡Campo obligatorio!",
                   pattern: {
                     value: /[0-9]{3}/,
-                    message: "Некоректні символи!",
+                    message: "Caracteres inválidos!",
                   },
                 })}
               />
@@ -55,12 +55,12 @@ const CalculatorСalorieForm = ({
                 className={style.input}
                 placeholder={"Вік *"}
                 {...register("age", {
-                  min: { value: 18, message: "Мінімальний вік 18 років!" },
-                  max: { value: 99, message: "Максимальний вік 99 років!" },
-                  required: "Введіть свій вік! Поле обов'язкове",
+                  min: { value: 18, message: "La edad mínima es 18 años!" },
+                  max: { value: 99, message: "La edad máxima es 99 años.!" },
+                  required: "¡Introduzca su edad! Campo obligatorio",
                   pattern: {
                     value: /[0-9]{2}/,
-                    message: "Некоректні символи!",
+                    message: "Caracteres inválidos!",
                   },
                 })}
               />
@@ -71,14 +71,14 @@ const CalculatorСalorieForm = ({
             <div className={style.inputs_wrapper}>
               <input
                 className={style.input}
-                placeholder={"Поточна вага *"}
+                placeholder={"Peso actual *"}
                 {...register("currentWeight", {
-                  min: { value: 40, message: "Мінімальна вага 40кг!" },
-                  max: { value: 200, message: "Максимальна вага 200кг!" },
-                  required: "Введіть свою вагу! Поле обов'язкове!",
+                  min: { value: 40, message: "El peso mínimo es de 40 kg!" },
+                  max: { value: 200, message: "El peso máximo es de 200 kg!" },
+                  required: "¡Ingresa tu peso! ¡El campo es obligatorio!",
                   pattern: {
                     value: /[0-9]/,
-                    message: "Некоректні символи!",
+                    message: "Caracteres inválidos!",
                   },
                 })}
               />
@@ -91,21 +91,21 @@ const CalculatorСalorieForm = ({
             <div className={style.inputs_wrapper}>
               <input
                 className={style.input}
-                placeholder={"Бажана вага *"}
+                placeholder={"Peso deseado *"}
                 {...register("desiredWeight", {
-                  min: { value: 40, message: "Мінімальна бажана вага 40кг!" },
+                  min: { value: 40, message: "El peso mínimo deseado es de 40 kg!" },
                   max: {
                     value: 200,
-                    message: "Максимальна бажана вага 200кг!",
+                    message: "El peso máximo deseado es de 200 kg!",
                   },
-                  required: "Введіть свою бажану вагу! Поле обов'язкове!",
+                  required: "¡Ingrese su peso deseado! Se requiere campo!",
                   pattern: {
                     value: /[0-9]/,
-                    message: "Некоректні символи!",
+                    message: "Caracteres inválidos!",
                   },
                   validate: (value) =>
                     Number(value) <= Number(watchCurrentWeight) ||
-                    "Бажана вага не може бути більшою за поточну!",
+                    "El peso deseado no puede ser mayor que el actual!",
                 })}
               />
               {errors?.desiredWeight && (
@@ -121,7 +121,7 @@ const CalculatorСalorieForm = ({
                       type="radio"
                       value={"1"}
                       {...register("bloodType", {
-                        required: "Оберіть свою групу крові! Це обов'язково!",
+                        required: "¡Elige tu tipo de sangre! Campo necesario!",
                       })}
                     />
                     <span className={style.checkmark}></span>
@@ -134,7 +134,7 @@ const CalculatorСalorieForm = ({
                       type="radio"
                       value={"2"}
                       {...register("bloodType", {
-                        required: "Оберіть свою групу крові! Це обов'язково!",
+                        required: "¡Elige tu tipo de sangre! Campo necesario!",
                       })}
                     />
                     <span className={style.checkmark}></span>
@@ -147,7 +147,7 @@ const CalculatorСalorieForm = ({
                       type="radio"
                       value={"3"}
                       {...register("bloodType", {
-                        required: "Оберіть свою групу крові! Це обов'язково!!",
+                        required: "¡Elige tu tipo de sangre! Campo necesario!",
                       })}
                     />
                     <span className={style.checkmark}></span>
@@ -160,7 +160,7 @@ const CalculatorСalorieForm = ({
                       type="radio"
                       value={"4"}
                       {...register("bloodType", {
-                        required: "Оберіть свою групу крові! Це обов'язково!",
+                        required: "¡Elige tu tipo de sangre! Campo necesario!",
                       })}
                     />
                     <span className={style.checkmark}></span>
