@@ -136,7 +136,7 @@ const Login = () => {
         {!showModal || (
           <Modal
             disableAutoFocus={true}
-            open={error === "Верифікуйте ваш Email"}
+            open={error === "Verifique su correo electrónico"}
             onClose={closeModal}
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description"
