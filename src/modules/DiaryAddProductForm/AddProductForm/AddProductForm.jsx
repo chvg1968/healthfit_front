@@ -36,7 +36,7 @@ const AddProductForm = ({ closeModal }) => {
         .then(({ data }) => {
           return data.map((product) => ({
             value: product._id,
-            label: product?.title?.ua ?? "Продукт без названия",
+            label: product?.title?.ua ?? "Producto sin título",
             calories: product.calories,
           }));
         })
@@ -84,7 +84,7 @@ const AddProductForm = ({ closeModal }) => {
           inputValue={searchQuerry}
           onInputChange={setSearchQuerry}
           styles={customStyles}
-          placeholder="Введите название продукта"
+          placeholder="Introduzca el nombre del producto"
         />
         <input
           required
@@ -95,7 +95,7 @@ const AddProductForm = ({ closeModal }) => {
           autoComplete="off"
           onChange={handleNumberValue}
           type="input"
-          placeholder="Граммы"
+          placeholder="Gramos"
         />
         <button className={styles.button} type="submit">
           {isMobileDevice || (
@@ -103,7 +103,7 @@ const AddProductForm = ({ closeModal }) => {
               <use href={sprite + "#icon-plus"}></use>
             </svg>
           )}
-          {isMobileDevice && <span className={styles.buttonText}>ДОДАТИ</span>}
+          {isMobileDevice && <span className={styles.buttonText}>AGREGAR</span>}
         </button>
       </form>
     </div>

@@ -250,7 +250,7 @@ const Register = () => {
             </div>
 
             <label htmlFor="password" className={style.label}>
-              Пароль *
+              Contraseña *
             </label>
             <Input
               id="password"

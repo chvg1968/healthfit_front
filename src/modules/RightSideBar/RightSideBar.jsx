@@ -42,28 +42,28 @@ function RightSideBar() {
   return (
     <div className={styles.rightSideBarWrapper}>
       <div className={styles.rightSideBarCalories}>
-        <h3 className={styles.rightSideBarHeader}>Звіт за {date}</h3>
+        <h3 className={styles.rightSideBarHeader}>Informe para {date}</h3>
         <ul className={styles.rightSideBarData}>
           <li className={styles.rightSideBarItem}>
-            <span className={styles.rightSideBarInfo}>Залишилося</span>
+            <span className={styles.rightSideBarInfo}>Queda</span>
             <span className={styles.rightSideBarInfo}>
-              {caloriesRemaining} кал
+              {caloriesRemaining} cal
             </span>
           </li>
           <li className={styles.rightSideBarItem}>
-            <span className={styles.rightSideBarInfo}>Вжито</span>
+            <span className={styles.rightSideBarInfo}>Usado</span>
             <span className={styles.rightSideBarInfo}>
-              {caloriesReceived} кал
+              {caloriesReceived} cal
             </span>
           </li>
           <li className={styles.rightSideBarItem}>
-            <span className={styles.rightSideBarInfo}>Добова норма</span>
+            <span className={styles.rightSideBarInfo}>Tarifa diaria</span>
             <span className={styles.rightSideBarInfo}>
-              {dailyCalories ?? "0"} кал
+              {dailyCalories ?? "0"} cal
             </span>
           </li>
           <li className={styles.rightSideBarItem}>
-            <span className={styles.rightSideBarInfo}>n% від норми</span>
+            <span className={styles.rightSideBarInfo}>n% de la norma</span>
             <span className={styles.rightSideBarInfo}>
               {caloriesPercent ?? "0"} %
             </span>
@@ -72,11 +72,11 @@ function RightSideBar() {
       </div>
 
       <div className={styles.rightSideBarCategories}>
-        <h3 className={styles.rightSideBarHeader}>Небажані продукти</h3>
+        <h3 className={styles.rightSideBarHeader}>Productos no deseados</h3>
         <p className={styles.rightSideBarInfo}>
           {userForbidenCategories?.length
             ? categoriesString
-            : "Тут будуть показані продукти, яких Вам краще уникати"}
+            : "Aquí verás productos que debes evitar"}
         </p>
       </div>
       <div className={styles.rightSideBarDecoration}></div>

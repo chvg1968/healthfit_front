@@ -197,7 +197,7 @@ const Login = () => {
           </Snackbar>
         )}
         <form action="submit" onSubmit={submitForm} className={styles.form}>
-          <h1 className={styles.header}>ВХІД</h1>
+          <h1 className={styles.header}>Salida</h1>
 
           <div className={styles.inputWrapper}>
             <FormControl
@@ -223,7 +223,7 @@ const Login = () => {
               variant="standard"
               color={userInfo.password.length > 5 ? "warning" : "error"}
             >
-              <InputLabelStyled htmlFor="password">Пароль</InputLabelStyled>
+              <InputLabelStyled htmlFor="password">Contraseña</InputLabelStyled>
 
               <Input
                 required
@@ -253,12 +253,12 @@ const Login = () => {
 
           {userInfo.email.length > 5 && userInfo.password.length > 5 ? (
             <div className={styles.buttonMobile}>
-              <ButtonColor type="submit">Логін</ButtonColor>
+              <ButtonColor type="submit">Acceso</ButtonColor>
             </div>
           ) : (
             <ButtonComp
               type="button"
-              btnText="Логін"
+              btnText="Acceso"
               className={styles.disabledBtn}
               isDisabled={true}
             />

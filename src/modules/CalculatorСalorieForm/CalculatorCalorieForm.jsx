@@ -53,7 +53,7 @@ const CalculatorСalorieForm = ({
             <div className={style.inputs_wrapper}>
               <input
                 className={style.input}
-                placeholder={"Вік *"}
+                placeholder={"Edad *"}
                 {...register("age", {
                   min: { value: 18, message: "La edad mínima es 18 años!" },
                   max: { value: 99, message: "La edad máxima es 99 años.!" },
@@ -113,7 +113,7 @@ const CalculatorСalorieForm = ({
               )}
             </div>
             <div>
-              <p className={style.bloodType}>Група крові *</p>
+              <p className={style.bloodType}>Tipo de sangre *</p>
               <div className={style.radioBtns_wrapper}>
                 <div className={style.oneRadioBtn_wrapper}>
                   <label className={style.customRadioBtn}>

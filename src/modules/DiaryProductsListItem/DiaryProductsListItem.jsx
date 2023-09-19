@@ -19,8 +19,8 @@ const DiaryProductsListItem = ({ product }) => {
   return (
     <li className={styles.item}>
       <span className={styles.prodName}>{title}</span>
-      <span className={styles.prodWeight}>{weight} г</span>
-      <span className={styles.prodKCal}>{Math.round(calories)} кал</span>
+      <span className={styles.prodWeight}>{weight} g</span>
+      <span className={styles.prodKCal}>{Math.round(calories)} cal</span>
       <button type="button" className={styles.btn} onClick={deleteProduct}>
         <svg className={styles.icon}>
           <use href={sprite + "#icon-cross"} />

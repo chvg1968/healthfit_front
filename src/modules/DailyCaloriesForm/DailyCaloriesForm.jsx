@@ -72,7 +72,7 @@ const DailyCaloriesForm = () => {
   return (
     <>
       <CalculatorСalorieForm
-        title={"Прорахуй свою добову норму калорій зараз"}
+        title={"Calcula tu ingesta diaria de calorías ahora mismo"}
         onChange={onChange}
       />
       {info.loading ? (
@@ -100,14 +100,14 @@ const DailyCaloriesForm = () => {
               </div>
               <div className={styles.modalContentBlock}>
                 <h2 className={styles.modalMainTitle}>
-                  Ваша рекомендована добова норма калорій становить
+                Su ingesta diaria recomendada de calorías es
                 </h2>
                 <p className={styles.modalCaloriesNum}>
                   {info.items.calories}
-                  <span className={styles.modalCaloriesText}> ккал</span>
+                  <span className={styles.modalCaloriesText}> Cal.</span>
                 </p>
                 <h3 className={styles.modalListTitle}>
-                  Продукти, які вам не варто вживати
+                Productos que no debes usar
                 </h3>
                 <ol className={styles.modalProductsList}>{productsList}</ol>
                 <Link
@@ -115,7 +115,7 @@ const DailyCaloriesForm = () => {
                   onClick={closeModal}
                   to="/signup"
                 >
-                  Почати худнути
+                  Empezar a perder peso
                 </Link>
               </div>
             </div>
