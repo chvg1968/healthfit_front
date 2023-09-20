@@ -1,48 +1,10 @@
-import { configureStore } from "@reduxjs/toolkit";
-
-import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
-} from "redux-persist";
-
-import storage from "redux-persist/lib/storage";
-
-import userReducer from "./userAccount/userAccount-slice";
-import productsReducer from "./products/products-slice";
-
-const persistConfig = {
-  key: "auth",
-  storage,
-  whitelist: ["token"],
-};
-
-const productsPersistConfig = {
-  key: "products",
-  storage,
-};
-
-const persistedUserReducer = persistReducer(persistConfig, userReducer);
-const persistedProductsReducer = persistReducer(
-  productsPersistConfig,
-  productsReducer
-);
+import { configureStore } from '@reduxjs/toolkit';
+import { rootReducer } from './rootReducer';
+import { setupListeners } from '@reduxjs/toolkit/query';
 
 export const store = configureStore({
-  reducer: {
-    auth: persistedUserReducer,
-    products: persistedProductsReducer,
-  },
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+  reducer: rootReducer,
+  middleware: getDefaultMiddleware => [...getDefaultMiddleware()],
 });
-export const persistor = persistStore(store);
+
+setupListeners(store.dispatch);

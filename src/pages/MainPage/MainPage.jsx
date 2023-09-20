@@ -1,27 +1,59 @@
-import DailyCaloriesForm from "../../modules/DailyCaloriesForm/DailyCaloriesForm";
-import backgroundMedium from "../../images/background/medium/calculator.png";
-import backgroundBig from "../../images/background/big/common.png";
+import { useState } from 'react';
 
-import styles from "./mainPage.module.scss";
+import { adviceForNoAuthUser } from 'service/axios.config';
 
-const MainPage = () => {
+import {
+  Background,
+  DailyCaloriesForm,
+  Header,
+  Loader,
+  Modal,
+} from 'components';
+import styled from 'styled-components';
+
+const PageGrid = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  justify-content: flex-start;
+`;
+
+export default function MainPage() {
+  const [userInfo, setUserInfo] = useState(null);
+  const [openModal, setOpenModal] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
+  const closeModal = () => {
+    setOpenModal(false);
+    setIsLoading(false);
+  };
+
+  const submitForm = async data => {
+    setIsLoading(true);
+    const resp = await adviceForNoAuthUser(data);
+
+    if (resp.code === 200) {
+      setUserInfo(resp.data.nutritionAdvice);
+      setOpenModal(true);
+      setIsLoading(false);
+    }
+  };
+
   return (
-    <>
-      <div className={styles.mainBox}>
-        <DailyCaloriesForm />
-        <img
-          className={styles.backgroundMedium}
-          src={backgroundMedium}
-          alt="backgroundImg"
-        />
-        <img
-          className={styles.backgroundBig}
-          src={backgroundBig}
-          alt="backgroundImg"
-        />
-      </div>
-    </>
-  );
-};
+    <Background>
+      <PageGrid>
+        <Header localPage="MainPage" />
 
-export default MainPage;
+        <DailyCaloriesForm
+          onFormSubmit={submitForm}
+          isCleanUserInfo={true}
+          isShowNoti={false}
+        />
+        {isLoading && <Loader />}
+        {openModal && (
+          <Modal userData={userInfo} closeModalHandle={closeModal} />
+        )}
+      </PageGrid>
+    </Background>
+  );
+}

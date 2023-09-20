@@ -1,33 +1,43 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
-import {calculatorOperations} from "../../redux/calculator/calculator-operations"
-import RightSideBar from "../../modules/RightSideBar";
-import Loader from "../../shared/components/Loader";
-import CalculatorСalorieForm from "../../modules/CalculatorСalorieForm";
-import Container from "../../shared/components/Container";
-import { getLoading } from "../../redux/userAccount/userAccount-selectors";
+import { getUsersAdvice } from 'redux/app/auth/auth-operations';
+import { authSelectors } from 'redux/app/auth';
+import { diaryPerDayOperation, updateDate } from 'redux/app/diaryPerDay';
+
+import { DailyCaloriesForm, Header, SideBar } from 'components';
+
+import { Thumb, ContainerBar } from './CalculatorPage.styled';
 
 const CalculatorPage = () => {
   const dispatch = useDispatch();
-  const loading = useSelector(getLoading);
+  const currentDate = new Date().toLocaleDateString('ru-RU');
+  const userInfo = useSelector(authSelectors.getUserInfo);
 
-  const onChange = (data) => {        
-    dispatch(calculatorOperations.getCaloriesAndProductsForUser(data));
+  useEffect(() => {
+    dispatch(updateDate(currentDate));
+    dispatch(diaryPerDayOperation.actionGetProducts({ date: currentDate }));
+  }, [currentDate, dispatch]);
+
+  const submitForm = async data => {
+    dispatch(getUsersAdvice(data));
   };
 
   return (
     <>
-      <Container>
-        {loading && <Loader />}
-        <CalculatorСalorieForm
-          title="Дізнайся про свою добову норму калорій"
-          onChange={onChange}
+      <Header localPage="CalculatorPage" />
+      <Thumb>
+        <DailyCaloriesForm
+          onFormSubmit={submitForm}
+          userInfo={userInfo}
+          isCleanUserInfo={false}
         />
 
-        <RightSideBar />
-      </Container>
+        <ContainerBar>
+          <SideBar date={currentDate} />
+        </ContainerBar>
+      </Thumb>
     </>
   );
 };
-
 export default CalculatorPage;
