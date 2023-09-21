@@ -1,41 +1,95 @@
-import React from "react";
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { BsPlusLg } from 'react-icons/bs';
 
-import DiaryProductsList from "../../modules/DiaryProductsList";
-import RightSideBar from "../../modules/RightSideBar";
-import DiaryAddProductForm from "../../modules/DiaryAddProductForm";
-import CalendarInput from "../../shared/components/Calendar";
-import Container from "../../shared/components/Container";
+import { diaryPerDayOperation, diarySelectors } from 'redux/app/diaryPerDay';
+import { getIsModalOpen, openModalAction } from 'redux/app/openModal';
 
-import { useDevice } from "../../shared/hooks/useDevice";
-import backgroundMedium from "../../images/background/medium/sidebar.png";
-import backgroundBig from "../../images/background/big/sidebar.png";
+import useViewportDimensions from 'hooks/useViewportDimensions';
 
-import styles from "./diaryPage.module.scss";
+import {
+  DiaryAddProductForm,
+  DiaryDateCalendar,
+  DiaryProductsList,
+  Header,
+  ReactPortal,
+  SideBar,
+} from 'components';
 
-const DiaryPage = () => {
-  const { isMobileDevice } = useDevice();
+import {
+  PageGrid,
+  AddBtnMobile,
+  SidebarWrap,
+  ContainerDiary,
+} from './DiaryPage.styled';
+
+export default function DiaryPage() {
+  const dispatch = useDispatch();
+
+  const viewportDimensions = useViewportDimensions();
+  const isMobileWidth = viewportDimensions.width <= 767;
+
+  const currentDate = new Date().toLocaleDateString('ru-RU');
+  const date = useSelector(diarySelectors.getCurrentDate);
+  const isCurrentDay = date === currentDate;
+
+  const isMobileFormOpen = useSelector(getIsModalOpen);
+
+  useEffect(() => {
+    dispatch(
+      diaryPerDayOperation.actionGetProducts({ date: currentDate }),
+    ).then(res => {
+      if (typeof res.payload === 'string') {
+        dispatch(
+          diaryPerDayOperation.actionCreateProductsList({ date: currentDate }),
+        );
+      }
+    });
+  }, [currentDate, dispatch]);
+
   return (
     <>
-      <Container>
-        <div className={styles.diaryBox}>
-          <CalendarInput />
-          {isMobileDevice || <DiaryAddProductForm />}
-          <DiaryProductsList />
-        </div>
-        <RightSideBar />
-        <img
-          className={styles.backgroundMedium}
-          src={backgroundMedium}
-          alt="backgroundImg"
-        />
-        <img
-          className={styles.backgroundBig}
-          src={backgroundBig}
-          alt="backgroundImg"
-        />
-      </Container>
+      <Header localPage="DiaryPage" />
+
+      {!isMobileFormOpen && (
+        <PageGrid>
+          <ContainerDiary>
+            <DiaryDateCalendar />
+
+            {isCurrentDay ? (
+              isMobileWidth ? (
+                <>
+                  <DiaryProductsList />
+
+                  <AddBtnMobile onClick={() => dispatch(openModalAction(true))}>
+                    <BsPlusLg size={14} />
+                  </AddBtnMobile>
+                </>
+              ) : (
+                <>
+                  <DiaryAddProductForm />
+                  <DiaryProductsList />
+                </>
+              )
+            ) : (
+              <>
+                <h2>Alimentos que has consumido hoy:</h2>
+                <DiaryProductsList />
+              </>
+            )}
+          </ContainerDiary>
+
+          <SidebarWrap>
+            <SideBar date={date} />
+          </SidebarWrap>
+        </PageGrid>
+      )}
+
+      {isMobileFormOpen && (
+        <ReactPortal wrapperId="mobile-add-product-form">
+          <DiaryAddProductForm />
+        </ReactPortal>
+      )}
     </>
   );
-};
-
-export default DiaryPage;
+}
