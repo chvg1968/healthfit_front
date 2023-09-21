@@ -31,7 +31,7 @@ const actionLogin = createAsyncThunk(
   },
 );
 
-const actionLogout = createAsyncThunk('auth/loout', async (_, thunkAPI) => {
+const actionLogout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await clientAPI.logout();
     tokenService.removeLocalTokens();

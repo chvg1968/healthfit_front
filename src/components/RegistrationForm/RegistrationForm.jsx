@@ -39,6 +39,7 @@ export const RegistrationForm = () => {
 
     validationSchema: Yup.object({
       name: Yup.string()
+<<<<<<< HEAD
         .min(3, 'Un mínimo de 3 caracteres')
         .max(254, 'Máximo 254 caracteres')
         .matches(
@@ -62,6 +63,31 @@ export const RegistrationForm = () => {
         .matches(
           /(?=.*[0-9])(?=.*[a-z])[0-9a-zA-Z]{8,}/,
           'La contraseña debe constar de letras latinas y números sin caracteres especiales.',
+=======
+        .min(3, 'Mínimo 3 caracteres')
+        .max(254, 'Máximo 254 caracteres')
+        .matches(
+          /[A-z]/,
+          'Por favor, elija el teclado en inglés',
+        )
+        .required("Campo obligatorio"),
+
+      email: Yup.string()
+        .email('Correo electrónico no válido')
+        .max(254, 'Máximo 254 caracteres')
+        .matches(
+          /([a-z0-9_.-]{3,})@([A-z0-9_.-]{1,}).([A-z]{2,8})/,
+          'El correo electrónico debe contener al menos 3 caracteres',
+        )
+        .required("Campo obligatorio"),
+
+      password: Yup.string()
+        .min(8, 'Mínimo 8 caracteres')
+        .max(100, 'Мáximo 100 caracteres')
+        .matches(
+          /(?=.*[0-9])(?=.*[a-z])[0-9a-zA-Z]{8,}/,
+          'La contraseña debe consistir en letras latinas y números sin caracteres especiales',
+>>>>>>> 56f7a49 (update files)
         )
         .required("Obligatorio"),
     }),
@@ -101,7 +127,11 @@ export const RegistrationForm = () => {
             ) : null}
           </FormItem>
           <FormItem>
+<<<<<<< HEAD
             <Label htmlFor="email">Correo electrónico *</Label>
+=======
+            <Label htmlFor="email">Correo Electrónico *</Label>
+>>>>>>> 56f7a49 (update files)
 
             <Input
               id="email"
@@ -136,7 +166,11 @@ export const RegistrationForm = () => {
         <ButtonsContainer>
           <Button type="submit">Registrarse</Button>
 
+<<<<<<< HEAD
           <StyledNavLink to="/login">Iniciar sesión</StyledNavLink>
+=======
+          <StyledNavLink to="/login">Iniciar Sesión</StyledNavLink>
+>>>>>>> 56f7a49 (update files)
         </ButtonsContainer>
       </Form>
     </Thumb>

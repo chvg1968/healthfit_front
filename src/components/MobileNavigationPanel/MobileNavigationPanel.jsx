@@ -54,7 +54,11 @@ export const MobileNavigationPanel = () => {
       {isShowChoiceModal && (
         <ReactPortal wrapperId="confirmation-modal">
           <ChoiceModal
+<<<<<<< HEAD
             text={'que desea cerrar sesión en su cuenta'}
+=======
+            text={'"¿Quieres salir de tu cuenta?'}
+>>>>>>> 56f7a49 (update files)
             choiceHandler={choiceHandler}
           />
         </ReactPortal>
@@ -67,7 +71,11 @@ export const MobileNavigationPanel = () => {
       <UserInfoThumb>
         <UserName>{userName}</UserName>
 
+<<<<<<< HEAD
         <ExitButton onClick={onClickExit}>Salida</ExitButton>
+=======
+        <ExitButton onClick={onClickExit}>Salir</ExitButton>
+>>>>>>> 56f7a49 (update files)
       </UserInfoThumb>
     </Thumb>
   );

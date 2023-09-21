@@ -36,18 +36,31 @@ export const LoginForm = () => {
     initialValues,
     validationSchema: Yup.object({
       email: Yup.string()
+<<<<<<< HEAD
         .email('Email inválido')
         .min(3, 'Un mínimo de 3 caracteres')
         .max(254, 'Máximo 254 caracteres')
         .required("Obligatorio"),
+=======
+        .email('Correo electrónico no válido')
+        .min(3, 'Mínimo 3 caracteres')
+        .max(254, 'Máximo 254 caracteres')
+        .required("Campo obligatorio"),
+>>>>>>> 56f7a49 (update files)
       password: Yup.string()
         .min(8, 'Mínimo 8 caracteres')
         .max(100, 'Máximo 100 caracteres')
         .matches(
           /[A-z0-9]/,
+<<<<<<< HEAD
           'La contraseña debe contener letras y números, sin caracteres especiales.',
         )
         .required("Obligatorio"),
+=======
+          'La contraseña debe contener letras y números, sin caracteres especiales',
+        )
+        .required("Campo Obligatorio"),
+>>>>>>> 56f7a49 (update files)
     }),
     onSubmit: values => {
       const { email, password } = values;
@@ -62,7 +75,11 @@ export const LoginForm = () => {
       <Form onSubmit={formik.handleSubmit}>
         <FormList>
           <FormItem>
+<<<<<<< HEAD
             <Label htmlFor="email">Correo electrónico *</Label>
+=======
+            <Label htmlFor="email">Correo Electrónico *</Label>
+>>>>>>> 56f7a49 (update files)
             <Input
               id="email"
               name="email"

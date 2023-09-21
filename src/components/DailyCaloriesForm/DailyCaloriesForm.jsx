@@ -70,7 +70,11 @@ export const DailyCaloriesForm = ({
         };
 
         if (onFormSubmit(user) && isShowNoti) {
+<<<<<<< HEAD
           toast.success('Tu dieta está lista!');
+=======
+          toast.success('¡Tu dieta está lista!');
+>>>>>>> 56f7a49 (update files)
 
           window.scrollTo(0, document.body.scrollHeight);
         }
@@ -83,11 +87,19 @@ export const DailyCaloriesForm = ({
       }}
     >
       <Thumb>
+<<<<<<< HEAD
         <Title>Calcula tu cantidad diaria de calorías ahora mismo</Title>
         <FormStyled>
           <LblDiv1>
             <FormLabel htmlFor="height">
             Altura*
+=======
+        <Title>Calcula tu necesidad diaria de calorías ahora mismo</Title>
+        <FormStyled>
+          <LblDiv1>
+            <FormLabel htmlFor="height">
+              Altura*
+>>>>>>> 56f7a49 (update files)
               <TextInp
                 pattern="[0-9]{3}"
                 required
@@ -97,10 +109,17 @@ export const DailyCaloriesForm = ({
                 min="100"
                 max="250"
               />
+<<<<<<< HEAD
               <span className="tooltiptext">mín. 100, máx. 250</span>
             </FormLabel>
             <FormLabel htmlFor="age">
             Edad*
+=======
+              <span className="tooltiptext">мín. 100, мáx. 250</span>
+            </FormLabel>
+            <FormLabel htmlFor="age">
+              Edad*
+>>>>>>> 56f7a49 (update files)
               <TextInp
                 pattern="[0-9]{2}"
                 id="age"
@@ -110,10 +129,17 @@ export const DailyCaloriesForm = ({
                 min="18"
                 max="100"
               />
+<<<<<<< HEAD
               <span className="tooltiptext">mín. 18, máx. 100</span>
             </FormLabel>
             <FormLabel htmlFor="currentWeight">
             Peso actual*
+=======
+              <span className="tooltiptext">мín. 18, мáx. 100</span>
+            </FormLabel>
+            <FormLabel htmlFor="currentWeight">
+              Peso actual*
+>>>>>>> 56f7a49 (update files)
               <TextInp
                 pattern="[0-9]{2,3}"
                 required
@@ -123,13 +149,21 @@ export const DailyCaloriesForm = ({
                 min="20"
                 max="500"
               />
+<<<<<<< HEAD
               <span className="tooltiptext">mín. 20, máx. 500</span>
+=======
+              <span className="tooltiptext">мín. 20, мáx. 500</span>
+>>>>>>> 56f7a49 (update files)
             </FormLabel>
           </LblDiv1>
 
           <LblDiv1>
             <FormLabel htmlFor="desiredWeight">
+<<<<<<< HEAD
             Peso deseado*
+=======
+              Peso deseado*
+>>>>>>> 56f7a49 (update files)
               <TextInp
                 pattern="[0-9]{2,3}"
                 id="desiredWeight"
@@ -139,7 +173,11 @@ export const DailyCaloriesForm = ({
                 min="20"
                 max="500"
               />
+<<<<<<< HEAD
               <span className="tooltiptext">mín. 20, máx. 500</span>
+=======
+              <span className="tooltiptext">мín. 20, мáx. 500</span>
+>>>>>>> 56f7a49 (update files)
             </FormLabel>
             <FormLabel htmlFor="bloodType" required>
               <p style={{ marginBottom: '20px' }}>Tipo de sangre*</p>
@@ -193,7 +231,11 @@ export const DailyCaloriesForm = ({
           </LblDiv1>
 
           <BtnContainer>
+<<<<<<< HEAD
             <Button type={'submit'} btnText="Empezar a perder peso" />
+=======
+            <Button type={'submit'} btnText="Comienza a adelgazar" />
+>>>>>>> 56f7a49 (update files)
           </BtnContainer>
         </FormStyled>
       </Thumb>

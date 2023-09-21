@@ -16,7 +16,11 @@ export const DiaryProductsList = () => {
 
   return !isAnyProducts ? (
     <AlternativeText>
+<<<<<<< HEAD
       La lista de productos en tu agenda está vacía
+=======
+      La lista de productos en tu diario está vacía
+>>>>>>> 56f7a49 (update files)
     </AlternativeText>
   ) : (
     <ProductsListThumb>

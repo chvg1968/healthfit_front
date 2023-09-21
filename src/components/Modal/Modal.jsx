@@ -68,9 +68,15 @@ export const Modal = ({
           </ModalTtl>
           <KcalCount>
             {userDailyCalorieIntake}
+<<<<<<< HEAD
             <span> Cal</span>
           </KcalCount>
           <Text>Alimentos que no debes comer</Text>
+=======
+            <span> kcal</span>
+          </KcalCount>
+          <Text>Productos que no debes comer</Text>
+>>>>>>> 56f7a49 (update files)
           <ProdList>
             {userNotRecommendedProducts?.map((product, i) => (
               <li key={i}>{product.uk}</li>
@@ -80,7 +86,11 @@ export const Modal = ({
           <BtnThumb>
             <Button
               onClickHandler={onBtnClickHandle}
+<<<<<<< HEAD
               btnText="Empezar a perder peso"
+=======
+              btnText="Comience a perder peso"
+>>>>>>> 56f7a49 (update files)
             />
           </BtnThumb>
         </ContentWrap>
