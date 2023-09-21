@@ -36,18 +36,18 @@ export const LoginForm = () => {
     initialValues,
     validationSchema: Yup.object({
       email: Yup.string()
-        .email('Недійсна електронна пошта')
-        .min(3, 'Мінімум 3 символи')
-        .max(254, 'Максимум 254 символів')
-        .required("Обов'язково"),
+        .email('Email inválido')
+        .min(3, 'Un mínimo de 3 caracteres')
+        .max(254, 'Máximo 254 caracteres')
+        .required("Obligatorio"),
       password: Yup.string()
-        .min(8, 'Мінімум 8 символів')
-        .max(100, 'Максимум 100 символів')
+        .min(8, 'Mínimo 8 caracteres')
+        .max(100, 'Máximo 100 caracteres')
         .matches(
           /[A-z0-9]/,
-          'Пароль має містити літери та цифри, без спеціальних символів',
+          'La contraseña debe contener letras y números, sin caracteres especiales.',
         )
-        .required("Обов'язково"),
+        .required("Obligatorio"),
     }),
     onSubmit: values => {
       const { email, password } = values;
@@ -57,12 +57,12 @@ export const LoginForm = () => {
 
   return (
     <Thumb>
-      <Title>Увійти</Title>
+      <Title>Iniciar sesión</Title>
 
       <Form onSubmit={formik.handleSubmit}>
         <FormList>
           <FormItem>
-            <Label htmlFor="email">Електронна пошта *</Label>
+            <Label htmlFor="email">Correo electrónico *</Label>
             <Input
               id="email"
               name="email"
@@ -78,7 +78,7 @@ export const LoginForm = () => {
           </FormItem>
 
           <FormItem>
-            <Label htmlFor="password">Пароль *</Label>
+            <Label htmlFor="password">Contraseña *</Label>
             <Input
               id="password"
               name="password"
@@ -95,8 +95,8 @@ export const LoginForm = () => {
         </FormList>
 
         <ButtonsContainer>
-          <Button type="submit">Увійти</Button>
-          <StyledLink to="/register">Зареєструватися</StyledLink>
+          <Button type="submit">Iniciar sesión</Button>
+          <StyledLink to="/register">Registrarse</StyledLink>
         </ButtonsContainer>
       </Form>
     </Thumb>

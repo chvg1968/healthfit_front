@@ -26,7 +26,7 @@ export const DiaryDateCalendar = () => {
 
   let inputProps = {
     value: date,
-    disabled: true, // блокирует поле ввода для редактирования чисел (клик по нему не открывает календарь)
+    disabled: true,
   };
 
   function valid(current) {
@@ -52,13 +52,13 @@ export const DiaryDateCalendar = () => {
   return (
     <DatePickerWrapper onMouseLeave={leave} onClick={openCalendar}>
       <DatePicker
-        inputProps={inputProps} // настройки
-        timeFormat={false} // отключение отображения часов
-        dateFormat="DD.MM.YYYY" // формат даты
-        isValidDate={valid} // блокируем будущее
-        onChange={changeDate} // отслеживаем изменения даты
-        open={isShow} // отображение календаря !!!
-        locale="uk" // язык
+        inputProps={inputProps}
+        timeFormat={false}
+        dateFormat="DD.MM.YYYY"
+        isValidDate={valid}
+        onChange={changeDate}
+        open={isShow}
+        locale="uk"
         closeOnSelect={true}
         closeOnClickOutside={true}
       />

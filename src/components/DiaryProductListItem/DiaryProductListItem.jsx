@@ -68,8 +68,8 @@ export const DiaryProductListItem = ({ product }) => {
           <ProductNameThumb ref={textThumbRef}>
             <ProductName ref={textRef}>{product.product.title.ua}</ProductName>
           </ProductNameThumb>
-          <ProductWeight>{weightGrm} г</ProductWeight>
-          <ProductCalories>{product.product.calories} кал</ProductCalories>
+          <ProductWeight>{weightGrm} g</ProductWeight>
+          <ProductCalories>{product.product.calories} cal</ProductCalories>
         </ProductInfo>
 
         {isCurrentDay && (
@@ -86,7 +86,7 @@ export const DiaryProductListItem = ({ product }) => {
       {showModal && (
         <ReactPortal>
           <ChoiceModal
-            text={'що хочете видалити цей продукт'}
+            text={'desea eliminar este producto'}
             choiceHandler={choiceHandler}
             subText={product.product.title.ua}
           />

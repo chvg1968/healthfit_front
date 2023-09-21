@@ -4,11 +4,11 @@ export const NavMenuModal = ({ handleMenuOpen }) => {
   return (
     <Thumb>
       <NavLinkStyled to="/diary" onClick={() => handleMenuOpen(false)}>
-        Щоденник
+        Diario
       </NavLinkStyled>
 
       <NavLinkStyled to="/calculator" onClick={() => handleMenuOpen(false)}>
-        Калькулятор
+        Calculadora
       </NavLinkStyled>
     </Thumb>
   );
