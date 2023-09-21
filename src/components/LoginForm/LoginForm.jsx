@@ -36,18 +36,18 @@ export const LoginForm = () => {
     initialValues,
     validationSchema: Yup.object({
       email: Yup.string()
-        .email('Correo electrónico no válido')
-        .min(3, 'Mínimo 3 caracteres')
-        .max(254, 'Máximo 254 caracteres')
-        .required("Campo obligatorio"),
+        .email('Недійсна електронна пошта')
+        .min(3, 'Мінімум 3 символи')
+        .max(254, 'Максимум 254 символів')
+        .required("Обов'язково"),
       password: Yup.string()
-        .min(8, 'Mínimo 8 caracteres')
-        .max(100, 'Máximo 100 caracteres')
+        .min(8, 'Мінімум 8 символів')
+        .max(100, 'Максимум 100 символів')
         .matches(
           /[A-z0-9]/,
-          'La contraseña debe contener letras y números, sin caracteres especiales',
+          'Пароль має містити літери та цифри, без спеціальних символів',
         )
-        .required("Campo Obligatorio"),
+        .required("Обов'язково"),
     }),
     onSubmit: values => {
       const { email, password } = values;
@@ -57,12 +57,12 @@ export const LoginForm = () => {
 
   return (
     <Thumb>
-      <Title>Iniciar sesión</Title>
+      <Title>Увійти</Title>
 
       <Form onSubmit={formik.handleSubmit}>
         <FormList>
           <FormItem>
-            <Label htmlFor="email">Correo Electrónico *</Label>
+            <Label htmlFor="email">Електронна пошта *</Label>
             <Input
               id="email"
               name="email"
@@ -78,7 +78,7 @@ export const LoginForm = () => {
           </FormItem>
 
           <FormItem>
-            <Label htmlFor="password">Contraseña *</Label>
+            <Label htmlFor="password">Пароль *</Label>
             <Input
               id="password"
               name="password"
@@ -95,8 +95,8 @@ export const LoginForm = () => {
         </FormList>
 
         <ButtonsContainer>
-          <Button type="submit">Iniciar sesión</Button>
-          <StyledLink to="/register">Registrarse</StyledLink>
+          <Button type="submit">Увійти</Button>
+          <StyledLink to="/register">Зареєструватися</StyledLink>
         </ButtonsContainer>
       </Form>
     </Thumb>

@@ -15,7 +15,7 @@ export const SideBar = ({ date, kcalConsumed, calorie }) => {
       />
 
       <ProdThumb>
-        <Title>Alimentos no recomendados</Title>
+        <Title>Не рекомендована їжа</Title>
 
         {notRecommendedProd.length > 0 ? (
           <List>
@@ -24,7 +24,7 @@ export const SideBar = ({ date, kcalConsumed, calorie }) => {
             ))}
           </List>
         ) : (
-          <AltText>Aquí se mostrarán los alimentos no recomendados para ti</AltText>
+          <AltText>Тут відображатимуться не рекомендовані Вам продукти</AltText>
         )}
       </ProdThumb>
     </Thumb>

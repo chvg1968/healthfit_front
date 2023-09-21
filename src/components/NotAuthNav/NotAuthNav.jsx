@@ -20,8 +20,8 @@ export const NotAuthNav = ({ localPage }) => {
           </LogoThumb>
 
           <NavThumb>
-            <NavLinkStyled to="/login">Iniciar sesión</NavLinkStyled>
-            <NavLinkStyled to="/register">Registrarse</NavLinkStyled>
+            <NavLinkStyled to="/login">Увійти</NavLinkStyled>
+            <NavLinkStyled to="/register">Зареєструватися</NavLinkStyled>
           </NavThumb>
         </>
       )}

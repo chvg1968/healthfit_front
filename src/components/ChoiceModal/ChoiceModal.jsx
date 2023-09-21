@@ -44,7 +44,7 @@ export const ChoiceModal = ({ text, choiceHandler, subText }) => {
         <CloseBtn onHandleClick={onChoiceCancel} position="absolute" />
 
         <ContentBox>
-          <Title>Estas seguro, {text}?</Title>
+          <Title>Está seguro, {text}?</Title>
           <Text>{subText}</Text>
 
           <ButtonsSet>

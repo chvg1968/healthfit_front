@@ -56,7 +56,7 @@ export const AuthNav = () => {
 
           {isDesktopView && (
             <NavThumb>
-              <NavLinkStyled to="/diary">Agenda</NavLinkStyled>
+              <NavLinkStyled to="/diary">Diario</NavLinkStyled>
               <NavLinkStyled to="/calculator">Calculadora</NavLinkStyled>
             </NavThumb>
           )}
@@ -90,7 +90,7 @@ export const AuthNav = () => {
       {isShowChoiceModal && (
         <ReactPortal wrapperId="confirmation-modal">
           <ChoiceModal
-            text={'Desea salir de su cuenta?'}
+            text={'Desea cerrar sesión en su cuenta'}
             choiceHandler={choiceHandler}
           />
         </ReactPortal>

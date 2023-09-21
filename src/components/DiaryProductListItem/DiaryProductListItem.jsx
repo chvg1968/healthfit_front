@@ -86,7 +86,7 @@ export const DiaryProductListItem = ({ product }) => {
       {showModal && (
         <ReactPortal>
           <ChoiceModal
-            text={'¿Quieres eliminar este producto?'}
+            text={'що хочете видалити цей продукт'}
             choiceHandler={choiceHandler}
             subText={product.product.title.ua}
           />

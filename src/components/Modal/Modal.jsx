@@ -64,13 +64,13 @@ export const Modal = ({
         </CloseBtnWrapper>
         <ContentWrap>
           <ModalTtl>
-          Su ingesta diaria recomendada de calorías es
+            Ваша рекомендована добова норма споживання калорій становить
           </ModalTtl>
           <KcalCount>
             {userDailyCalorieIntake}
-            <span> kcal</span>
+            <span> ккал</span>
           </KcalCount>
-          <Text>Productos que no debes comer</Text>
+          <Text>Продукти, які Ви не повинні їсти</Text>
           <ProdList>
             {userNotRecommendedProducts?.map((product, i) => (
               <li key={i}>{product.uk}</li>
@@ -80,7 +80,7 @@ export const Modal = ({
           <BtnThumb>
             <Button
               onClickHandler={onBtnClickHandle}
-              btnText="Comience a perder peso"
+              btnText="Почніть худнути"
             />
           </BtnThumb>
         </ContentWrap>

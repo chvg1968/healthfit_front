@@ -16,7 +16,7 @@ export const DiaryProductsList = () => {
 
   return !isAnyProducts ? (
     <AlternativeText>
-      La lista de productos en tu diario está vacía
+      Список продуктів у вашому щоденнику порожній
     </AlternativeText>
   ) : (
     <ProductsListThumb>

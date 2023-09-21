@@ -32,22 +32,22 @@ export const DailyCalorieIntake = ({ date }) => {
 
   return (
     <Thumb>
-      <ListTitle>Datos a fecha de {date}</ListTitle>
+      <ListTitle>Datos a partir de {date}</ListTitle>
       <InfoList>
         <InfoListItem>
-          <span>Restan</span>
-          <span>{Math.round(kcalLeft) || '000'} kcal</span>
+          <span>Restantes</span>
+          <span>{Math.round(kcalLeft) || '000'} Cal</span>
         </InfoListItem>
         <InfoListItem>
-          <span>Se consume</span>
-          <span>{Math.round(kcalConsumed) || '000'} kcal</span>
+          <span>Comsumidas</span>
+          <span>{Math.round(kcalConsumed) || '000'} Cal</span>
         </InfoListItem>
         <InfoListItem>
-          <span>Norma diaria</span>
-          <span>{dailyCalCount || '000'} кcal</span>
+          <span>Tarifa diaria</span>
+          <span>{dailyCalCount || '000'} Cal</span>
         </InfoListItem>
         <InfoListItem>
-          <span>% de la Norma</span>
+          <span>n% de la norma</span>
           <Span upperHandred={Math.round(percOfNorm) > 100}>
             {percOfNorm || '000'} %
           </Span>

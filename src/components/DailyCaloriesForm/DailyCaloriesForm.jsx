@@ -70,7 +70,7 @@ export const DailyCaloriesForm = ({
         };
 
         if (onFormSubmit(user) && isShowNoti) {
-          toast.success('¡Tu dieta está lista!');
+          toast.success('Tu dieta está lista!');
 
           window.scrollTo(0, document.body.scrollHeight);
         }
@@ -83,11 +83,11 @@ export const DailyCaloriesForm = ({
       }}
     >
       <Thumb>
-        <Title>Calcula tu necesidad diaria de calorías ahora mismo</Title>
+        <Title>Calcula tu cantidad diaria de calorías ahora mismo</Title>
         <FormStyled>
           <LblDiv1>
             <FormLabel htmlFor="height">
-              Altura*
+            Altura*
               <TextInp
                 pattern="[0-9]{3}"
                 required
@@ -97,10 +97,10 @@ export const DailyCaloriesForm = ({
                 min="100"
                 max="250"
               />
-              <span className="tooltiptext">мín. 100, мáx. 250</span>
+              <span className="tooltiptext">mín. 100, máx. 250</span>
             </FormLabel>
             <FormLabel htmlFor="age">
-              Edad*
+            Edad*
               <TextInp
                 pattern="[0-9]{2}"
                 id="age"
@@ -110,10 +110,10 @@ export const DailyCaloriesForm = ({
                 min="18"
                 max="100"
               />
-              <span className="tooltiptext">мín. 18, мáx. 100</span>
+              <span className="tooltiptext">mín. 18, máx. 100</span>
             </FormLabel>
             <FormLabel htmlFor="currentWeight">
-              Peso actual*
+            Peso actual*
               <TextInp
                 pattern="[0-9]{2,3}"
                 required
@@ -123,13 +123,13 @@ export const DailyCaloriesForm = ({
                 min="20"
                 max="500"
               />
-              <span className="tooltiptext">мín. 20, мáx. 500</span>
+              <span className="tooltiptext">mín. 20, máx. 500</span>
             </FormLabel>
           </LblDiv1>
 
           <LblDiv1>
             <FormLabel htmlFor="desiredWeight">
-              Peso deseado*
+            Peso deseado*
               <TextInp
                 pattern="[0-9]{2,3}"
                 id="desiredWeight"
@@ -139,7 +139,7 @@ export const DailyCaloriesForm = ({
                 min="20"
                 max="500"
               />
-              <span className="tooltiptext">мín. 20, мáx. 500</span>
+              <span className="tooltiptext">mín. 20, máx. 500</span>
             </FormLabel>
             <FormLabel htmlFor="bloodType" required>
               <p style={{ marginBottom: '20px' }}>Tipo de sangre*</p>
@@ -193,7 +193,7 @@ export const DailyCaloriesForm = ({
           </LblDiv1>
 
           <BtnContainer>
-            <Button type={'submit'} btnText="Comienza a adelgazar" />
+            <Button type={'submit'} btnText="Empezar a perder peso" />
           </BtnContainer>
         </FormStyled>
       </Thumb>

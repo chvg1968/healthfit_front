@@ -78,7 +78,7 @@ export const DiaryAddProductForm = () => {
             title="Introduzca el nombre del producto"
             cacheOptions
             noOptionsMessage={({ inputValue }) =>
-              inputValue ? 'No hay ese producto' : 'Introduzca el nombre del producto'
+              inputValue ? 'No hay tal producto' : 'Introduzca el nombre del producto'
             }
             isClearable
             backspaceRemovesValue
@@ -91,7 +91,7 @@ export const DiaryAddProductForm = () => {
             type="number"
             min={1}
             name="weight"
-            title="Introduzca el peso del producto"
+            title="Introduce el peso del producto."
             required
             value={weight}
             onChange={e => setWeight(e.target.value)}
