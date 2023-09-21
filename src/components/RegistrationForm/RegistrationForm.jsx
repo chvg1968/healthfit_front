@@ -39,31 +39,31 @@ export const RegistrationForm = () => {
 
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(3, 'Мінімум 3 символи')
-        .max(254, 'Максимум 254 символів')
+        .min(3, 'Un mínimo de 3 caracteres')
+        .max(254, 'Máximo 254 caracteres')
         .matches(
           /[A-z]/,
-          'Будь ласка, виберіть англійську розкладку клавіатури',
+          'Por favor seleccione la distribución del teclado en inglés',
         )
-        .required("Обов'язково"),
+        .required("Obligatorio"),
 
       email: Yup.string()
-        .email('Недійсна електронна пошта')
-        .max(254, 'Максимум 254 символів')
+        .email('Email inválido')
+        .max(254, 'Máximo 254 caracteres')
         .matches(
           /([a-z0-9_.-]{3,})@([A-z0-9_.-]{1,}).([A-z]{2,8})/,
-          'Електронна пошта має містити мінімум 3 символи',
+          'El correo electrónico debe contener un mínimo de 3 caracteres.',
         )
-        .required("Обов'язково"),
+        .required("Obligatorio"),
 
       password: Yup.string()
-        .min(8, 'Мінімум 8 символів')
-        .max(100, 'Максимум 100 символів')
+        .min(8, 'Mínimo 8 caracteres')
+        .max(100, 'Máximo 100 caracteres')
         .matches(
           /(?=.*[0-9])(?=.*[a-z])[0-9a-zA-Z]{8,}/,
-          'Пароль повинен складатися з латинських літер та цифр без спеціальних символів',
+          'La contraseña debe constar de letras latinas y números sin caracteres especiales.',
         )
-        .required("Обов'язково"),
+        .required("Obligatorio"),
     }),
 
     onSubmit: values => {
@@ -82,12 +82,12 @@ export const RegistrationForm = () => {
 
   return (
     <Thumb>
-      <Title>Реєстрація</Title>
+      <Title>Registro</Title>
 
       <Form onSubmit={formik.handleSubmit}>
         <FormList>
           <FormItem>
-            <Label htmlFor="name">Ім'я *</Label>
+            <Label htmlFor="name">Nombre *</Label>
 
             <Input
               id="name"
@@ -101,7 +101,7 @@ export const RegistrationForm = () => {
             ) : null}
           </FormItem>
           <FormItem>
-            <Label htmlFor="email">Електронна пошта *</Label>
+            <Label htmlFor="email">Correo electrónico *</Label>
 
             <Input
               id="email"
@@ -116,7 +116,7 @@ export const RegistrationForm = () => {
           </FormItem>
 
           <FormItem>
-            <Label htmlFor="password">Пароль *</Label>
+            <Label htmlFor="password">Contraseña *</Label>
 
             <Input
               id="password"
@@ -134,9 +134,9 @@ export const RegistrationForm = () => {
         </FormList>
 
         <ButtonsContainer>
-          <Button type="submit">Зареєструватися</Button>
+          <Button type="submit">Registrarse</Button>
 
-          <StyledNavLink to="/login">Увійти</StyledNavLink>
+          <StyledNavLink to="/login">Iniciar sesión</StyledNavLink>
         </ButtonsContainer>
       </Form>
     </Thumb>
