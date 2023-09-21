@@ -2,13 +2,13 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { authSelectors, authOperations } from 'redux/app/auth';
-import { getIsModalOpen, openModalAction } from 'redux/app/openModal';
-import { useScrollLock } from 'hooks/useScrollLock';
+import { authSelectors, authOperations } from '../../redux/app/auth';
+import { getIsModalOpen, openModalAction } from '../../redux/app/openModal';
+import { useScrollLock } from '../../hooks/useScrollLock';
 
-import { ReactPortal } from 'components/ReactPortal';
-import { ChoiceModal } from 'components/ChoiceModal';
-import IconBack from 'assets/images/arrow-mobile.png';
+import { ReactPortal } from '../../components/ReactPortal';
+import { ChoiceModal } from '../../components/ChoiceModal';
+import IconBack from '../../assets/images/arrow-mobile.png';
 
 import {
   Thumb,
@@ -54,11 +54,7 @@ export const MobileNavigationPanel = () => {
       {isShowChoiceModal && (
         <ReactPortal wrapperId="confirmation-modal">
           <ChoiceModal
-<<<<<<< HEAD
-            text={'que desea cerrar sesión en su cuenta'}
-=======
             text={'"¿Quieres salir de tu cuenta?'}
->>>>>>> 56f7a49 (update files)
             choiceHandler={choiceHandler}
           />
         </ReactPortal>
@@ -71,11 +67,7 @@ export const MobileNavigationPanel = () => {
       <UserInfoThumb>
         <UserName>{userName}</UserName>
 
-<<<<<<< HEAD
-        <ExitButton onClick={onClickExit}>Salida</ExitButton>
-=======
         <ExitButton onClick={onClickExit}>Salir</ExitButton>
->>>>>>> 56f7a49 (update files)
       </UserInfoThumb>
     </Thumb>
   );

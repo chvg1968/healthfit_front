@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { breakpoints } from 'assets/sizes';
-import { TextMoveAnimation } from 'animations/TextMoveAnimation.styled';
+import { breakpoints } from '../../assets/sizes';
+import { TextMoveAnimation } from '../../animations/TextMoveAnimation.styled';
 
 export const Product = styled.li`
   width: 100%;

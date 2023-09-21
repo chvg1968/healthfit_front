@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Outlet, Navigate } from 'react-router-dom';
-import { authSelectors } from 'redux/app/auth';
+import { authSelectors } from '../../redux/app/auth';
 
 export const PublicRoute = ({ restricted = false }) => {
   const diaryPage = '/diary';

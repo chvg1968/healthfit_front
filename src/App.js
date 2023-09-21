@@ -2,17 +2,17 @@ import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
-import { authSelectors } from 'redux/app/auth';
-import { actionCurrent } from 'redux/app/auth/auth-operations';
-import tokenService from 'service/token.service';
+import { authSelectors } from './redux/app/auth';
+import { actionCurrent } from './redux/app/auth/auth-operations';
+import tokenService from './service/token.service';
 
-import { Loader, PrivateRoute, PublicRoute, Toaster } from 'components';
+import { Loader, PrivateRoute, PublicRoute, Toaster } from './components';
 
-const MainPage = lazy(() => import('pages/MainPage'));
-const LoginPage = lazy(() => import('pages/LoginPage'));
-const RegistrationPage = lazy(() => import('pages/RegistrationPage'));
-const DiaryPage = lazy(() => import('pages/DiaryPage'));
-const CalculatorPage = lazy(() => import('pages/CalculatorPage'));
+const MainPage = lazy(() => import('./pages/MainPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage'));
+const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
+const DiaryPage = lazy(() => import('./pages/DiaryPage'));
+const CalculatorPage = lazy(() => import('./pages/CalculatorPage'));
 
 function App() {
   const dispatch = useDispatch();

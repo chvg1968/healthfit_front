@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { breakpoints } from 'assets/sizes';
+import { breakpoints } from '../../assets/sizes';
 
 import AsyncSelect from 'react-select/async';
 

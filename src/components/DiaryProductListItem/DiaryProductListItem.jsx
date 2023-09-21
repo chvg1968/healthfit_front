@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GrClose } from 'react-icons/gr';
 
-import { diaryPerDayOperation, diarySelectors } from 'redux/app/diaryPerDay';
+import { diaryPerDayOperation, diarySelectors } from '../../redux/app/diaryPerDay';
 
-import { ChoiceModal } from 'components/ChoiceModal';
+import { ChoiceModal } from '../../components/ChoiceModal';
 
 import {
   BtnClose,
@@ -15,7 +15,7 @@ import {
   ProductNameThumb,
   ProductWeight,
 } from './DiaryProductListItem.styled';
-import { ReactPortal } from 'components/ReactPortal';
+import { ReactPortal } from '../../components/ReactPortal';
 import { useRef } from 'react';
 import { useLayoutEffect } from 'react';
 
@@ -86,11 +86,7 @@ export const DiaryProductListItem = ({ product }) => {
       {showModal && (
         <ReactPortal>
           <ChoiceModal
-<<<<<<< HEAD
             text={'desea eliminar este producto'}
-=======
-            text={'¿Quieres eliminar este producto?'}
->>>>>>> 56f7a49 (update files)
             choiceHandler={choiceHandler}
             subText={product.product.title.ua}
           />

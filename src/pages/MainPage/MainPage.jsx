@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { adviceForNoAuthUser } from 'service/axios.config';
+import { adviceForNoAuthUser } from '../../service/axios.config';
 
 import {
   Background,
@@ -8,7 +8,7 @@ import {
   Header,
   Loader,
   Modal,
-} from 'components';
+} from '../../components';
 import styled from 'styled-components';
 
 const PageGrid = styled.div`

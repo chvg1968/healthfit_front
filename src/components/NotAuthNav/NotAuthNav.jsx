@@ -1,7 +1,7 @@
-import { size } from 'assets/sizes';
-import useViewportDimensions from 'hooks/useViewportDimensions';
+import { size } from '../../assets/sizes';
+import useViewportDimensions from '../../hooks/useViewportDimensions';
 
-import { Logo } from 'components/Logo';
+import { Logo } from '../../components/Logo';
 import { Thumb, NavThumb, NavLinkStyled, LogoThumb } from './NotAuthNav.styled';
 
 export const NotAuthNav = ({ localPage }) => {

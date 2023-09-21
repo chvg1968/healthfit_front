@@ -2,15 +2,16 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
-import { authOperations, authSelectors } from 'redux/app/auth';
-import useViewportDimensions from 'hooks/useViewportDimensions';
+import {authOperations} from '../../redux/app/auth';
+import {authSelectors} from '../../redux/app/auth';
+import useViewportDimensions from '../../hooks/useViewportDimensions';
 
-import { Logo } from 'components/Logo';
-import { Burger } from 'components/Burger';
-import { MobileNavigationPanel } from 'components/MobileNavigationPanel';
-import { ReactPortal } from 'components/ReactPortal';
-import { ChoiceModal } from 'components/ChoiceModal';
-import { NavMenuModal } from 'components/NavMenuModal';
+import { Logo } from '../../components/Logo';
+import { Burger } from '../../components/Burger';
+import { MobileNavigationPanel } from '../../components/MobileNavigationPanel';
+import { ReactPortal } from '../../components/ReactPortal';
+import { ChoiceModal } from '../../components/ChoiceModal';
+import { NavMenuModal } from '../../components/NavMenuModal';
 
 import {
   Thumb,
@@ -56,11 +57,8 @@ export const AuthNav = () => {
 
           {isDesktopView && (
             <NavThumb>
-<<<<<<< HEAD
-              <NavLinkStyled to="/diary">Diario</NavLinkStyled>
-=======
+              
               <NavLinkStyled to="/diary">Agenda</NavLinkStyled>
->>>>>>> 56f7a49 (update files)
               <NavLinkStyled to="/calculator">Calculadora</NavLinkStyled>
             </NavThumb>
           )}
@@ -94,11 +92,7 @@ export const AuthNav = () => {
       {isShowChoiceModal && (
         <ReactPortal wrapperId="confirmation-modal">
           <ChoiceModal
-<<<<<<< HEAD
-            text={'Desea cerrar sesión en su cuenta'}
-=======
             text={'Desea salir de su cuenta?'}
->>>>>>> 56f7a49 (update files)
             choiceHandler={choiceHandler}
           />
         </ReactPortal>

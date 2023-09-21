@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { NavLink } from 'react-router-dom';
-import { breakpoints } from 'assets/sizes';
-import { ContainerStyledPlh } from 'components/MainContainer/MainContainer.styled';
+import { breakpoints } from '../../assets/sizes';
+import { ContainerStyledPlh } from '../../components/MainContainer/MainContainer.styled';
 
 export const Thumb = styled.div`
   ${ContainerStyledPlh};

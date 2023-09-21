@@ -1,4 +1,4 @@
-import { ContainerStyledPlh } from 'components/MainContainer/MainContainer.styled';
+import { ContainerStyledPlh } from '../../components/MainContainer/MainContainer.styled';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 import { breakpoints } from '../../assets/sizes';

@@ -1,4 +1,4 @@
-import { breakpoints } from 'assets/sizes';
+import { breakpoints } from '../../assets/sizes';
 import styled from 'styled-components';
 import straw from '../../assets/images/strawberry-desktop.png';
 import ban from '../../assets/images/banana-tablet.png';

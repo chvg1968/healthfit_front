@@ -1,11 +1,11 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { getUsersAdvice } from 'redux/app/auth/auth-operations';
-import { authSelectors } from 'redux/app/auth';
-import { diaryPerDayOperation, updateDate } from 'redux/app/diaryPerDay';
+import { getUsersAdvice } from '../../redux/app/auth/auth-operations';
+import { authSelectors } from '../../redux/app/auth';
+import { diaryPerDayOperation, updateDate } from '../../redux/app/diaryPerDay';
 
-import { DailyCaloriesForm, Header, SideBar } from 'components';
+import { DailyCaloriesForm, Header, SideBar } from '../../components';
 
 import { Thumb, ContainerBar } from './CalculatorPage.styled';
 

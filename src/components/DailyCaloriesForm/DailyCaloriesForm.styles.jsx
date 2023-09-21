@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { Field, Form } from 'formik';
-import { breakpoints } from 'assets/sizes';
-import { ContainerStyledPlh } from 'components/MainContainer';
+import { breakpoints } from '../../assets/sizes';
+import { ContainerStyledPlh } from '../../components/MainContainer';
 
 export const Thumb = styled.div`
   ${ContainerStyledPlh};

@@ -1,5 +1,5 @@
-import { TransitionAnimation } from 'animations/TransitionAnimation.styled';
-import { breakpoints } from 'assets/sizes';
+import { TransitionAnimation } from '../../animations/TransitionAnimation.styled';
+import { breakpoints } from '../../assets/sizes';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 

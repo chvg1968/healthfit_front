@@ -1,4 +1,4 @@
-import { Background, Header, RegistrationForm } from 'components';
+import { Background, Header, RegistrationForm } from '../../components';
 
 const RegistrationPage = () => {
   return (

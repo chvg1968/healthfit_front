@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { breakpoints } from '../../assets/sizes';
-import { ContainerStyledPlh } from 'components/MainContainer';
-import { ButtonStylePlh } from 'components/Buttons/Button/Button.styled';
+import { ContainerStyledPlh } from '../../components/MainContainer';
+import { ButtonStylePlh } from '../../components/Buttons/Button/Button.styled';
 
 export const Thumb = styled.div`
   ${ContainerStyledPlh};

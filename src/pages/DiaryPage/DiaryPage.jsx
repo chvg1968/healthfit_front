@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsPlusLg } from 'react-icons/bs';
 
-import { diaryPerDayOperation, diarySelectors } from 'redux/app/diaryPerDay';
-import { getIsModalOpen, openModalAction } from 'redux/app/openModal';
+import { diaryPerDayOperation, diarySelectors } from '../../redux/app/diaryPerDay';
+import { getIsModalOpen, openModalAction } from '../../redux/app/openModal';
 
-import useViewportDimensions from 'hooks/useViewportDimensions';
+import useViewportDimensions from '../../hooks/useViewportDimensions';
 
 import {
   DiaryAddProductForm,
@@ -14,7 +14,7 @@ import {
   Header,
   ReactPortal,
   SideBar,
-} from 'components';
+} from '../../components';
 
 import {
   PageGrid,

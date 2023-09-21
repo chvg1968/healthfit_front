@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 
-import { authSelectors } from 'redux/app/auth';
-import { diarySelectors } from 'redux/app/diaryPerDay';
+import { authSelectors } from '../../redux/app/auth';
+import { diarySelectors } from '../../redux/app/diaryPerDay';
 
 import {
   InfoList,
@@ -32,7 +32,6 @@ export const DailyCalorieIntake = ({ date }) => {
 
   return (
     <Thumb>
-<<<<<<< HEAD
       <ListTitle>Datos a partir de {date}</ListTitle>
       <InfoList>
         <InfoListItem>
@@ -49,24 +48,6 @@ export const DailyCalorieIntake = ({ date }) => {
         </InfoListItem>
         <InfoListItem>
           <span>n% de la norma</span>
-=======
-      <ListTitle>Datos a fecha de {date}</ListTitle>
-      <InfoList>
-        <InfoListItem>
-          <span>Restan</span>
-          <span>{Math.round(kcalLeft) || '000'} kcal</span>
-        </InfoListItem>
-        <InfoListItem>
-          <span>Se consume</span>
-          <span>{Math.round(kcalConsumed) || '000'} kcal</span>
-        </InfoListItem>
-        <InfoListItem>
-          <span>Norma diaria</span>
-          <span>{dailyCalCount || '000'} кcal</span>
-        </InfoListItem>
-        <InfoListItem>
-          <span>% de la Norma</span>
->>>>>>> 56f7a49 (update files)
           <Span upperHandred={Math.round(percOfNorm) > 100}>
             {percOfNorm || '000'} %
           </Span>

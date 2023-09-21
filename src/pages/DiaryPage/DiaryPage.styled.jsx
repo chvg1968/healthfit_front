@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { FormBtnBase } from '../../components/DiaryAddProductForm/DiaryAddProductForm.styled';
-import { breakpoints } from 'assets/sizes';
-import { ContainerStyledPlh } from 'components';
+import { breakpoints } from '../../assets/sizes';
+import { ContainerStyledPlh } from '../../components';
 
 export const PageGrid = styled.div`
   display: flex;

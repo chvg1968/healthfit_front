@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import { authSelectors } from 'redux/app/auth';
+import { authSelectors } from '../../redux/app/auth';
 
-import { AuthNav } from 'components/AuthNav';
-import { NotAuthNav } from 'components/NotAuthNav';
+import { AuthNav } from '../../components/AuthNav';
+import { NotAuthNav } from '../../components/NotAuthNav';
 
 export const Header = ({ localPage }) => {
   const isUserLoggedIn = useSelector(authSelectors.getIsLoggedIn);

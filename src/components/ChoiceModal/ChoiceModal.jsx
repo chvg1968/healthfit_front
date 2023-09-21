@@ -1,4 +1,4 @@
-import { Button, CloseBtn } from 'components/Buttons';
+import { Button, CloseBtn } from '../../components/Buttons';
 import { useEffect } from 'react';
 
 import {
@@ -44,11 +44,7 @@ export const ChoiceModal = ({ text, choiceHandler, subText }) => {
         <CloseBtn onHandleClick={onChoiceCancel} position="absolute" />
 
         <ContentBox>
-<<<<<<< HEAD
-          <Title>Está seguro, {text}?</Title>
-=======
           <Title>Estas seguro, {text}?</Title>
->>>>>>> 56f7a49 (update files)
           <Text>{subText}</Text>
 
           <ButtonsSet>

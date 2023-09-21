@@ -3,7 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@babel/plugin-transform-class-properties": "^7.22.5",
+    "@babel/plugin-transform-nullish-coalescing-operator": "^7.22.11",
+    "@babel/plugin-transform-numeric-separator": "^7.22.11",
+    "@babel/plugin-transform-private-methods": "^7.22.5",
+    "@jridgewell/sourcemap-codec": "^1.4.15",
     "@reduxjs/toolkit": "^1.8.3",
+    "@rollup/plugin-terser": "^0.4.3",
     "@testing-library/jest-dom": "^5.16.1",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^13.5.0",
@@ -25,6 +31,7 @@
     "react-toastify": "^9.0.5",
     "redux": "^4.2.0",
     "styled-components": "^5.3.5",
+    "svgo": "^3.0.2",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

@@ -1,4 +1,4 @@
-import { ContainerStyledPlh } from 'components/MainContainer/MainContainer.styled';
+import { ContainerStyledPlh } from '../../components/MainContainer/MainContainer.styled';
 import styled from 'styled-components';
 
 export const Thumb = styled.div`

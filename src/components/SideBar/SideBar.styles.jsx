@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+import { breakpoints } from '../../assets/sizes';
 
-import { breakpoints } from 'assets/sizes';
-import bgi from 'assets/images/leaves-desktop.png';
-import bgTablet from 'assets/images/leaves-aside-tablet.png';
-import { ContainerStyledPlh } from 'components/MainContainer';
+
+import bgi from '../../assets/images/leaves-desktop.png';
+import bgTablet from '../../assets/images/leaves-aside-tablet.png';
+import { ContainerStyledPlh } from '../../components/MainContainer';
 
 export const Thumb = styled.div`
   ${ContainerStyledPlh}
