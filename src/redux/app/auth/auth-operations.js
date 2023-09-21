@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { clientAPI } from 'service/axios.config.js';
+import { clientAPI } from 'service/axios.config';
 import tokenService from 'service/token.service';
 
 const actionRegister = createAsyncThunk(
@@ -31,7 +31,7 @@ const actionLogin = createAsyncThunk(
   },
 );
 
-const actionLogout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
+const actionLogout = createAsyncThunk('auth/loout', async (_, thunkAPI) => {
   try {
     await clientAPI.logout();
     tokenService.removeLocalTokens();
