@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { clientAPI } from 'service/axios.config';
-import tokenService from 'service/token.service';
+import { clientAPI } from '../../../service/axios.config';
+import  tokenService  from '../../../service/token.service';
 
 const actionRegister = createAsyncThunk(
   'auth/register',

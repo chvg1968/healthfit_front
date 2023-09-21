@@ -1,4 +1,4 @@
-import { refreshToken } from 'redux/app/auth';
+import { refreshToken } from '../redux/app/auth';
 import { getNewTokens } from './axios.config';
 import axiosInstance from './api';
 import tokenService from './token.service';

@@ -4,7 +4,7 @@ import {
   createProductsListByDate,
   addProductByDate,
   deleteProductByDate,
-} from 'service/axios.config';
+} from '../../../service/axios.config.js';
 
 const actionGetProducts = createAsyncThunk(
   'diaryPerDay/getProducts',
