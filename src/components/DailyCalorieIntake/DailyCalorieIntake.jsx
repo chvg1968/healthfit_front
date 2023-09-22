@@ -39,7 +39,7 @@ export const DailyCalorieIntake = ({ date }) => {
           <span>{Math.round(kcalLeft) || '000'} Cal</span>
         </InfoListItem>
         <InfoListItem>
-          <span>Comsumidas</span>
+          <span>Consumidas</span>
           <span>{Math.round(kcalConsumed) || '000'} Cal</span>
         </InfoListItem>
         <InfoListItem>
@@ -47,7 +47,7 @@ export const DailyCalorieIntake = ({ date }) => {
           <span>{dailyCalCount || '000'} Cal</span>
         </InfoListItem>
         <InfoListItem>
-          <span>n% de la norma</span>
+          <span>% de la norma</span>
           <Span upperHandred={Math.round(percOfNorm) > 100}>
             {percOfNorm || '000'} %
           </Span>
