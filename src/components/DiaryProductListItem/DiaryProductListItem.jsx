@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GrClose } from 'react-icons/gr';
 
 import { diaryPerDayOperation, diarySelectors } from '../../redux/app/diaryPerDay';
-
+import { useTranslation } from 'react-i18next';
 import { ChoiceModal } from '../../components/ChoiceModal';
 
 import {
@@ -20,6 +20,7 @@ import { useRef } from 'react';
 import { useLayoutEffect } from 'react';
 
 export const DiaryProductListItem = ({ product }) => {
+  const {t}= useTranslation();
   const dispatch = useDispatch();
   const textThumbRef = useRef();
   const textRef = useRef();
@@ -86,7 +87,7 @@ export const DiaryProductListItem = ({ product }) => {
       {showModal && (
         <ReactPortal>
           <ChoiceModal
-            text={'desea eliminar este producto'}
+            text={t('deleteOr')}
             choiceHandler={choiceHandler}
             subText={product.product.title.ua}
           />

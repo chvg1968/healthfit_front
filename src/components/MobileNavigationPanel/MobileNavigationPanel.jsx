@@ -9,6 +9,7 @@ import { useScrollLock } from '../../hooks/useScrollLock';
 import { ReactPortal } from '../../components/ReactPortal';
 import { ChoiceModal } from '../../components/ChoiceModal';
 import IconBack from '../../assets/images/arrow-mobile.png';
+import { useTranslation } from 'react-i18next';
 
 import {
   Thumb,
@@ -19,6 +20,7 @@ import {
 } from './MobileNavigationPanel.styled';
 
 export const MobileNavigationPanel = () => {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userName = useSelector(authSelectors.getUserName);
@@ -54,7 +56,7 @@ export const MobileNavigationPanel = () => {
       {isShowChoiceModal && (
         <ReactPortal wrapperId="confirmation-modal">
           <ChoiceModal
-            text={'"¿Quieres salir de tu cuenta?'}
+            text={t('dywExit')}
             choiceHandler={choiceHandler}
           />
         </ReactPortal>
@@ -67,7 +69,7 @@ export const MobileNavigationPanel = () => {
       <UserInfoThumb>
         <UserName>{userName}</UserName>
 
-        <ExitButton onClick={onClickExit}>Salir</ExitButton>
+        <ExitButton onClick={onClickExit}>{t('exit')}</ExitButton>
       </UserInfoThumb>
     </Thumb>
   );

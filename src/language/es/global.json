@@ -1,0 +1,59 @@
+{
+    "emailLabel": "Correo Electrónico *",
+    "diary": "Diario",
+    "calculator": "Calculadora",
+    "exit": "Salir",
+    "login": "Iniciar sesión",
+    "loginbutton": "Iniciar sesión",
+    "registration": "Crear Una Cuenta",
+    "register":"CREAR UNA CUENTA",
+    "calc": "Calcula tu cantidad diaria de calorías ahora mismo",
+    "height": "Altura *",
+  "desiredweight": "Peso Deseado *",
+  "age": "Edad *",
+  "bloodtype": "Grupo sanguíneo *",
+  "currentweight": "Peso Actual *",
+  "btnTextStart":"Comienza a perder peso",
+  "password":"Contraseña *",
+  "name":"Nombre *",
+
+  "validateMin": "Mínimo 3 caracteres",
+  "validateMax": "Máximo 254 caracteres",
+  "selectKeyboard": "Por favor, elija el teclado en inglés",
+  "mandatoryField": "Campo obligatorio",
+  "wrongEmail":"Correo electrónico no válido",
+  "emailAtLeast": "El correo electrónico debe contener al menos 3 caracteres",
+  "passwordMin": "Mínimo 8 caracteres",
+  "passwordMax": "Мáximo 100 caracteres",
+  "charMatch":"La contraseña debe consistir en letras latinas y números sin caracteres especiales",
+
+  "rusure": "Estas seguro,",
+  "cancel":"Cancelar",
+  "confirm":"Confirmar",
+
+  "SummaryFor":"Resumen para el ",
+  "left":"Quedan",
+  "consumed": "Consumido",
+  "dailyRate":"Tarifa diaria",
+  "percentageOfNornal":"n% de lo normal",
+  "dietReady":"Tu dieta está lista!",
+  "toLocaleLanguage":"es-CO",
+  
+  "productName":"Introduzca el nombre del producto",
+  "noProduct":"El producto no existe en la base de datos",
+  "enterWeight": "Introduce el peso del producto.",
+  "grams": "Gramos",
+  "add":"Agregar",
+
+  "deleteOr":"Desea eliminar este producto?",
+  "emptyList":"La lista de productos en tu diario está vacía",
+  "dywExit": "Quieres salir de tu cuenta?",
+
+  "calIngest": "Su ingesta diaria recomendada de calorías es",
+  "norecommendedProducts": "Productos que no debes comer",
+"recommendedFoods":"Comida no recomendada",
+"noRecoTittle":"Los productos no recomendados para usted se mostrarán aquí.",
+
+"foodsEaten":"Alimentos que has consumido hoy:"
+
+  }

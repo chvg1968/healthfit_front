@@ -25,7 +25,10 @@ import {
   LogoStyled,
 } from './AuthNav.styled';
 
+import { useTranslation } from 'react-i18next';
+
 export const AuthNav = () => {
+  const { t } = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -58,8 +61,8 @@ export const AuthNav = () => {
           {isDesktopView && (
             <NavThumb>
               
-              <NavLinkStyled to="/diary">Agenda</NavLinkStyled>
-              <NavLinkStyled to="/calculator">Calculadora</NavLinkStyled>
+              <NavLinkStyled to="/diary">{t('diary')}</NavLinkStyled>
+              <NavLinkStyled to="/calculator">{t('calculator')}</NavLinkStyled>
             </NavThumb>
           )}
         </DesktopNavigationThumb>
@@ -76,7 +79,7 @@ export const AuthNav = () => {
                 type="button"
                 onClick={() => setIsShowChoiceModal(true)}
               >
-                Salir
+                {t('exit')}
               </LogoutBtn>
             </UserThumb>
           )}

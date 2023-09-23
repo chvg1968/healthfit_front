@@ -8,10 +8,11 @@ import { diaryPerDayOperation, updateDate } from '../../redux/app/diaryPerDay';
 import { DailyCaloriesForm, Header, SideBar } from '../../components';
 
 import { Thumb, ContainerBar } from './CalculatorPage.styled';
-
+import { useTranslation } from 'react-i18next';
 const CalculatorPage = () => {
+  const {t}= useTranslation();
   const dispatch = useDispatch();
-  const currentDate = new Date().toLocaleDateString('ru-RU');
+  const currentDate = new Date().toLocaleDateString(`${t('toLocaleLanguage')}`);
   const userInfo = useSelector(authSelectors.getUserInfo);
 
   useEffect(() => {

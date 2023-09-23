@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useFormik } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import * as Yup from 'yup';
-
+import { useTranslation } from 'react-i18next';
 import { authOperations } from '../../redux/app/auth';
 
 import { PasswordEyeButton } from '../../components/Buttons';
@@ -28,6 +28,7 @@ const initialValues = {
 };
 
 export const RegistrationForm = () => {
+  const {t} = useTranslation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -39,31 +40,31 @@ export const RegistrationForm = () => {
 
     validationSchema: Yup.object({
       name: Yup.string()
-        .min(3, 'Mínimo 3 caracteres')
-        .max(254, 'Máximo 254 caracteres')
+        .min(3, `${t('validateMin')}`)
+        .max(254, `${t('validateMax')}`)
         .matches(
           /[A-z]/,
-          'Por favor, elija el teclado en inglés',
+          `${t('selectKeyboard')}`,
         )
-        .required("Campo obligatorio"),
+        .required(`${t('mandatoryField')}`),
 
       email: Yup.string()
-        .email('Correo electrónico no válido')
-        .max(254, 'Máximo 254 caracteres')
+        .email(`${t('wrongEmail')}`)
+        .max(254, `${t('validateMax')}`)
         .matches(
           /([a-z0-9_.-]{3,})@([A-z0-9_.-]{1,}).([A-z]{2,8})/,
-          'El correo electrónico debe contener al menos 3 caracteres',
+          `${t('emailAtLeast')}`,
         )
-        .required("Campo obligatorio"),
+        .required(`${t('mandatoryField')}`),
 
       password: Yup.string()
-        .min(8, 'Mínimo 8 caracteres')
-        .max(100, 'Мáximo 100 caracteres')
+        .min(8, `${t('passwordMin')}`)
+        .max(100, `${t('passwordMax')}`)
         .matches(
           /(?=.*[0-9])(?=.*[a-z])[0-9a-zA-Z]{8,}/,
-          'La contraseña debe consistir en letras latinas y números sin caracteres especiales',
+          `${t('charMatch')}`,
         )
-        .required("Obligatorio"),
+        .required(`${t('mandatoryField')}`),
     }),
 
     onSubmit: values => {
@@ -82,12 +83,12 @@ export const RegistrationForm = () => {
 
   return (
     <Thumb>
-      <Title>Registro</Title>
+      <Title>{t('register')}</Title>
 
       <Form onSubmit={formik.handleSubmit}>
         <FormList>
           <FormItem>
-            <Label htmlFor="name">Nombre *</Label>
+            <Label htmlFor="name">{t('name')}</Label>
 
             <Input
               id="name"
@@ -101,7 +102,7 @@ export const RegistrationForm = () => {
             ) : null}
           </FormItem>
           <FormItem>
-            <Label htmlFor="email">Correo Electrónico *</Label>
+            <Label htmlFor="email">{t('emailLabel')}</Label>
 
             <Input
               id="email"
@@ -116,7 +117,7 @@ export const RegistrationForm = () => {
           </FormItem>
 
           <FormItem>
-            <Label htmlFor="password">Contraseña *</Label>
+            <Label htmlFor="password">{t('password')}</Label>
 
             <Input
               id="password"
@@ -134,9 +135,9 @@ export const RegistrationForm = () => {
         </FormList>
 
         <ButtonsContainer>
-          <Button type="submit">Registrarse</Button>
+          <Button type="submit">{t('registration')}</Button>
 
-          <StyledNavLink to="/login">Iniciar Sesión</StyledNavLink>
+          <StyledNavLink to="/login">{t('login')}</StyledNavLink>
         </ButtonsContainer>
       </Form>
     </Thumb>

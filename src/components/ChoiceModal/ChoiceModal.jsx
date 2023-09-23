@@ -1,6 +1,6 @@
 import { Button, CloseBtn } from '../../components/Buttons';
 import { useEffect } from 'react';
-
+import { useTranslation } from 'react-i18next';
 import {
   Overlay,
   ModalBox,
@@ -11,6 +11,7 @@ import {
 } from './ChoiceModal.styled';
 
 export const ChoiceModal = ({ text, choiceHandler, subText }) => {
+  const { t } = useTranslation();
   useEffect(() => {
     window.addEventListener('keydown', escKeyHandle);
     return () => {
@@ -44,17 +45,17 @@ export const ChoiceModal = ({ text, choiceHandler, subText }) => {
         <CloseBtn onHandleClick={onChoiceCancel} position="absolute" />
 
         <ContentBox>
-          <Title>Estas seguro, {text}?</Title>
+          <Title>{t('rusure')} {text}?</Title>
           <Text>{subText}</Text>
 
           <ButtonsSet>
             <Button
               onClickHandler={onChoiceCancel}
-              btnText="Cancelar"
+              btnText={t('cancel')}
               autofocus
             />
 
-            <Button onClickHandler={onChoiceConfirm} btnText="Confirmar" />
+            <Button onClickHandler={onChoiceConfirm} btnText={t('confirm')} />
           </ButtonsSet>
         </ContentBox>
       </ModalBox>

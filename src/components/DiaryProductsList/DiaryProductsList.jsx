@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { diarySelectors } from '../../redux/app/diaryPerDay';
 
 import { DiaryProductListItem } from '../../components/DiaryProductListItem';
-
+import { useTranslation } from 'react-i18next';
 import {
   AlternativeText,
   ProductsList,
@@ -11,12 +11,13 @@ import {
 } from './DiaryProductsList.styled';
 
 export const DiaryProductsList = () => {
+  const {t}= useTranslation();
   const productsList = useSelector(diarySelectors.getDiaryProducts);
   const isAnyProducts = productsList !== null && productsList.length > 0;
 
   return !isAnyProducts ? (
     <AlternativeText>
-      La lista de productos en tu agenda está vacía
+      {t('emptyList')}
     </AlternativeText>
   ) : (
     <ProductsListThumb>

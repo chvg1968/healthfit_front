@@ -6,7 +6,7 @@ export const ButtonStylePlh = css`
   justify-content: center;
 
   width: 100%;
-  padding: 13px 25px;
+  padding: 13px 35px;
   background: var(--accent-color);
   box-shadow: 0px 4px 10px var(--accent-shadow);
   border-radius: 30px;

@@ -4,6 +4,8 @@ import * as Yup from 'yup';
 import { useDispatch } from 'react-redux';
 
 import { authOperations } from '../../redux/app/auth';
+import { useTranslation } from 'react-i18next';
+
 
 import {
   Thumb,
@@ -31,38 +33,38 @@ export const LoginForm = () => {
   const [show, setShow] = useState(false);
 
   const handleClick = () => setShow(!show);
-
+  
+  const { t } = useTranslation();
   const formik = useFormik({
     initialValues,
     validationSchema: Yup.object({
       email: Yup.string()
-        .email('Correo electrónico no válido')
-        .min(3, 'Mínimo 3 caracteres')
-        .max(254, 'Máximo 254 caracteres')
-        .required("Campo obligatorio"),
+        .email(`${t('wrongEmail')}`)
+        .min(3, `${t('validateMin')}`)
+        .max(254, `${t('validateMax')}`)
+        .required(`${t('mandatoryField')}`),
       password: Yup.string()
-        .min(8, 'Mínimo 8 caracteres')
-        .max(100, 'Máximo 100 caracteres')
+        .min(8, `${t('passwordMin')}`)
+        .max(100, `${t('passwordMax')}`)
         .matches(
           /[A-z0-9]/,
-          'La contraseña debe contener letras y números, sin caracteres especiales',
+          `${t('charMatch')}`,
         )
-        .required("Campo Obligatorio"),
+        .required(`${t('mandatoryField')}`),
     }),
     onSubmit: values => {
       const { email, password } = values;
       dispatch(authOperations.actionLogin({ email, password }));
     },
   });
-
   return (
     <Thumb>
-      <Title>Iniciar sesión</Title>
+      <Title>{t('login')}</Title>
 
       <Form onSubmit={formik.handleSubmit}>
         <FormList>
           <FormItem>
-            <Label htmlFor="email">Correo Electrónico *</Label>
+            <Label htmlFor="email">{t('emailLabel')}</Label>
             <Input
               id="email"
               name="email"
@@ -78,7 +80,7 @@ export const LoginForm = () => {
           </FormItem>
 
           <FormItem>
-            <Label htmlFor="password">Contraseña *</Label>
+            <Label htmlFor="password">{t('password')}</Label>
             <Input
               id="password"
               name="password"
@@ -95,8 +97,8 @@ export const LoginForm = () => {
         </FormList>
 
         <ButtonsContainer>
-          <Button type="submit">Iniciar sesión</Button>
-          <StyledLink to="/register">Registrarse</StyledLink>
+          <Button type="submit">{t('loginbutton')}</Button>
+          <StyledLink to="/register">{t('registration')}</StyledLink>
         </ButtonsContainer>
       </Form>
     </Thumb>

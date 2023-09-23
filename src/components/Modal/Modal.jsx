@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, CloseBtn } from '../../components/Buttons';
 import IconBack from '../../assets/images/arrow-mobile.png';
-
+import { useTranslation } from 'react-i18next';
 import {
   Overlay,
   ModalDiv,
@@ -18,6 +18,7 @@ import {
 } from './Modal.styled';
 
 export const Modal = ({
+  
   closeModalHandle,
   userData: { userDailyCalorieIntake, userNotRecommendedProducts },
 }) => {
@@ -28,7 +29,7 @@ export const Modal = ({
       closeModalHandle();
     }
   };
-
+  const {t}= useTranslation();
   useEffect(() => {
     window.addEventListener('keydown', escKeyHandle);
     return () => {
@@ -64,13 +65,13 @@ export const Modal = ({
         </CloseBtnWrapper>
         <ContentWrap>
           <ModalTtl>
-          Su ingesta diaria recomendada de calorías es
+          {t('calIngest')}
           </ModalTtl>
           <KcalCount>
             {userDailyCalorieIntake}
             <span> kcal</span>
           </KcalCount>
-          <Text>Productos que no debes comer</Text>
+          <Text>{t('norecomendedProducts')}</Text>
           <ProdList>
             {userNotRecommendedProducts?.map((product, i) => (
               <li key={i}>{product.uk}</li>
@@ -80,7 +81,7 @@ export const Modal = ({
           <BtnThumb>
             <Button
               onClickHandler={onBtnClickHandle}
-              btnText="Empezar a perder peso"
+              btnText={t('btnTextStart')}
             />
           </BtnThumb>
         </ContentWrap>

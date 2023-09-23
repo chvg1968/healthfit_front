@@ -3,7 +3,8 @@ import { useState } from 'react';
 import { toast } from 'react-toastify';
 
 import { Button } from '../../components/Buttons';
-
+import { useTranslation } from 'react-i18next';
+ 
 import {
   Thumb,
   Title,
@@ -51,7 +52,7 @@ export const DailyCaloriesForm = ({
 
     setIsFormValid(true);
   };
-
+  const { t } = useTranslation();
   return (
     <Formik
       initialValues={initialValues}
@@ -70,7 +71,7 @@ export const DailyCaloriesForm = ({
         };
 
         if (onFormSubmit(user) && isShowNoti) {
-          toast.success('Tu dieta está lista!');
+          toast.success(`${t('dietReady')}`);
 
           window.scrollTo(0, document.body.scrollHeight);
         }
@@ -83,11 +84,11 @@ export const DailyCaloriesForm = ({
       }}
     >
       <Thumb>
-        <Title>Calcula tu cantidad diaria de calorías ahora mismo</Title>
+        <Title>{t('calc')}</Title>
         <FormStyled>
           <LblDiv1>
             <FormLabel htmlFor="height">
-            Altura*
+            {t('height')}
               <TextInp
                 pattern="[0-9]{3}"
                 required
@@ -100,7 +101,7 @@ export const DailyCaloriesForm = ({
               <span className="tooltiptext">mín. 100, máx. 250</span>
             </FormLabel>
             <FormLabel htmlFor="age">
-            Edad*
+            {t('age')}
               <TextInp
                 pattern="[0-9]{2}"
                 id="age"
@@ -113,7 +114,7 @@ export const DailyCaloriesForm = ({
               <span className="tooltiptext">mín. 18, máx. 100</span>
             </FormLabel>
             <FormLabel htmlFor="currentWeight">
-            Peso actual*
+            {t('currentweight')}
               <TextInp
                 pattern="[0-9]{2,3}"
                 required
@@ -129,7 +130,7 @@ export const DailyCaloriesForm = ({
 
           <LblDiv1>
             <FormLabel htmlFor="desiredWeight">
-            Peso deseado*
+            {t('desiredweight')}
               <TextInp
                 pattern="[0-9]{2,3}"
                 id="desiredWeight"
@@ -142,7 +143,7 @@ export const DailyCaloriesForm = ({
               <span className="tooltiptext">mín. 20, máx. 500</span>
             </FormLabel>
             <FormLabel htmlFor="bloodType" required>
-              <p style={{ marginBottom: '20px' }}>Tipo de sangre*</p>
+              <p style={{ marginBottom: '20px' }}>{t('bloodtype')}</p>
               <BlList>
                 <li>
                   <RadioInp
@@ -193,7 +194,7 @@ export const DailyCaloriesForm = ({
           </LblDiv1>
 
           <BtnContainer>
-            <Button type={'submit'} btnText="Empezar a perder peso" />
+            <Button type={'submit'} btnText={t('btnTextStart')} />
           </BtnContainer>
         </FormStyled>
       </Thumb>

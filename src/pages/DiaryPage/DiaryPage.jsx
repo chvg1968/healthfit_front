@@ -6,7 +6,7 @@ import { diaryPerDayOperation, diarySelectors } from '../../redux/app/diaryPerDa
 import { getIsModalOpen, openModalAction } from '../../redux/app/openModal';
 
 import useViewportDimensions from '../../hooks/useViewportDimensions';
-
+import { useTranslation } from 'react-i18next';
 import {
   DiaryAddProductForm,
   DiaryDateCalendar,
@@ -23,13 +23,15 @@ import {
   ContainerDiary,
 } from './DiaryPage.styled';
 
+
 export default function DiaryPage() {
+  const {t}= useTranslation();
   const dispatch = useDispatch();
 
   const viewportDimensions = useViewportDimensions();
   const isMobileWidth = viewportDimensions.width <= 767;
 
-  const currentDate = new Date().toLocaleDateString('ru-RU');
+  const currentDate = new Date().toLocaleDateString(`${t('toLocaleLanguage')}`);
   const date = useSelector(diarySelectors.getCurrentDate);
   const isCurrentDay = date === currentDate;
 
@@ -73,7 +75,7 @@ export default function DiaryPage() {
               )
             ) : (
               <>
-                <h2>Alimentos que has consumido hoy:</h2>
+                <h2>{t('foodsEaten')}</h2>
                 <DiaryProductsList />
               </>
             )}

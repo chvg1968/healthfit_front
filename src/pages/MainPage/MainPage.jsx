@@ -10,6 +10,7 @@ import {
   Modal,
 } from '../../components';
 import styled from 'styled-components';
+import LanguageSwitcher from '../../components/LanguageSwitcher/LanguageSwitcher';
 
 const PageGrid = styled.div`
   display: flex;
@@ -42,6 +43,7 @@ export default function MainPage() {
   return (
     <Background>
       <PageGrid>
+        <LanguageSwitcher/>
         <Header localPage="MainPage" />
 
         <DailyCaloriesForm
