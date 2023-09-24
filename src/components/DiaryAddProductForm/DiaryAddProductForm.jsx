@@ -25,7 +25,7 @@ const loadOptions = async (inputValue, callback) => {
 
   callback(
     data.result.map(product => {
-      const title = product.title;
+      const title = product.title.toString();
       return { label: title, value: title };
     }),
   );
@@ -37,7 +37,7 @@ export const DiaryAddProductForm = () => {
   let [selectedProduct, setSelectedProduct] = useState(null);
   let [weight, setWeight] = useState('');
 
-  const currentDate = new Date().toLocaleDateString('ru-RU');
+  const currentDate = new Date().toLocaleDateString('es-ES');
   const isLoadingAddedProduct = useSelector(
     diarySelectors.getIsAddProductLoading,
   );

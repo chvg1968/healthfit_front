@@ -61,16 +61,26 @@ export const getNewTokens = async payload => {
 
 //================== GET LIST OF PRODUCTS BY QUERY =====================
 
+
 export const getProductsByQuery = async payload => {
   try {
-    const { data } = await instanceClientAPI.get(
-      `/products/search?query=${payload}`,
-    );
+    const { data } = await instanceClientAPI.get(`/products/search?query=${payload}`);
     return data;
   } catch (error) {
-    console.log(error.message);
+    if (error.response) {
+      // Respuesta del servidor con código de estado y datos de respuesta
+      console.error('Error from server:', error.response.status, error.response.data);
+    } else if (error.request) {
+      // La solicitud se hizo, pero no se recibió respuesta
+      console.error('Error from request:', error.request);
+    } else {
+      // Otro tipo de error
+      console.error('Error:', error.message);
+    }
+    throw error; // Puedes relanzar el error para manejarlo en otro lugar si es necesario
   }
 };
+
 
 //================== Advice recomendation for not loggin user =====================
 
@@ -130,6 +140,10 @@ export const createProductsListByDate = async ({ date }) => {
 
 export const addProductByDate = async ({ date, data }) => {
   try {
+    console.log("Solicitud a /dietaries:");
+    console.log("Date:", date);
+    console.log("Data:", data);
+    
     return await instanceClientAPI.patch('/dietaries', { date, data });
   } catch (error) {
     console.log(error);

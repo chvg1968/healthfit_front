@@ -66,10 +66,10 @@ export const DiaryProductListItem = ({ product }) => {
       <Product>
         <ProductInfo>
           <ProductNameThumb ref={textThumbRef}>
-            <ProductName ref={textRef}>{product.product.title.ua}</ProductName>
+            <ProductName ref={textRef}>{product.product.title.toString()}</ProductName>
           </ProductNameThumb>
           <ProductWeight>{weightGrm} g</ProductWeight>
-          <ProductCalories>{product.product.calories} cal</ProductCalories>
+          <ProductCalories>{product.product.calories.toString()} cal</ProductCalories>
         </ProductInfo>
 
         {isCurrentDay && (

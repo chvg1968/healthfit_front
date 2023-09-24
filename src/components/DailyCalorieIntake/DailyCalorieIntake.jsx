@@ -21,6 +21,7 @@ export const DailyCalorieIntake = ({ date }) => {
     kcalConsumed = products
       .map(({ product, weightGrm }) => (weightGrm / 100) * product.calories)
       .reduce((p, c) => p + c, 0);
+      
   }
 
   let kcalLeft = dailyCalCount - kcalConsumed;
