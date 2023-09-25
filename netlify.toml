@@ -1,0 +1,8 @@
+# Especifica la versión de Node.js a utilizar (opcional)
+[build.environment]
+  NODE_VERSION = "14"
+
+# Configura la ruta al directorio de construcción
+[build]
+  publish = "dist"  # Reemplaza "dist" con la carpeta correcta de tu proyecto
+
