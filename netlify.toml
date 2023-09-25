@@ -12,6 +12,6 @@
 
 # Configura la versión de Netlify y otras opciones (opcional)
 [build]
-  base = ""  # Ruta base del proyecto (si es necesario)
+  base = "healthfit_front"  # Ruta base del proyecto (si es necesario)
 
 
