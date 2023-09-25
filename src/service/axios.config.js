@@ -130,7 +130,7 @@ export const getProductsByDate = async ({ date }) => {
 
 export const createProductsListByDate = async ({ date }) => {
   try {
-    return await instanceClientAPI.post('/dietaries', { date });
+    return await instanceClientAPI.post(`/dietaries`, { date });
   } catch (error) {
     console.log(error);
   }
@@ -144,7 +144,7 @@ export const addProductByDate = async ({ date, data }) => {
     console.log("Date:", date);
     console.log("Data:", data);
     
-    return await instanceClientAPI.patch('/dietaries', { date, data });
+    return await instanceClientAPI.patch(`/dietaries`, { date, data });
   } catch (error) {
     console.log(error);
   }

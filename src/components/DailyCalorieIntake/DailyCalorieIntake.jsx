@@ -17,11 +17,23 @@ export const DailyCalorieIntake = ({ date }) => {
   const isAnyProducts = products !== null && products.length > 0;
   let kcalConsumed = 0;
 
+  
+  console.log('Productos:', products);
+
+
   if (isAnyProducts) {
     kcalConsumed = products
-      .map(({ product, weightGrm }) => (weightGrm / 100) * product.calories)
+      .map(({ product, weightGrm }) => {
+        if (product && product.calories) {
+          // Verificar si el producto y las calorías existen
+          return (weightGrm / 100) * product.calories;
+        } else {
+          // Si no existen las calorías, mostrar el mensaje
+          console.log('Calories not found');
+          return 0;
+        }
+      })
       .reduce((p, c) => p + c, 0);
-      
   }
 
   let kcalLeft = dailyCalCount - kcalConsumed;

@@ -25,7 +25,7 @@ const loadOptions = async (inputValue, callback) => {
 
   callback(
     data.result.map(product => {
-      const title = product.title.toString();
+      const title = product.title;
       return { label: title, value: title };
     }),
   );
