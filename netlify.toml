@@ -6,3 +6,12 @@
 [build]
   publish = "dist"  # Reemplaza "dist" con la carpeta correcta de tu proyecto
 
+# Configura los comandos de construcción (si es necesario)
+[build]
+  command = "npm run build"  # Cambia esto a tu comando de construcción
+
+# Configura la versión de Netlify y otras opciones (opcional)
+[build]
+  base = ""  # Ruta base del proyecto (si es necesario)
+
+
