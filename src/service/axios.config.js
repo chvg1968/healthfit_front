@@ -141,10 +141,19 @@ export const createProductsListByDate = async ({ date }) => {
 export const addProductByDate = async ({ date, data }) => {
   try {
     console.log("Solicitud a /dietaries:");
-    console.log("Date:", date);
-    console.log("Data:", data);
+   const fixDate = date.split("/")
+   const numbersFormat = fixDate.map(numero => {
+    return numero.toString().padStart(2, '0');
+  });
+let productInfo = data
+
+   
+   const productData ={
+    date: numbersFormat.join("."),
+    data: productInfo
+    } 
     
-    return await instanceClientAPI.patch(`/dietaries`, { date, data });
+    return await instanceClientAPI.patch(`/dietaries`, productData);
   } catch (error) {
     console.log(error);
   }

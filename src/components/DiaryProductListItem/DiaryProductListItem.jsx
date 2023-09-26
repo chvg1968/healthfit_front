@@ -27,11 +27,20 @@ export const DiaryProductListItem = ({ product }) => {
   const { weightGrm, _id } = product;
   const [showModal, setShowModal] = useState(false);
   const date = useSelector(diarySelectors.getCurrentDate);
-  const currentDate = new Date().toLocaleDateString();
+  const now = new Date();
+  const day = now.getDate().toString().padStart(2, '0');
+  const month = (now.getMonth() + 1).toString().padStart(2, '0'); 
+  const year = now.getFullYear().toString(); // Tomamos los últimos dos dígitos del año.
+
+  const currentDate = `${day}.${month}.${year}`;
   const isCurrentDay = date === currentDate;
   const isLoadingDeletedProd = useSelector(
     diarySelectors.getIsDeleteProductLoading,
   );
+
+  console.log(date);
+  console.log(currentDate);
+  console.log(isCurrentDay);
 
   useLayoutEffect(() => {
     const textThumbWidth = textThumbRef.current.clientWidth;
@@ -66,10 +75,10 @@ export const DiaryProductListItem = ({ product }) => {
       <Product>
         <ProductInfo>
           <ProductNameThumb ref={textThumbRef}>
-            <ProductName ref={textRef}>{product.title}</ProductName>
+            <ProductName ref={textRef}>{product.product.title}</ProductName>
           </ProductNameThumb>
           <ProductWeight>{weightGrm} g</ProductWeight>
-          <ProductCalories>{product.calories} cal</ProductCalories>
+          <ProductCalories>{product.product.calories} cal</ProductCalories>
         </ProductInfo>
 
         {isCurrentDay && (

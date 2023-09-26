@@ -10,6 +10,8 @@ import {
   ProductsListThumb,
 } from './DiaryProductsList.styled';
 
+
+
 export const DiaryProductsList = () => {
   const productsList = useSelector(diarySelectors.getDiaryProducts);
   const isAnyProducts = productsList !== null && productsList.length > 0;
