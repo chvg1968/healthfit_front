@@ -4,7 +4,7 @@ import instanceClientAPI from './api';
 //================== REGISTER USER ====================
 export const register = async ({ name, email, password }) => {
   try {
-    const res = await instanceClientAPI.post(`/users/signup`, {
+    const res = await instanceClientAPI.post(`/Users/signup`, {
       name,
       email,
       password,
@@ -23,7 +23,7 @@ export const register = async ({ name, email, password }) => {
 //================== LOGIN USER =====================
 export const login = async ({ email, password }) => {
   try {
-    const res = await instanceClientAPI.post(`/users/login`, {
+    const res = await instanceClientAPI.post(`/Users/login`, {
       email,
       password,
     });
@@ -40,7 +40,7 @@ export const login = async ({ email, password }) => {
 //================== LOGOUT USER =====================
 export const logout = async () => {
   try {
-    const res = await instanceClientAPI.get(`/users/logout`);
+    const res = await instanceClientAPI.get(`/Users/logout`);
     return res;
   } catch (error) {
     toast.error('¡Ups, algo salió mal!');
@@ -50,13 +50,13 @@ export const logout = async () => {
 
 //================== CURRENT USER =====================
 export const current = async () => {
-  return await instanceClientAPI.get(`/users/current`);
+  return await instanceClientAPI.get(`/Users/current`);
 };
 
 //=============== get New Tokens ========================
 
 export const getNewTokens = async payload => {
-  return await instanceClientAPI.post(`/users/refresh-tokens`, payload);
+  return await instanceClientAPI.post(`/Users/refresh-tokens`, payload);
 };
 
 //================== GET LIST OF PRODUCTS BY QUERY =====================
@@ -87,7 +87,7 @@ export const getProductsByQuery = async payload => {
 export const adviceForNoAuthUser = async payload => {
   try {
     const { data } = await instanceClientAPI.post(
-      '/users/nutrition-advice',
+      '/Users/nutrition-advice',
       payload,
     );
     return data;
@@ -102,7 +102,7 @@ export const adviceForNoAuthUser = async payload => {
 export const adviceForLoginUser = async payload => {
   try {
     const { data } = await instanceClientAPI.post(
-      '/users/logged-nutrition-advice',
+      '/Users/logged-nutrition-advice',
       payload,
     );
     return data;
