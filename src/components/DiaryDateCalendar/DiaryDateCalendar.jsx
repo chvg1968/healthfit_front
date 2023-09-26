@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-datetime/css/react-datetime.css';
-import 'moment/locale/es';
+import i18n from 'i18next';
 
 
 import { diarySelectors, updateDate } from '../../redux/app/diaryPerDay';
@@ -58,7 +58,7 @@ export const DiaryDateCalendar = () => {
         isValidDate={valid}
         onChange={changeDate}
         open={isShow}
-        locale="uk"
+        locale={i18n.language}
         closeOnSelect={true}
         closeOnClickOutside={true}
       />
