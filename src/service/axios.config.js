@@ -4,7 +4,7 @@ import instanceClientAPI from './api';
 //================== REGISTER USER ====================
 export const register = async ({ name, email, password }) => {
   try {
-    const res = await instanceClientAPI.post(`/Users/signup`, {
+    const res = await instanceClientAPI.post(`/users/signup`, {
       name,
       email,
       password,
@@ -23,7 +23,7 @@ export const register = async ({ name, email, password }) => {
 //================== LOGIN USER =====================
 export const login = async ({ email, password }) => {
   try {
-    const res = await instanceClientAPI.post(`/Users/login`, {
+    const res = await instanceClientAPI.post(`/users/login`, {
       email,
       password,
     });
@@ -40,7 +40,7 @@ export const login = async ({ email, password }) => {
 //================== LOGOUT USER =====================
 export const logout = async () => {
   try {
-    const res = await instanceClientAPI.get(`/Users/logout`);
+    const res = await instanceClientAPI.get(`/users/logout`);
     return res;
   } catch (error) {
     toast.error('¡Ups, algo salió mal!');
@@ -50,13 +50,13 @@ export const logout = async () => {
 
 //================== CURRENT USER =====================
 export const current = async () => {
-  return await instanceClientAPI.get(`/Users/current`);
+  return await instanceClientAPI.get(`/users/current`);
 };
 
 //=============== get New Tokens ========================
 
 export const getNewTokens = async payload => {
-  return await instanceClientAPI.post(`/Users/refresh-tokens`, payload);
+  return await instanceClientAPI.post(`/users/refresh-tokens`, payload);
 };
 
 //================== GET LIST OF PRODUCTS BY QUERY =====================
