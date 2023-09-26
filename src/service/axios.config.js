@@ -61,33 +61,23 @@ export const getNewTokens = async payload => {
 
 //================== GET LIST OF PRODUCTS BY QUERY =====================
 
-
 export const getProductsByQuery = async payload => {
   try {
-    const { data } = await instanceClientAPI.get(`/products/search?query=${payload}`);
+    const { data } = await instanceClientAPI.get(
+      `/products/search?query=${payload}`,
+    );
     return data;
   } catch (error) {
-    if (error.response) {
-      // Respuesta del servidor con código de estado y datos de respuesta
-      console.error('Error from server:', error.response.status, error.response.data);
-    } else if (error.request) {
-      // La solicitud se hizo, pero no se recibió respuesta
-      console.error('Error from request:', error.request);
-    } else {
-      // Otro tipo de error
-      console.error('Error:', error.message);
-    }
-    throw error; // Puedes relanzar el error para manejarlo en otro lugar si es necesario
+    console.log(error.message);
   }
 };
-
 
 //================== Advice recomendation for not loggin user =====================
 
 export const adviceForNoAuthUser = async payload => {
   try {
     const { data } = await instanceClientAPI.post(
-      '/Users/nutrition-advice',
+      '/users/nutrition-advice',
       payload,
     );
     return data;
@@ -102,7 +92,7 @@ export const adviceForNoAuthUser = async payload => {
 export const adviceForLoginUser = async payload => {
   try {
     const { data } = await instanceClientAPI.post(
-      '/Users/logged-nutrition-advice',
+      '/users/logged-nutrition-advice',
       payload,
     );
     return data;
@@ -130,7 +120,7 @@ export const getProductsByDate = async ({ date }) => {
 
 export const createProductsListByDate = async ({ date }) => {
   try {
-    return await instanceClientAPI.post(`/dietaries`, { date });
+    return await instanceClientAPI.post('/dietaries', { date });
   } catch (error) {
     console.log(error);
   }
@@ -140,20 +130,7 @@ export const createProductsListByDate = async ({ date }) => {
 
 export const addProductByDate = async ({ date, data }) => {
   try {
-    console.log("Solicitud a /dietaries:");
-   const fixDate = date.split("/")
-   const numbersFormat = fixDate.map(numero => {
-    return numero.toString().padStart(2, '0');
-  });
-let productInfo = data
-
-   
-   const productData ={
-    date: numbersFormat.join("."),
-    data: productInfo
-    } 
-    
-    return await instanceClientAPI.patch(`/dietaries`, productData);
+    return await instanceClientAPI.patch('/dietaries', { date, data });
   } catch (error) {
     console.log(error);
   }

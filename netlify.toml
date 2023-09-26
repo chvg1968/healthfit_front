@@ -1,7 +1,7 @@
-# Especifica la versión de Node.js a utilizar (opcional)
-[build.environment]
-  NODE_VERSION = "14"
+[build]
+publish = 'build'
 
-
-
-
+[[redirects]]
+from = '/*'
+to = '/index.html'
+status = 200

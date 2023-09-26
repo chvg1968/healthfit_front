@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { GrClose } from 'react-icons/gr';
 
 import { diaryPerDayOperation, diarySelectors } from '../../redux/app/diaryPerDay';
-
+import { useTranslation } from 'react-i18next';
 import { ChoiceModal } from '../../components/ChoiceModal';
 
 import {
@@ -20,6 +20,7 @@ import { useRef } from 'react';
 import { useLayoutEffect } from 'react';
 
 export const DiaryProductListItem = ({ product }) => {
+  const {t}= useTranslation();
   const dispatch = useDispatch();
   const textThumbRef = useRef();
   const textRef = useRef();
@@ -27,20 +28,11 @@ export const DiaryProductListItem = ({ product }) => {
   const { weightGrm, _id } = product;
   const [showModal, setShowModal] = useState(false);
   const date = useSelector(diarySelectors.getCurrentDate);
-  const now = new Date();
-  const day = now.getDate().toString().padStart(2, '0');
-  const month = (now.getMonth() + 1).toString().padStart(2, '0'); 
-  const year = now.getFullYear().toString(); // Tomamos los últimos dos dígitos del año.
-
-  const currentDate = `${day}.${month}.${year}`;
+  const currentDate = new Date().toLocaleDateString();
   const isCurrentDay = date === currentDate;
   const isLoadingDeletedProd = useSelector(
     diarySelectors.getIsDeleteProductLoading,
   );
-
-  console.log(date);
-  console.log(currentDate);
-  console.log(isCurrentDay);
 
   useLayoutEffect(() => {
     const textThumbWidth = textThumbRef.current.clientWidth;
@@ -75,7 +67,7 @@ export const DiaryProductListItem = ({ product }) => {
       <Product>
         <ProductInfo>
           <ProductNameThumb ref={textThumbRef}>
-            <ProductName ref={textRef}>{product.product.title}</ProductName>
+            <ProductName ref={textRef}>{product.product.title.ua}</ProductName>
           </ProductNameThumb>
           <ProductWeight>{weightGrm} g</ProductWeight>
           <ProductCalories>{product.product.calories} cal</ProductCalories>
@@ -95,7 +87,7 @@ export const DiaryProductListItem = ({ product }) => {
       {showModal && (
         <ReactPortal>
           <ChoiceModal
-            text={'desea eliminar este producto'}
+            text={t('deleteOr')}
             choiceHandler={choiceHandler}
             subText={product.product.title.ua}
           />

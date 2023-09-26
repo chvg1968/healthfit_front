@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 
 import { authSelectors } from '../../redux/app/auth';
 import { diarySelectors } from '../../redux/app/diaryPerDay';
+import { useTranslation } from 'react-i18next';
 
 import {
   InfoList,
@@ -12,27 +13,15 @@ import {
 } from './DailyCalorieIntake.styles';
 
 export const DailyCalorieIntake = ({ date }) => {
+  const {t} =useTranslation();
   const dailyCalCount = useSelector(authSelectors.getUserAdviceCalorie);
   const products = useSelector(diarySelectors.getDiaryProducts);
   const isAnyProducts = products !== null && products.length > 0;
   let kcalConsumed = 0;
 
-  
-  console.log('Productos:', products);
-
-
   if (isAnyProducts) {
     kcalConsumed = products
-      .map(({ product, weightGrm }) => {
-        if (product && product.calories) {
-          // Verificar si el producto y las calorías existen
-          return (weightGrm / 100) * product.calories;
-        } else {
-          // Si no existen las calorías, mostrar el mensaje
-          console.log('Calories not found');
-          return 0;
-        }
-      })
+      .map(({ product, weightGrm }) => (weightGrm / 100) * product.calories)
       .reduce((p, c) => p + c, 0);
   }
 
@@ -45,22 +34,22 @@ export const DailyCalorieIntake = ({ date }) => {
 
   return (
     <Thumb>
-      <ListTitle>Datos a partir de {date}</ListTitle>
+      <ListTitle>{t('SummaryFor')} {date}</ListTitle>
       <InfoList>
         <InfoListItem>
-          <span>Restantes</span>
-          <span>{Math.round(kcalLeft) || '000'} Cal</span>
+          <span>{t('left')}</span>
+          <span>{Math.round(kcalLeft) || '000'} kcal</span>
         </InfoListItem>
         <InfoListItem>
-          <span>Consumidas</span>
-          <span>{Math.round(kcalConsumed) || '000'} Cal</span>
+          <span>{t('consumed')}</span>
+          <span>{Math.round(kcalConsumed) || '000'} kcal</span>
         </InfoListItem>
         <InfoListItem>
-          <span>Tarifa diaria</span>
-          <span>{dailyCalCount || '000'} Cal</span>
+          <span>{t('dailyRate')}</span>
+          <span>{dailyCalCount || '000'} kcal</span>
         </InfoListItem>
         <InfoListItem>
-          <span>% de la norma</span>
+          <span>{t('percentageOfNornal')}</span>
           <Span upperHandred={Math.round(percOfNorm) > 100}>
             {percOfNorm || '000'} %
           </Span>

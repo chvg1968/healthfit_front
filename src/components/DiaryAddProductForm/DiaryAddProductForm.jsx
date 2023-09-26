@@ -6,6 +6,7 @@ import { Rings } from 'react-loader-spinner';
 import { diaryPerDayOperation, diarySelectors } from '../../redux/app/diaryPerDay';
 import { openModalAction } from '../../redux/app/openModal';
 import { getProductsByQuery } from '../../service/axios.config';
+import { useTranslation } from 'react-i18next';
 
 import {
   Form,
@@ -32,12 +33,13 @@ const loadOptions = async (inputValue, callback) => {
 };
 
 export const DiaryAddProductForm = () => {
+  const {t}= useTranslation();
   const dispatch = useDispatch();
 
   let [selectedProduct, setSelectedProduct] = useState(null);
   let [weight, setWeight] = useState('');
 
-  const currentDate = new Date().toLocaleDateString('es-ES');
+  const currentDate = new Date().toLocaleDateString(`${t('toLocaleLanguage')}`);
   const isLoadingAddedProduct = useSelector(
     diarySelectors.getIsAddProductLoading,
   );
@@ -74,11 +76,11 @@ export const DiaryAddProductForm = () => {
             value={selectedProduct}
             onChange={setSelectedProduct}
             loadOptions={loadOptions}
-            placeholder="Introduzca el nombre del producto"
-            title="Introduzca el nombre del producto"
+            placeholder={t('productName')}
+            title={t('productName')}
             cacheOptions
             noOptionsMessage={({ inputValue }) =>
-              inputValue ? 'No hay tal producto' : 'Introduzca el nombre del producto'
+              inputValue ?  `${t('noProduct')}` : `${t('productName')}`
             }
             isClearable
             backspaceRemovesValue
@@ -91,11 +93,11 @@ export const DiaryAddProductForm = () => {
             type="number"
             min={1}
             name="weight"
-            title="Introduce el peso del producto."
+            title={t('enterWeight')}
             required
             value={weight}
             onChange={e => setWeight(e.target.value)}
-            placeholder="Gramos"
+            placeholder={t('grams')}
           />
         </FormLabel>
 
@@ -108,7 +110,7 @@ export const DiaryAddProductForm = () => {
           {isLoadingAddedProduct ? (
             <Rings color=" #FC842D" height={40} width={40} />
           ) : (
-            'Agregar'
+            `${t('add')}`
           )}
         </FormBtnMobile>
 
@@ -128,4 +130,3 @@ export const DiaryAddProductForm = () => {
     </MobileAddProductFormWraper>
   );
 };
-

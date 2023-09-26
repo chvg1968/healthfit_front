@@ -1,5 +1,4 @@
 {
     "editor.tabCompletion": "on",
-    "diffEditor.codeLens": true,
-    "peacock.color": "#000883"
+    "diffEditor.codeLens": true
 }

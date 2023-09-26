@@ -2,8 +2,10 @@ import { useSelector } from 'react-redux';
 import { authSelectors } from '../../redux/app/auth';
 import { DailyCalorieIntake } from '../../components/DailyCalorieIntake';
 import { Thumb, ProdThumb, List, Title, AltText } from './SideBar.styles';
+import { useTranslation } from 'react-i18next';
 
 export const SideBar = ({ date, kcalConsumed, calorie }) => {
+  const {t} = useTranslation();
   const notRecommendedProd = useSelector(authSelectors.getUserNotRecommendProd);
 
   return (
@@ -15,7 +17,7 @@ export const SideBar = ({ date, kcalConsumed, calorie }) => {
       />
 
       <ProdThumb>
-        <Title>Comida no recomendada</Title>
+        <Title>{t('recommendedFoods')}</Title>
 
         {notRecommendedProd.length > 0 ? (
           <List>
@@ -24,7 +26,7 @@ export const SideBar = ({ date, kcalConsumed, calorie }) => {
             ))}
           </List>
         ) : (
-          <AltText>Los productos no recomendados para usted se mostrarán aquí.</AltText>
+          <AltText>{t('noRecoTittle')}</AltText>
         )}
       </ProdThumb>
     </Thumb>

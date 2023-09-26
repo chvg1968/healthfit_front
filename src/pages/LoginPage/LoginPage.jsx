@@ -1,9 +1,11 @@
 import { Background, Header, LoginForm } from '../../components';
+import LanguageSwitcher from '../../components/LanguageSwitcher/LanguageSwitcher';
 
 const LoginPage = () => {
   return (
     <Background>
-      <Header localPage="LoginPage" />
+      <LanguageSwitcher/>
+      <Header localPage="LoginPage"/>
 
       <LoginForm />
     </Background>

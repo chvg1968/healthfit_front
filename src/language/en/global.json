@@ -1,0 +1,59 @@
+{
+  "emailLabel": "Email *",
+  "diary": "Diary",
+  "calculator": "Calculator",
+  "exit": "Exit",
+  "login": "Log In",
+  "loginbutton": "Log in",
+  "registration": "Registration",
+  "register":"REGISTER",
+  "calc": "Calculate your daily calorie intake right now",
+  "height": "Height*",
+  "desiredweight": "Desired weight *",
+  "age": "Age *",
+  "bloodtype": "Blood type *",
+  "currentweight": "Current weight *",
+  "btnTextStart":"Start losing weight",
+  "password":"Password *",
+  "name":"Name *",
+
+  "validateMin": "Minimum 3 characters",
+  "validateMax": "Maximum 254 characters",
+  "selectKeyboard": "Please, select English keyboard",
+  "mandatoryField": "Mandatory field",
+  "wrongEmail":"Email not valid",
+  "emailAtLeast": "email must contain at least 3 characters",
+  "passwordMin": "Minimum 8 characters",
+  "passwordMax": "Maximum 100 characters",
+  "charMatch":"Password can't contain special characters",
+
+  "rusure": "Are you sure,",
+  "cancel":"Cancel",
+  "confirm":"Confirm",
+
+  "SummaryFor":"Summary for",
+  "left":"Left",
+  "consumed": "Consumed",
+  "dailyRate":"Daily rate",
+  "percentageOfNornal":"n% of normal",
+  "dietReady":"Your diet is ready!",
+  "toLocaleLanguage":"",
+
+  "productName":"Enter product name",
+  "noProduct":"No such product on our database",
+  "enterWeight": "Enter product weight",
+  "grams": "Grams",
+  "add":"Add",
+
+  "deleteOr":"Do you want to delete this product?",
+  "emptyList":"The products list is empty in your diary",
+  "dywExit": "Do you want to exit from your account?",
+
+  "calIngest": "Your recommended daily calorie intake is ",
+  "norecomendedProducts": "Foods you should not eat",
+  "recommendedFoods":"Food not recommended",
+  "noRecoTittle":"Products not recommended for you will be displayed here.",
+
+  "foodsEaten":"Foods you have eaten today:"
+
+}
