@@ -89,7 +89,7 @@ export const DiaryProductListItem = ({ product }) => {
           <ChoiceModal
             text={t('deleteOr')}
             choiceHandler={choiceHandler}
-            subText={product.product.title.ua}
+            subText={product.product.title}
           />
         </ReactPortal>
       )}

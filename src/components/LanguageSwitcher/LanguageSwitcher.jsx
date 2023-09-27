@@ -4,12 +4,16 @@ import { ButtonLan, LanContainer } from './LanguageStyled';
 
 
 
+
 function LanguageSwitcher() {
   const { i18n } = useTranslation();
  
   const [buttonEN, setbuttonEN] = useState(null);
   const [buttonES, setbuttonES] = useState(null);
-  
+
+
+ // Estado para el idioma seleccionado
+
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
@@ -40,8 +44,11 @@ function LanguageSwitcher() {
     }, []);
   return (
     <LanContainer id="lang-container">
+
       <ButtonLan id='myButton' onClick={() => changeLanguage('en')}>{buttonEN}</ButtonLan>
       <ButtonLan onClick={() => changeLanguage('es')}>{buttonES}</ButtonLan>
+
+
     </LanContainer>
   );
 }
