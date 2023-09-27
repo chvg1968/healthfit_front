@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-datetime/css/react-datetime.css';
-import i18n from 'i18next';
+import 'moment/locale/es';
+
+
+
 
 
 import { diarySelectors, updateDate } from '../../redux/app/diaryPerDay';
@@ -11,6 +14,8 @@ import { CalendarBtn } from '../../components/Buttons';
 
 import { DatePickerWrapper, DatePicker } from './DiaryDateCalendar.styled';
 
+
+
 function dateToString(date) {
   let year = String(date.getFullYear());
   let month = String(date.getMonth() + 1).padStart(2, '0');
@@ -18,7 +23,8 @@ function dateToString(date) {
   return day + '.' + month + '.' + year;
 }
 
-export const DiaryDateCalendar = () => {
+export const DiaryDateCalendar = ({ selectedLanguage }) => {
+  console.log(`Idioma seleccionado: ${selectedLanguage}`);
   const dispatch = useDispatch();
   const [isShow, setIsShow] = useState(false);
   const currentDate = useSelector(diarySelectors.getCurrentDate);
@@ -58,7 +64,7 @@ export const DiaryDateCalendar = () => {
         isValidDate={valid}
         onChange={changeDate}
         open={isShow}
-        locale={i18n.language}
+        locale={selectedLanguage}
         closeOnSelect={true}
         closeOnClickOutside={true}
       />
