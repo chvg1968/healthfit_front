@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Button, LanContainer } from './LanguageStyled';
-import { DiaryDateCalendar } from '../DiaryDateCalendar';
+
 
 
 function LanguageSwitcher() {
@@ -9,11 +9,11 @@ function LanguageSwitcher() {
  
   const [buttonEN, setbuttonEN] = useState(null);
   const [buttonES, setbuttonES] = useState(null);
-  const [selectedLanguage, setSelectedLanguage] = useState(); // Estado para el idioma seleccionado
+ // Estado para el idioma seleccionado
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
-    setSelectedLanguage(lng);
+    
   };
   
 
