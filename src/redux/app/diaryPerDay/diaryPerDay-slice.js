@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { diaryPerDayOperation } from './diaryPerDay-operation';
 
-const currentDate = new Date().toLocaleDateString('ru-RU');
+const currentDate = new Date().toLocaleDateString('es-Es');
 
 const initialState = {
   isLoading: false,
