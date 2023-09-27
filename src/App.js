@@ -14,7 +14,8 @@ const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
 const DiaryPage = lazy(() => import('./pages/DiaryPage'));
 const CalculatorPage = lazy(() => import('./pages/CalculatorPage'));
 
-function App() {
+function App({toggleDarkMode,isdarkMode}) {
+  
   const dispatch = useDispatch();
 
   const isFetchingUser = useSelector(authSelectors.getIsFetchingUser);
@@ -30,10 +31,11 @@ function App() {
   return (
     !isFetchingUser && (
       <>
+      
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<PublicRoute restricted />}>
-              <Route path="" element={<MainPage />} />
+              <Route path="" element={<MainPage toggleDarkMode={toggleDarkMode} isdarkMode={isdarkMode}/>} />
             </Route>
 
             <Route path="/register" element={<PublicRoute restricted />}>

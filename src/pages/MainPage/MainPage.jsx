@@ -12,6 +12,9 @@ import {
 import styled from 'styled-components';
 import LanguageSwitcher from '../../components/LanguageSwitcher/LanguageSwitcher';
 
+import { BtnDN } from '../../components/Buttons/ButtonDayNight/ButtonDayNight.styled';
+
+
 const PageGrid = styled.div`
   display: flex;
   flex-direction: column;
@@ -19,7 +22,7 @@ const PageGrid = styled.div`
   justify-content: flex-start;
 `;
 
-export default function MainPage() {
+export default function MainPage({toggleDarkMode, isdarkMode}) {
   const [userInfo, setUserInfo] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -39,11 +42,24 @@ export default function MainPage() {
       setIsLoading(false);
     }
   };
+  const themeToggle =()=>{
+    toggleDarkMode();
+  }
+  const MoonIcon = styled.div`
+  color: #333; /* Color de la luna */
+`;
+
+const SunIcon = styled.div`
+  color: #ffdb58; /* Color del sol */
+`;
+  
 
   return (
     <Background>
       <PageGrid>
+        <BtnDN onClick={themeToggle}> {isdarkMode ? <SunIcon>☀️</SunIcon> : <MoonIcon>🌙</MoonIcon>}</BtnDN>
         <LanguageSwitcher/>
+        
         <Header localPage="MainPage" />
 
         <DailyCaloriesForm
