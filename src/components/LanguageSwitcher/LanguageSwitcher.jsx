@@ -42,8 +42,6 @@ function LanguageSwitcher() {
     <LanContainer id="lang-container">
       <Button id='myButton' onClick={() => changeLanguage('en')}>{buttonEN}</Button>
       <Button onClick={() => changeLanguage('es')}>{buttonES}</Button>
-      {/* Pasa el idioma seleccionado como prop */}
-      <DiaryDateCalendar selectedLanguage={selectedLanguage} />
     </LanContainer>
   );
 }
