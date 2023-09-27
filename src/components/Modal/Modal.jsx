@@ -74,7 +74,7 @@ export const Modal = ({
           <Text>{t('norecomendedProducts')}</Text>
           <ProdList>
             {userNotRecommendedProducts?.map((product, i) => (
-              <li key={i}>{product.uk}</li>
+              <li key={i}>{product}</li>
             ))}
           </ProdList>
 
