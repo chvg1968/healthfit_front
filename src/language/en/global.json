@@ -54,6 +54,7 @@
   "recommendedFoods":"Food not recommended",
   "noRecoTittle":"Products not recommended for you will be displayed here.",
 
-  "foodsEaten":"Foods you have eaten today:"
+  "foodsEaten":"Foods you have eaten today:",
+  "langCode":"en"
 
 }

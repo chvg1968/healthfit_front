@@ -9,7 +9,7 @@ function LanguageSwitcher() {
  
   const [buttonEN, setbuttonEN] = useState(null);
   const [buttonES, setbuttonES] = useState(null);
-  const [selectedLanguage, setSelectedLanguage] = useState(i18n.language); // Estado para el idioma seleccionado
+  const [selectedLanguage, setSelectedLanguage] = useState(); // Estado para el idioma seleccionado
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
