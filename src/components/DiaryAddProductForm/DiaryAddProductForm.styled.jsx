@@ -34,19 +34,28 @@ export const FormLabel = styled.label`
     width: auto;
   }
 `;
+export const FormInputN =styled.input`
+  background-color: red;
+`;
 
 export const FormInputProduct = styled(AsyncSelect)`
-  color: var(--main-text-color);
+
+  color: var(--input-text-color);
   margin-bottom: 32px;
+  
 
   @media ${breakpoints.minTablet} {
     margin-right: 22px;
     margin-bottom: 0;
     width: 240px;
+   
+    
   }
 
   @media ${breakpoints.desktop} {
     margin-right: 48px;
+   color: var(--input-text-color);
+    
   }
 
   .react-select__control {

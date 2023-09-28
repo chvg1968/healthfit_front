@@ -92,7 +92,7 @@ export const TextInp = styled(Field)`
   border: none;
   width: 100%;
   border-bottom: 1px solid rgb(224, 224, 224);
-
+background-color: var(--backgroun-color-input);
   &:focus,
   &:hover {
     outline: none;

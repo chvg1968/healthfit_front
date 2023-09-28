@@ -46,11 +46,13 @@ export default function MainPage({toggleDarkMode, isdarkMode}) {
     toggleDarkMode();
   }
   const MoonIcon = styled.div`
-  color: #333; /* Color de la luna */
+  font-size: 1.5em;
+  filter:  invert(100%); /* Color de la luna */
 `;
 
 const SunIcon = styled.div`
-  color: #ffdb58; /* Color del sol */
+  font-size: 1.5em;
+  
 `;
   
 

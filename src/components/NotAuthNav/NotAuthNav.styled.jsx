@@ -24,6 +24,8 @@ export const Thumb = styled.div`
   }
 `;
 export const LogoThumb = styled.div`
+background-color: var(--logobackground-color);
+border-radius: 5%;
   ::after {
     ${props =>
       props.showVerticalLine &&

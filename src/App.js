@@ -39,11 +39,11 @@ function App({toggleDarkMode,isdarkMode}) {
             </Route>
 
             <Route path="/register" element={<PublicRoute restricted />}>
-              <Route path="" element={<RegistrationPage />} />
+              <Route path="" element={<RegistrationPage toggleDarkMode={toggleDarkMode} isdarkMode={isdarkMode}/>} />
             </Route>
 
             <Route path="/login" element={<PublicRoute restricted />}>
-              <Route path="" element={<LoginPage />} />
+              <Route path="" element={<LoginPage toggleDarkMode={toggleDarkMode} isdarkMode={isdarkMode}/>} />
             </Route>
 
             <Route path="/calculator" element={<PrivateRoute />}>

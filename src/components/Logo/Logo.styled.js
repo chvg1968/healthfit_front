@@ -13,10 +13,12 @@ export const LogoStyled = styled.div`
 export const Image = styled.img`
   width: 46px;
   height: 44px;
+  
 
   @media ${breakpoints.minTablet} {
     width: 44px;
     height: 44px;
+    
   }
   @media ${breakpoints.desktop} {
     width: 70px;

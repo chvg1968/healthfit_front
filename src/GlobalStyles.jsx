@@ -18,20 +18,23 @@ const GlobalStyle = createGlobalStyle`
 }
 
 
-
+//(props.darkMode ? '#DARKMODECOLORS' : '#NODARKMODECOLORS')
 :root {
-  --main-text-color: #212121;
-  --secondary-text-color:  ${(props) => (props.darkMode ? '#9B9FAA' : '#9B9FAA')};
-  --white: ${(props) => (props.darkMode ? '#9B9FAA' : '#ffffff')};
+  --main-text-color:${(props) => (props.darkMode ? '#ffffff' : '#212121')}; 
+  --secondary-text-color:  ${(props) => (props.darkMode ? '#ffffff' : '#9B9FAA')};
+  --white: ${(props) => (props.darkMode ? '#ffffff' : '#ffffff')};
   --blue-txt-color: ${(props) => (props.darkMode ? '#9B9FAA' : '#264061')};
-  --accent-color: ${(props) => (props.darkMode ? '#9B9FAA' : '#FC842D')}; 
+  --accent-color: ${(props) => (props.darkMode ? '#FC842D' : '#FC842D')}; 
   --accent-shadow:${(props) => (props.darkMode ? '#9B9FAA' : 'rgba(252, 132, 45, 0.5)')};
   --secondary-background-color:${(props) => (props.darkMode ? '#9B9FAA' : '#F0F1F3')}; 
   --border-color: ${(props) => (props.darkMode ? '#9B9FAA' : '#e0e0e0')};
-  
+  --logobackground-color: ${(props) => (props.darkMode ? '#ffffff' : '#ffffff')};
   --timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --trans-duration: 250ms;
   --transition-params: var(--timing-function) var(--trans-duration); 
+  --moon-color:#ffffff;
+  --background-color-input:${(props) => (props.darkMode ? '#212121' : '#ffffff')};
+  --input-text-color:${(props) => (props.darkMode ? '#ffffff' : '#9B9FAA')}; 
 }
 
 
@@ -45,7 +48,7 @@ body {
   width: 100%;
 height: 100vh;
   scroll-behavior: smooth;
-  //background-color: #212121;
+  background-color: ${(props) => (props.darkMode ? '#212121' : '#ffffff')};
   font-family: 'Verdana';
   font-style: normal;  
   font-weight: 700;

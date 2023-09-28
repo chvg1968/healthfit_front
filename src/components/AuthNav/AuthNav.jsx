@@ -22,10 +22,11 @@ import {
   NavLinkStyled,
   DesktopNavigationThumb,
   UserName,
-  LogoStyled,
+  
 } from './AuthNav.styled';
 
 import { useTranslation } from 'react-i18next';
+import { LogoThumb } from '../NotAuthNav/NotAuthNav.styled';
 
 export const AuthNav = () => {
   const { t } = useTranslation();
@@ -54,9 +55,9 @@ export const AuthNav = () => {
     <>
       <Thumb>
         <DesktopNavigationThumb>
-          <LogoStyled>
+        <LogoThumb>
             <Logo />
-          </LogoStyled>
+          </LogoThumb>
 
           {isDesktopView && (
             <NavThumb>

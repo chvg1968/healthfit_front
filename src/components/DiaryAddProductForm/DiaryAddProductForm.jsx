@@ -66,11 +66,18 @@ export const DiaryAddProductForm = () => {
     setSelectedProduct(null);
     setWeight('');
   };
-
+  const colourStyles = {
+    control: styles => ({ ...styles, backgroundColor: `var(--background-color-input)`}),
+    input: styles=>({...styles, color:`var(--input-text-color)`}),
+    singleValue: styles=>({...styles, color:`var(--input-text-color)`})
+    
+    
+  };
   return (
     <MobileAddProductFormWraper>
       <Form onSubmit={handleSubmit}>
         <FormLabel>
+          
           <FormInputProduct
             classNamePrefix={'react-select'}
             value={selectedProduct}
@@ -85,6 +92,7 @@ export const DiaryAddProductForm = () => {
             isClearable
             backspaceRemovesValue
             escapeClearsValue
+            styles = {colourStyles}
           />
         </FormLabel>
 

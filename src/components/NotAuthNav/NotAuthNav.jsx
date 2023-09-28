@@ -15,7 +15,9 @@ export const NotAuthNav = ({ localPage }) => {
     <Thumb>
       {!isStartPage & isDesktopView ? (
         <>
-        <Logo />
+        <LogoThumb showVerticalLine={isStartPage & isDesktopView}>
+            <Logo />
+          </LogoThumb>
         <NavThumb>
         <NavLinkStyled to="/login">{t('login')}</NavLinkStyled>
         <NavLinkStyled to="/register">{t('registration')}</NavLinkStyled>
