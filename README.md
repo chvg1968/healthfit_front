@@ -4,6 +4,8 @@
 
     Backend: https://github.com/chvg1968/healthfit_back
 
-    Swagger: https://healthfitback-edf77344271d.herokuapp.com/api-docs/
+   Remote Backend: https://healthfitback-edf77344271d.herokuapp.com/api-docs/
+   Swagger local: http://localhost:9000/api-docs/
+   
 
 
