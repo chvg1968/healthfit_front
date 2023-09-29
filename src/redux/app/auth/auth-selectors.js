@@ -12,6 +12,13 @@ const getUserAdviceCalorie = state => state.auth.user.userDailyCalorieIntake;
 const getUserNotRecommendProd = state =>
   state.auth.user.userNotRecommendedProducts;
 
+
+
+
+
+
+
+
 const gesIsErrorData = state => {
   const message = getMessage(state);
   const isError = getIsError(state);
