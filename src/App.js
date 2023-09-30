@@ -7,14 +7,14 @@ import { actionCurrent } from './redux/app/auth/auth-operations';
 import tokenService from './service/token.service';
 
 import { Loader, PrivateRoute, PublicRoute, Toaster } from './components';
-
+import GlobalStyle from './GlobalStyles';
 const MainPage = lazy(() => import('./pages/MainPage'));
 const LoginPage = lazy(() => import('./pages/LoginPage'));
 const RegistrationPage = lazy(() => import('./pages/RegistrationPage'));
 const DiaryPage = lazy(() => import('./pages/DiaryPage'));
 const CalculatorPage = lazy(() => import('./pages/CalculatorPage'));
 
-function App({toggleDarkMode,isdarkMode}) {
+function App() {
   
   const dispatch = useDispatch();
 
@@ -27,23 +27,23 @@ function App({toggleDarkMode,isdarkMode}) {
       dispatch(actionCurrent());
     }
   }, [dispatch, token]);
-
+  const darkModeActive = useSelector(store => store.theme.isDark)
   return (
     !isFetchingUser && (
       <>
-      
+      <GlobalStyle darkMode={darkModeActive} />
         <Suspense fallback={<Loader />}>
           <Routes>
             <Route path="/" element={<PublicRoute restricted />}>
-              <Route path="" element={<MainPage toggleDarkMode={toggleDarkMode} isdarkMode={isdarkMode}/>} />
+              <Route path="" element={<MainPage />} />
             </Route>
 
             <Route path="/register" element={<PublicRoute restricted />}>
-              <Route path="" element={<RegistrationPage toggleDarkMode={toggleDarkMode} isdarkMode={isdarkMode}/>} />
+              <Route path="" element={<RegistrationPage />} />
             </Route>
 
             <Route path="/login" element={<PublicRoute restricted />}>
-              <Route path="" element={<LoginPage toggleDarkMode={toggleDarkMode} isdarkMode={isdarkMode}/>} />
+              <Route path="" element={<LoginPage />} />
             </Route>
 
             <Route path="/calculator" element={<PrivateRoute />}>

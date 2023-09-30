@@ -5,6 +5,7 @@ import { ContainerStyledPlh } from '../../components/MainContainer';
 
 export const Thumb = styled.div`
   ${ContainerStyledPlh};
+  
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -88,11 +89,12 @@ export const FormLabel = styled.label`
 `;
 
 export const TextInp = styled(Field)`
+  color: var(--input-text-color2); 
   display: block;
   border: none;
   width: 100%;
   border-bottom: 1px solid rgb(224, 224, 224);
-background-color: var(--backgroun-color-input);
+  background-color: var(--backgroun-color-input);
   &:focus,
   &:hover {
     outline: none;

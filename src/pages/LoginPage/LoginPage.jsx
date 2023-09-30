@@ -1,27 +1,25 @@
 import { Background, Header, LoginForm } from '../../components';
 import { BtnDN } from '../../components/Buttons/ButtonDayNight/ButtonDayNight.styled';
 import LanguageSwitcher from '../../components/LanguageSwitcher/LanguageSwitcher';
-import styled from 'styled-components';
 
-const LoginPage = ({toggleDarkMode, isdarkMode}) => {
+import { themeSelector } from '../../redux/app/theme/themeSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { MoonIcon, SunIcon } from './LoginPage.styled';
+
+
+const LoginPage = () => {
+  const {isDark} = useSelector(state => state.theme)
+  const dispatch = useDispatch();
   const themeToggle =()=>{
-    toggleDarkMode();
+    dispatch(themeSelector());
   }
-  const MoonIcon = styled.div`
-  font-size: 1.5em;
-  filter:  invert(100%); /* Color de la luna */
-`;
 
-const SunIcon = styled.div`
-  font-size: 1.5em;
-  
-`;
   
   return (
     <Background>
       <LanguageSwitcher/>
       
-      <BtnDN onClick={themeToggle}> {isdarkMode ? <SunIcon>☀️</SunIcon> : <MoonIcon>🌙</MoonIcon>}</BtnDN>
+      <BtnDN onClick={themeToggle}> {isDark ? <SunIcon>☀️</SunIcon> : <MoonIcon>🌙</MoonIcon>}</BtnDN>
       <Header localPage="LoginPage"/>
 
       <LoginForm />

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import { adviceForNoAuthUser } from '../../service/axios.config';
-
+import { useSelector } from 'react-redux';
 import {
   Background,
   DailyCaloriesForm,
@@ -9,20 +9,19 @@ import {
   Loader,
   Modal,
 } from '../../components';
-import styled from 'styled-components';
+
 import LanguageSwitcher from '../../components/LanguageSwitcher/LanguageSwitcher';
 
 import { BtnDN } from '../../components/Buttons/ButtonDayNight/ButtonDayNight.styled';
+import { themeSelector } from '../../redux/app/theme/themeSlice';
+import { useDispatch } from 'react-redux';
+import { MoonIcon, SunIcon, PageGrid } from './MainPage.styled';
 
 
-const PageGrid = styled.div`
-  display: flex;
-  flex-direction: column;
 
-  justify-content: flex-start;
-`;
-
-export default function MainPage({toggleDarkMode, isdarkMode}) {
+export default function MainPage() {
+  const dispatch = useDispatch();
+  const isdarkMode= useSelector(state=>state.theme.isDark)
   const [userInfo, setUserInfo] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -43,17 +42,9 @@ export default function MainPage({toggleDarkMode, isdarkMode}) {
     }
   };
   const themeToggle =()=>{
-    toggleDarkMode();
+    dispatch(themeSelector());
   }
-  const MoonIcon = styled.div`
-  font-size: 1.5em;
-  filter:  invert(100%); /* Color de la luna */
-`;
 
-const SunIcon = styled.div`
-  font-size: 1.5em;
-  
-`;
   
 
   return (

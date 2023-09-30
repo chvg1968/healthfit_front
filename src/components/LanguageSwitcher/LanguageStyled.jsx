@@ -35,6 +35,45 @@ export const LanContainer = styled.div`
   }
 `;
 
+export const LanContainerAuthCalculator = styled.div`
+  display: flex;
+  justify-content: right;
+  position: absolute;
+  top: 125px;
+  right: 20px;
+  gap:5px;
+  @media ${breakpoints.minTablet} {
+    top: 100px;
+    gap:15px;
+    right: 36px;
+  }
+
+  @media ${breakpoints.desktop} {
+    top: 170px;
+    gap:15px;
+    right: 33px;
+  }
+`;
+export const LanContainerAuth = styled.div`
+  display: flex;
+  justify-content: right;
+  position: absolute;
+  top: 165px;
+  right: 36px;
+  gap:5px;
+  @media ${breakpoints.minTablet} {
+    top: 100px;
+    gap:15px;
+    right: 36px;
+  }
+
+  @media ${breakpoints.desktop} {
+    top: 170px;
+    gap:15px;
+    right: 33px;
+  }
+`;
+
 
 export const Button = styled.button`
 display: flex;

@@ -37,7 +37,7 @@
   "dailyRate":"Daily rate",
   "percentageOfNornal":"n% of normal",
   "dietReady":"Your diet is ready!",
-  "toLocaleLanguage":"",
+  "toLocaleLanguage":"en-US",
 
   "productName":"Enter product name",
   "noProduct":"No such product on our database",

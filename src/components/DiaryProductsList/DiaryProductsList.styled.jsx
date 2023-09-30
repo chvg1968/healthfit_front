@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { breakpoints } from '../../assets/sizes';
 
 export const ProductsListThumb = styled.div`
+
   position: relative;
   width: 100%;
   max-width: 350px;

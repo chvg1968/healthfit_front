@@ -10,7 +10,7 @@ export const ButtonStyleDayNight = css`
   font-size: 24px;
   outline: none;
   position: absolute;
-  bottom:50px;
+  bottom:100px;
   right:32px
 `;
 

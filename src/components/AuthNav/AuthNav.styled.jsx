@@ -79,7 +79,7 @@ export const NavLinkStyled = styled(NavLink)`
 export const UserThumb = styled.div`
   position: relative;
   z-index: 1;
-
+margin-right: 18px;
   display: flex;
   align-items: center;
   gap: 30px;

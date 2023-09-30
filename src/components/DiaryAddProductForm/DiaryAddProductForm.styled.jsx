@@ -4,7 +4,9 @@ import { breakpoints } from '../../assets/sizes';
 import AsyncSelect from 'react-select/async';
 
 export const MobileAddProductFormWraper = styled.div`
+
   @media ${breakpoints.maxMobile} {
+   
     position: absolute;
     top: 120px;
     left: 0;
@@ -20,6 +22,7 @@ export const Form = styled.form`
   align-items: center;
   flex-direction: column;
   width: 100%;
+  
 
   @media ${breakpoints.minTablet} {
     flex-direction: row;

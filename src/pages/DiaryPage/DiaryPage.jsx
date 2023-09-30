@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+
 import { BsPlusLg } from 'react-icons/bs';
 
 import { diaryPerDayOperation, diarySelectors } from '../../redux/app/diaryPerDay';
 import { getIsModalOpen, openModalAction } from '../../redux/app/openModal';
-
+import { themeSelector } from '../../redux/app/theme/themeSlice';
+import { useDispatch, useSelector } from 'react-redux';
 import useViewportDimensions from '../../hooks/useViewportDimensions';
 import { useTranslation } from 'react-i18next';
 import {
@@ -21,14 +22,18 @@ import {
   AddBtnMobile,
   SidebarWrap,
   ContainerDiary,
+  SunIcon,
+  MoonIcon,
 } from './DiaryPage.styled';
+import { BtnDN } from '../../components/Buttons/ButtonDayNight/ButtonDayNight.styled';
+import LanguageSwitcher from '../../components/LanguageSwitcher/LanguageSwitcher';
+
 
 
 export default function DiaryPage() {
-  const {t}= useTranslation();
   const dispatch = useDispatch();
-
-  const viewportDimensions = useViewportDimensions();
+  const {t}= useTranslation();
+    const viewportDimensions = useViewportDimensions();
   const isMobileWidth = viewportDimensions.width <= 767;
 
   const currentDate = new Date().toLocaleDateString(`${t('toLocaleLanguage')}`);
@@ -48,11 +53,16 @@ export default function DiaryPage() {
       }
     });
   }, [currentDate, dispatch]);
+  const {isDark} = useSelector(state => state.theme)
+  
+  const themeToggle =()=>{
+    dispatch(themeSelector());
+  }
 
   return (
     <>
       <Header localPage="DiaryPage" />
-
+      <BtnDN onClick={themeToggle}> {isDark ? <SunIcon>☀️</SunIcon> : <MoonIcon>🌙</MoonIcon>}</BtnDN>
       {!isMobileFormOpen && (
         <PageGrid>
           <ContainerDiary>
@@ -66,9 +76,11 @@ export default function DiaryPage() {
                   <AddBtnMobile onClick={() => dispatch(openModalAction(true))}>
                     <BsPlusLg size={14} />
                   </AddBtnMobile>
+                  
                 </>
               ) : (
                 <>
+                
                   <DiaryAddProductForm />
                   <DiaryProductsList />
                 </>
@@ -86,7 +98,10 @@ export default function DiaryPage() {
           </SidebarWrap>
         </PageGrid>
       )}
-
+      
+      <LanguageSwitcher currentPage = "authenticated"/>
+      
+        
       {isMobileFormOpen && (
         <ReactPortal wrapperId="mobile-add-product-form">
           <DiaryAddProductForm />

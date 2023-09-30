@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ButtonLan, LanContainer } from './LanguageStyled';
+import { ButtonLan, LanContainer, LanContainerAuth, LanContainerAuthCalculator } from './LanguageStyled';
 
 
 
-function LanguageSwitcher() {
+function LanguageSwitcher({currentPage, page}) {
   const { i18n } = useTranslation();
  
   const [buttonEN, setbuttonEN] = useState(null);
   const [buttonES, setbuttonES] = useState(null);
   
 
-  const changeLanguage = (lng) => {
+  const changeLang = (lng) => {
+    console.log("lng is ", lng)
     i18n.changeLanguage(lng);
     
   };
@@ -39,10 +40,21 @@ function LanguageSwitcher() {
       };
     }, []);
   return (
+    currentPage==='authenticated' ? page=== "calcularor"?
+    <LanContainerAuthCalculator id="lang-container">
+      <ButtonLan id='myButton' onClick={() => changeLang('en')}>{buttonEN}</ButtonLan>
+      <ButtonLan onClick={() => changeLang('es')}>{buttonES}</ButtonLan>
+    </LanContainerAuthCalculator>
+    :
+    <LanContainerAuth id="lang-container">
+      <ButtonLan id='myButton' onClick={() => changeLang('en')}>{buttonEN}</ButtonLan>
+      <ButtonLan onClick={() => changeLang('es')}>{buttonES}</ButtonLan>
+    </LanContainerAuth>
+    :
     <LanContainer id="lang-container">
-      <ButtonLan id='myButton' onClick={() => changeLanguage('en')}>{buttonEN}</ButtonLan>
-      <ButtonLan onClick={() => changeLanguage('es')}>{buttonES}</ButtonLan>
-    </LanContainer>
+    <ButtonLan id='myButton' onClick={() => changeLang('en')}>{buttonEN}</ButtonLan>
+    <ButtonLan onClick={() => changeLang('es')}>{buttonES}</ButtonLan>
+  </LanContainer>
   );
 }
 

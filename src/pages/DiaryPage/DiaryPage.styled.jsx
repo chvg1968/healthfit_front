@@ -12,7 +12,16 @@ export const PageGrid = styled.div`
     flex-direction: row;
   }
 `;
-
+export const SunIcon = styled.div`
+  font-size: 1.5em;
+  :hover { font-size: 1.6em; }
+  
+`;
+export  const MoonIcon = styled.div`
+font-size: 1.5em;
+filter:  invert(100%); /* Color de la luna */
+:hover { font-size: 1.6em; }
+`;
 export const ContainerDiary = styled.div`
   ${ContainerStyledPlh};
   display: flex;
@@ -43,6 +52,7 @@ export const AddBtnMobile = styled(FormBtnBase)`
   border-radius: 100%;
   width: 48px;
   height: 48px;
+  
 `;
 
 export const SidebarWrap = styled.div`
