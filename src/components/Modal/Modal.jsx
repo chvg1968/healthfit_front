@@ -71,7 +71,7 @@ export const Modal = ({
           </KcalCount>
           <Text>{t('Productos no recomendados')}</Text>
           <ProdList>
-            {userNotRecommendedProducts.slice(0, 4).map((product, i) => (
+            {userNotRecommendedProducts?.map((product, i) => (
               <li key={i}>{product}</li>
             ))}
           </ProdList>
