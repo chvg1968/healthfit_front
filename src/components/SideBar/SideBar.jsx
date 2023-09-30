@@ -8,7 +8,7 @@ export const SideBar = ({ date, kcalConsumed, calorie }) => {
   const {t} = useTranslation();
   const notRecommendedProd = useSelector(authSelectors.getUserNotRecommendProd);
   
-  console.log(notRecommendedProd); 
+  
 
   return (
     <Thumb>

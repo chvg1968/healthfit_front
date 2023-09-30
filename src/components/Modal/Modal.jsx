@@ -51,7 +51,7 @@ export const Modal = ({
     closeModalHandle();
   };
 
-  console.log(userNotRecommendedProducts);
+ 
   return (
     <Overlay id="modal-overlay" onClick={onClickOvrlHandle}>
       <ModalDiv>
