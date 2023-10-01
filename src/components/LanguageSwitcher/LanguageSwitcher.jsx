@@ -12,7 +12,7 @@ function LanguageSwitcher({currentPage, page}) {
   
 
   const changeLang = (lng) => {
-    console.log("lng is ", lng)
+    
     i18n.changeLanguage(lng);
     
   };

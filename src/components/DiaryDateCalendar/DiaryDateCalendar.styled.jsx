@@ -4,7 +4,7 @@ import { breakpoints } from '../../assets/sizes';
 
 export const DatePickerWrapper = styled.div`
   align-self: flex-start;
-
+  
   display: flex;
   justify-content: start;
   align-items: center;
@@ -26,9 +26,11 @@ export const DatePicker = styled(Datetime)`
   font-size: 18px;
   line-height: 1.21;
   letter-spacing: 0em;
-
+  
   .rdtPicker {
+    background-color:var(--background-color-calendar);
     .rdtToday {
+      
       color: var(--accent-color);
     }
     td.rdtToday:before {
@@ -41,6 +43,7 @@ export const DatePicker = styled(Datetime)`
         background-color: var(--accent-color);
       }
     }
+
   }
 
   & input {

@@ -59,6 +59,7 @@ export const DiaryDateCalendar = () => {
     setIsShow(false);
   }
 
+  
   return (
     <DatePickerWrapper onMouseLeave={leave} onClick={openCalendar}>
       <DatePicker
@@ -71,6 +72,7 @@ export const DiaryDateCalendar = () => {
         locale={t('langCode')}
         closeOnSelect={true}
         closeOnClickOutside={true}
+        
       />
 
       <CalendarBtn onHandleClick={openCalendar} isShown={isShow} />

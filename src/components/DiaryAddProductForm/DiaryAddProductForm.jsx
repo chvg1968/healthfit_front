@@ -70,7 +70,8 @@ export const DiaryAddProductForm = () => {
     control: styles => ({ ...styles, backgroundColor: `var(--background-color-input)`}),
     input: styles=>({...styles, color:`var(--input-text-color)`}),
     singleValue: styles=>({...styles, color:`var(--input-text-color)`}),
-    menu: styles=>({...styles, backgroundColor:`var(--background-color-menu)`}),
+    menu: styles=>({...styles, backgroundColor:`var(--background-color-menu)`,color:`var(--input-text-color3)`}),
+    
 
     
     

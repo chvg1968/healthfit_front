@@ -51,6 +51,7 @@ export const Label = styled.label`
 `;
 
 export const Input = styled.input`
+color : var(--input-text-color);
   height: 20px;
   width: 100%;
   outline: none;
