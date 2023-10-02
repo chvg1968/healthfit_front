@@ -34,11 +34,17 @@ const GlobalStyle = createGlobalStyle`
   --transition-params: var(--timing-function) var(--trans-duration); 
   --moon-color:#ffffff;
   --background-color-input:${(props) => (props.darkMode ? '#212121' : '#ffffff')};
+<<<<<<< HEAD
   --background-color-menu:${(props) => (props.darkMode ? '#ffffff' : '#ffffff')};
   --input-text-color:${(props) => (props.darkMode ? '#ffffff' : '#212121')}; 
   --input-text-color2:${(props) => (props.darkMode ? '#9B9FAA' : '#212121')}; 
   --input-text-color3:${(props) => (props.darkMode ? '#212121' : '#212121')}; 
   --background-color-calendar:${(props) => (props.darkMode ? '#212121' : '#ffffff')};
+=======
+  --background-color-menu:${(props) => (props.darkMode ? '#9B9FAA' : '#ffffff')};
+  --input-text-color:${(props) => (props.darkMode ? '#ffffff' : '#9B9FAA')}; 
+  --input-text-color2:${(props) => (props.darkMode ? '#9B9FAA' : '#212121')}; 
+>>>>>>> DarkMode
 }
 
 
