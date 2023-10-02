@@ -6,7 +6,7 @@ import { ButtonLan, LanContainer, LanContainerAuth, LanContainerAuthCalculator }
 
 
 function LanguageSwitcher({currentPage, page}) 
-
+{
   const { i18n } = useTranslation();
  
   const [buttonEN, setbuttonEN] = useState(null);
