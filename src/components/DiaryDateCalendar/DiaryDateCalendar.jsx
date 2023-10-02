@@ -1,22 +1,12 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-datetime/css/react-datetime.css';
-import 'moment/locale/es';
-
-
-
-
-
-
-
 import { diarySelectors, updateDate } from '../../redux/app/diaryPerDay';
 import { diaryPerDayOperation } from '../../redux/app/diaryPerDay';
-
 import { CalendarBtn } from '../../components/Buttons';
-
 import { DatePickerWrapper, DatePicker } from './DiaryDateCalendar.styled';
-
 import { useTranslation } from 'react-i18next';
+import 'moment';
 
 
 

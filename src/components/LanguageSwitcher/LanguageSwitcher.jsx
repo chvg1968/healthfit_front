@@ -4,12 +4,17 @@ import { ButtonLan, LanContainer, LanContainerAuth, LanContainerAuthCalculator }
 
 
 
-function LanguageSwitcher({currentPage, page}) {
+
+function LanguageSwitcher({currentPage, page}) 
+
   const { i18n } = useTranslation();
  
   const [buttonEN, setbuttonEN] = useState(null);
   const [buttonES, setbuttonES] = useState(null);
-  
+
+
+ // Estado para el idioma seleccionado
+
 
   const changeLang = (lng) => {
     
@@ -52,9 +57,11 @@ function LanguageSwitcher({currentPage, page}) {
     </LanContainerAuth>
     :
     <LanContainer id="lang-container">
+
     <ButtonLan id='myButton' onClick={() => changeLang('en')}>{buttonEN}</ButtonLan>
     <ButtonLan onClick={() => changeLang('es')}>{buttonES}</ButtonLan>
   </LanContainer>
+
   );
 }
 

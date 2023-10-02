@@ -18,7 +18,6 @@ import {
 } from './Modal.styled';
 
 export const Modal = ({
-  
   closeModalHandle,
   userData: { userDailyCalorieIntake, userNotRecommendedProducts },
 }) => {
@@ -29,7 +28,7 @@ export const Modal = ({
       closeModalHandle();
     }
   };
-  const {t}= useTranslation();
+  const { t } = useTranslation();
   useEffect(() => {
     window.addEventListener('keydown', escKeyHandle);
     return () => {
@@ -52,6 +51,7 @@ export const Modal = ({
     closeModalHandle();
   };
 
+ 
   return (
     <Overlay id="modal-overlay" onClick={onClickOvrlHandle}>
       <ModalDiv>
@@ -64,17 +64,15 @@ export const Modal = ({
           </CloseModalBtn>
         </CloseBtnWrapper>
         <ContentWrap>
-          <ModalTtl>
-          {t('calIngest')}
-          </ModalTtl>
+          <ModalTtl>{t('calIngest')}</ModalTtl>
           <KcalCount>
             {userDailyCalorieIntake}
             <span> kcal</span>
           </KcalCount>
-          <Text>{t('norecomendedProducts')}</Text>
+          <Text>{t('Productos no recomendados')}</Text>
           <ProdList>
             {userNotRecommendedProducts?.map((product, i) => (
-              <li key={i}>{product.uk}</li>
+              <li key={i}>{product}</li>
             ))}
           </ProdList>
 

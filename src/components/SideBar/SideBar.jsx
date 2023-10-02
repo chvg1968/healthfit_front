@@ -7,6 +7,8 @@ import { useTranslation } from 'react-i18next';
 export const SideBar = ({ date, kcalConsumed, calorie }) => {
   const {t} = useTranslation();
   const notRecommendedProd = useSelector(authSelectors.getUserNotRecommendProd);
+  
+  
 
   return (
     <Thumb>
@@ -22,7 +24,7 @@ export const SideBar = ({ date, kcalConsumed, calorie }) => {
         {notRecommendedProd.length > 0 ? (
           <List>
             {notRecommendedProd?.map((product, i) => (
-              <li key={i}>{product.uk}</li>
+              <li key={i}>{product}</li>
             ))}
           </List>
         ) : (
