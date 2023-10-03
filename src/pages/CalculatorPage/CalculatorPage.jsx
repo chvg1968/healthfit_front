@@ -34,10 +34,11 @@ const CalculatorPage = () => {
   
   
   const themeToggle =()=>{
-    
     dispatch(themeSelector());
   }
  
+   
+
 
 
   return (
