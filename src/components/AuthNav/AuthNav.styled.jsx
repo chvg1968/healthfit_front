@@ -79,10 +79,11 @@ export const NavLinkStyled = styled(NavLink)`
 export const UserThumb = styled.div`
   position: relative;
   z-index: 1;
-margin-right: 18px;
+  margin-right: 100px;
   display: flex;
   align-items: center;
   gap: 30px;
+  bottom: 45px
 `;
 
 export const UserName = styled.p`
@@ -92,7 +93,7 @@ export const UserName = styled.p`
     display: block;
 
     position: absolute;
-    right: -15px;
+    right: -5px;
     bottom: -7px;
     width: 2px;
     height: 32px;

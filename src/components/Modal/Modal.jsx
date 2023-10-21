@@ -72,7 +72,7 @@ export const Modal = ({
           <Text>{t('Productos no recomendados')}</Text>
           <ProdList>
             {userNotRecommendedProducts?.map((product, i) => (
-              <li key={i}>{product}</li>
+              <li key={i}>{t(product)}</li>
             ))}
           </ProdList>
 

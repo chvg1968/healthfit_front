@@ -1,14 +1,11 @@
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import 'react-datetime/css/react-datetime.css';
 import { diarySelectors, updateDate } from '../../redux/app/diaryPerDay';
 import { diaryPerDayOperation } from '../../redux/app/diaryPerDay';
 import { CalendarBtn } from '../../components/Buttons';
 import { DatePickerWrapper, DatePicker } from './DiaryDateCalendar.styled';
-import { useTranslation } from 'react-i18next';
-import 'moment';
-
-
+import moment from 'moment'; // Importa moment para el manejo de fechas
 
 function dateToString(date) {
   let year = String(date.getFullYear());
@@ -17,8 +14,7 @@ function dateToString(date) {
   return day + '.' + month + '.' + year;
 }
 
-export const DiaryDateCalendar = () => {
-  const { t } = useTranslation();
+export const DiaryDateCalendar = ({ lng }) => {
   const dispatch = useDispatch();
   const [isShow, setIsShow] = useState(false);
   const currentDate = useSelector(diarySelectors.getCurrentDate);
@@ -49,7 +45,10 @@ export const DiaryDateCalendar = () => {
     setIsShow(false);
   }
 
-  
+  useEffect(() => {
+    moment.locale(lng); // Configura el idioma de moment.js según el prop 'idioma'
+  }, [lng]);
+
   return (
     <DatePickerWrapper onMouseLeave={leave} onClick={openCalendar}>
       <DatePicker
@@ -59,10 +58,9 @@ export const DiaryDateCalendar = () => {
         isValidDate={valid}
         onChange={changeDate}
         open={isShow}
-        locale={t('langCode')}
+        locale={lng} // Utiliza el prop 'idioma' para configurar el idioma
         closeOnSelect={true}
         closeOnClickOutside={true}
-        
       />
 
       <CalendarBtn onHandleClick={openCalendar} isShown={isShow} />
