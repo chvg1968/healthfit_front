@@ -33,13 +33,12 @@ import LanguageSwitcher from '../../components/LanguageSwitcher/LanguageSwitcher
 export default function DiaryPage() {
   const dispatch = useDispatch();
   const {t}= useTranslation();
-    const viewportDimensions = useViewportDimensions();
+  const viewportDimensions = useViewportDimensions();
   const isMobileWidth = viewportDimensions.width <= 767;
-
   const currentDate = new Date().toLocaleDateString(`${t('toLocaleLanguage')}`);
   const date = useSelector(diarySelectors.getCurrentDate);
   const isCurrentDay = date === currentDate;
-
+  const lng = useSelector((state) => state.language);
   const isMobileFormOpen = useSelector(getIsModalOpen);
 
   useEffect(() => {
@@ -66,7 +65,8 @@ export default function DiaryPage() {
       {!isMobileFormOpen && (
         <PageGrid>
           <ContainerDiary>
-            <DiaryDateCalendar />
+            <LanguageSwitcher />
+            <DiaryDateCalendar lng={lng} />
 
             {isCurrentDay ? (
               isMobileWidth ? (

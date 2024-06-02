@@ -24,7 +24,7 @@ export const SideBar = ({ date, kcalConsumed, calorie }) => {
         {notRecommendedProd.length > 0 ? (
           <List>
             {notRecommendedProd?.map((product, i) => (
-              <li key={i}>{product}</li>
+              <li key={i}>{product}</li>  
             ))}
           </List>
         ) : (

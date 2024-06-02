@@ -80,7 +80,9 @@ export const adviceForNoAuthUser = async payload => {
       '/users/nutrition-advice',
       payload,
     );
+    console.log(data);
     return data;
+    
   } catch (error) {
     toast.error('¡Ups, algo salió mal!');
     console.log(error.message);

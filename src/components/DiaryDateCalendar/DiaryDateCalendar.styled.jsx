@@ -3,11 +3,13 @@ import Datetime from 'react-datetime';
 import { breakpoints } from '../../assets/sizes';
 
 export const DatePickerWrapper = styled.div`
-  align-self: flex-start;
-  
   display: flex;
-  justify-content: start;
   align-items: center;
+  justify-content: flex-start;
+  align-self: flex-start;
+  min-width: 0; /* Evitar que la fecha se recorte */
+  
+  
 
   @media ${breakpoints.minTablet} {
     align-items: baseline;
@@ -56,7 +58,7 @@ export const DatePicker = styled(Datetime)`
     font-size: 18px;
 
     & input {
-      font-size: 34px;
+      font-size: 30px;
       width: 230px;
     }
   }

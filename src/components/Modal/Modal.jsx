@@ -17,9 +17,10 @@ import {
   BtnThumb,
 } from './Modal.styled';
 
+
 export const Modal = ({
   closeModalHandle,
-  userData: { userDailyCalorieIntake, userNotRecommendedProducts },
+  userData: { userDailyCalorieIntake,userNotRecommendedProducts  }, lang
 }) => {
   const navigate = useNavigate();
 
@@ -51,7 +52,8 @@ export const Modal = ({
     closeModalHandle();
   };
 
- 
+  console.log('userNotRecommendedProducts:', userNotRecommendedProducts);
+
   return (
     <Overlay id="modal-overlay" onClick={onClickOvrlHandle}>
       <ModalDiv>
@@ -69,10 +71,10 @@ export const Modal = ({
             {userDailyCalorieIntake}
             <span> kcal</span>
           </KcalCount>
-          <Text>{t('Productos no recomendados')}</Text>
+          <Text>{t('norecommendedProducts')}</Text>
           <ProdList>
             {userNotRecommendedProducts?.map((product, i) => (
-              <li key={i}>{product}</li>
+              <li key={i}>{product.title}</li>
             ))}
           </ProdList>
 
@@ -87,3 +89,5 @@ export const Modal = ({
     </Overlay>
   );
 };
+
+

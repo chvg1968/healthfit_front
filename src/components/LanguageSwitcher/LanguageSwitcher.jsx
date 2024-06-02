@@ -9,33 +9,34 @@ import {
 
 function LanguageSwitcher({ currentPage, page }) {
   const { i18n } = useTranslation();
-  const [buttonEN, setbuttonEN] = useState(null);
-  const [buttonES, setbuttonES] = useState(null);
+  const [buttonEN, setButtonEN] = useState(null);
+  const [buttonES, setButtonES] = useState(null);
 
-  const changeLang = async lng => {
-    console.log('lng is ', lng);
-    i18n.changeLanguage(lng);
-        try {
-      const response = await fetch(`https://healthfitback-edf77344271d.herokuapp.com/api/v1/products?lang=${lng}`);
+  const changeLang = async (lang) => {
+    console.log('lng is ', lang);
+    i18n.changeLanguage(lang);
+
+    try {
+      const response = await fetch(`http://localhost:9000/api/v1/products/${lang}`);
+      console.log(response);
       if (response.ok) {
         // Cambiar el idioma en el frontend solo si la solicitud fue exitosa
-        i18n.changeLanguage(lng);
       } else {
         console.error('Error al cambiar el idioma en el backend.');
       }
     } catch (error) {
       console.error('Error al cambiar el idioma:', error);
     }
-}
+  };
 
   useEffect(() => {
     function handleResize() {
       if (window.innerWidth <= 600) {
-        setbuttonEN('En');
-        setbuttonES('Es');
+        setButtonEN('En');
+        setButtonES('Es');
       } else {
-        setbuttonEN('English');
-        setbuttonES('Español');
+        setButtonEN('English');
+        setButtonES('Español');
       }
     }
 
@@ -46,8 +47,9 @@ function LanguageSwitcher({ currentPage, page }) {
       window.removeEventListener('resize', handleResize); // Limpia el evento al desmontar el componente
     };
   }, []);
+
   return currentPage === 'authenticated' ? (
-    page === 'calcularor' ? (
+    page === 'calculator' ? (
       <LanContainerAuthCalculator id="lang-container">
         <ButtonLan id="myButton" onClick={() => changeLang('en')}>
           {buttonEN}
