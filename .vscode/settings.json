@@ -1,5 +1,9 @@
 {
     "editor.tabCompletion": "on",
     "diffEditor.codeLens": true,
-    "CodeGPT.apiKey": "CodeGPT Plus Beta"
+    "CodeGPT.apiKey": "CodeGPT Plus Beta",
+    "workbench.iconTheme": "symbols",
+    "workbench.editor.customLabels.patterns": {
+        "fontsize": "14"
+    }
 }

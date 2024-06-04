@@ -1,11 +1,9 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
-
 import { authSelectors } from './redux/app/auth';
 import { actionCurrent } from './redux/app/auth/auth-operations';
 import tokenService from './service/token.service';
-
 import { Loader, PrivateRoute, PublicRoute, Toaster } from './components';
 import GlobalStyle from './GlobalStyles';
 const MainPage = lazy(() => import('./pages/MainPage'));

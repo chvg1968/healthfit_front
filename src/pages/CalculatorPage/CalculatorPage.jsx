@@ -1,12 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import { getUsersAdvice } from '../../redux/app/auth/auth-operations';
 import { authSelectors } from '../../redux/app/auth';
 import { diaryPerDayOperation, updateDate } from '../../redux/app/diaryPerDay';
-
 import { DailyCaloriesForm, Header, SideBar } from '../../components';
-
 import { Thumb, ContainerBar, SunIcon, MoonIcon } from './CalculatorPage.styled';
 import { useTranslation } from 'react-i18next';
 import { BtnDN } from '../../components/Buttons/ButtonDayNight/ButtonDayNight.styled';

@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button, CloseBtn } from '../../components/Buttons';
 import IconBack from '../../assets/images/arrow-mobile.png';
@@ -17,11 +17,8 @@ import {
   BtnThumb,
 } from './Modal.styled';
 
-
-export const Modal = ({
-  closeModalHandle,
-  userData: { userDailyCalorieIntake,userNotRecommendedProducts  }, lang
-}) => {
+export const Modal = ({ closeModalHandle, userData, lang }) => {
+  const { userDailyCalorieIntake, userNotRecommendedProducts } = userData;
   const navigate = useNavigate();
 
   const escKeyHandle = event => {
@@ -29,7 +26,9 @@ export const Modal = ({
       closeModalHandle();
     }
   };
+
   const { t } = useTranslation();
+
   useEffect(() => {
     window.addEventListener('keydown', escKeyHandle);
     return () => {
@@ -38,11 +37,19 @@ export const Modal = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  useEffect(() => {
+    console.log('Datos recibidos en el modal:', {
+      userDailyCalorieIntake,
+      userNotRecommendedProducts,
+    });
+  }, [userDailyCalorieIntake, userNotRecommendedProducts]);
+
   const onClickOvrlHandle = event => {
     if (event.target.id === 'modal-overlay') {
       closeModalHandle();
     }
   };
+
   const onBtnClickHandle = () => {
     closeModalHandle();
     navigate('/register', { replace: true });
@@ -52,7 +59,7 @@ export const Modal = ({
     closeModalHandle();
   };
 
-  console.log('userNotRecommendedProducts:', userNotRecommendedProducts);
+  // Función para obtener el título del producto en el idioma seleccionado
 
   return (
     <Overlay id="modal-overlay" onClick={onClickOvrlHandle}>
@@ -74,7 +81,7 @@ export const Modal = ({
           <Text>{t('norecommendedProducts')}</Text>
           <ProdList>
             {userNotRecommendedProducts?.map((product, i) => (
-              <li key={i}>{product.title}</li>
+              <li key={i}>{lang === 'en' ? product.en : product.es}</li>
             ))}
           </ProdList>
 
@@ -89,5 +96,3 @@ export const Modal = ({
     </Overlay>
   );
 };
-
-
