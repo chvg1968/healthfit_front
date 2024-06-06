@@ -127,9 +127,12 @@ export const authSlice = createSlice({
     // getUserAdvice
 
     [authOperations.getUsersAdvice.pending](state, _) {
+      console.log('getUserAdvice pending');
       state.isLoading = true;
     },
     [authOperations.getUsersAdvice.fulfilled](state, { payload }) {
+      console.log('getUserAdvice fullfilled');
+      console.log('esto es lo que esta recibiendo en payload:', payload);
       state.isLoading = false;
       state.user.userInfo = payload.userInfo;
       state.user.userDailyCalorieIntake = payload.userDailyCalorieIntake;
@@ -138,6 +141,7 @@ export const authSlice = createSlice({
       ];
     },
     [authOperations.getUsersAdvice.rejected](state, _) {
+      console.log('getUserAdvice rejected');
       state.isLoading = false;
     },
   },

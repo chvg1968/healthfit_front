@@ -17,10 +17,10 @@ import {
   BtnThumb,
 } from './Modal.styled';
 
-
 export const Modal = ({
   closeModalHandle,
-  userData: { userDailyCalorieIntake,userNotRecommendedProducts  }, lang
+  userData: { userDailyCalorieIntake, userNotRecommendedProducts },
+  lang,
 }) => {
   const navigate = useNavigate();
 
@@ -30,6 +30,7 @@ export const Modal = ({
     }
   };
   const { t } = useTranslation();
+
   useEffect(() => {
     window.addEventListener('keydown', escKeyHandle);
     return () => {
@@ -53,6 +54,7 @@ export const Modal = ({
   };
 
   console.log('userNotRecommendedProducts:', userNotRecommendedProducts);
+  console.log('userDailyCalorieIntake:', userDailyCalorieIntake);
 
   return (
     <Overlay id="modal-overlay" onClick={onClickOvrlHandle}>
@@ -74,7 +76,7 @@ export const Modal = ({
           <Text>{t('norecommendedProducts')}</Text>
           <ProdList>
             {userNotRecommendedProducts?.map((product, i) => (
-              <li key={i}>{product.title}</li>
+              <li key={i}>{product}</li>
             ))}
           </ProdList>
 
@@ -89,5 +91,3 @@ export const Modal = ({
     </Overlay>
   );
 };
-
-

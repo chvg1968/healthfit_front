@@ -37,6 +37,7 @@ export const diaryPerDaySlice = createSlice({
       state.isSuccess = false;
     },
     [diaryPerDayOperation.actionGetProducts.fulfilled](state, { payload }) {
+      console.log('productos traidos exitosamente');
       state.isLoading = false;
       state.isError = false;
       state.isSuccess = true;

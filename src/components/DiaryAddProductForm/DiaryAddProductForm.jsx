@@ -1,9 +1,12 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BsPlusLg } from 'react-icons/bs';
 import { Rings } from 'react-loader-spinner';
 
-import { diaryPerDayOperation, diarySelectors } from '../../redux/app/diaryPerDay';
+import {
+  diaryPerDayOperation,
+  diarySelectors,
+} from '../../redux/app/diaryPerDay';
 import { openModalAction } from '../../redux/app/openModal';
 import { getProductsByQuery } from '../../service/axios.config';
 import { useTranslation } from 'react-i18next';
@@ -18,11 +21,14 @@ import {
   MobileAddProductFormWraper,
 } from './DiaryAddProductForm.styled';
 
-const loadOptions = async (inputValue, callback) => {
+// const loadOptions = async (inputValue, callback) => {
+const loadOptions = async (inputValue, t, callback) => {
+  let langua = t('langCode');
   if (inputValue.length < 2) {
     return;
   }
-  const { data } = await getProductsByQuery(inputValue);
+  const { data } = await getProductsByQuery(inputValue, langua);
+  console.log('searching with inputValue:', inputValue);
 
   callback(
     data.result.map(product => {
@@ -33,9 +39,9 @@ const loadOptions = async (inputValue, callback) => {
 };
 
 export const DiaryAddProductForm = () => {
-  const {t}= useTranslation();
+  const { t } = useTranslation();
   const dispatch = useDispatch();
-
+  const langua = t('langCode');
   let [selectedProduct, setSelectedProduct] = useState(null);
   let [weight, setWeight] = useState('');
 
@@ -43,12 +49,19 @@ export const DiaryAddProductForm = () => {
   const isLoadingAddedProduct = useSelector(
     diarySelectors.getIsAddProductLoading,
   );
+  useEffect(() => {
+    console.log('selectedProduct.value:', selectedProduct);
+  }, [selectedProduct]);
 
   const handleSubmit = async e => {
     e.preventDefault();
 
     const weightNumber = parseInt(weight);
-    const { data: products } = await getProductsByQuery(selectedProduct.value);
+
+    const { data: products } = await getProductsByQuery(
+      selectedProduct.value,
+      langua,
+    );
     const productId = products.result[0]._id;
 
     dispatch(
@@ -67,36 +80,40 @@ export const DiaryAddProductForm = () => {
     setWeight('');
   };
   const colourStyles = {
-    control: styles => ({ ...styles, backgroundColor: `var(--background-color-input)`}),
-    input: styles=>({...styles, color:`var(--input-text-color)`}),
-    singleValue: styles=>({...styles, color:`var(--input-text-color)`}),
+    control: styles => ({
+      ...styles,
+      backgroundColor: `var(--background-color-input)`,
+    }),
+    input: styles => ({ ...styles, color: `var(--input-text-color)` }),
+    singleValue: styles => ({ ...styles, color: `var(--input-text-color)` }),
 
-    menu: styles=>({...styles, backgroundColor:`var(--background-color-menu)`}),
-
-
-    
-    
+    menu: styles => ({
+      ...styles,
+      backgroundColor: `var(--background-color-menu)`,
+    }),
   };
   return (
     <MobileAddProductFormWraper>
       <Form onSubmit={handleSubmit}>
         <FormLabel>
-          
           <FormInputProduct
             classNamePrefix={'react-select'}
             value={selectedProduct}
             onChange={setSelectedProduct}
-            loadOptions={loadOptions}
+            // loadOptions={loadOptions(langua)}
+            loadOptions={(inputValue, callback) =>
+              loadOptions(inputValue, t, callback)
+            } // Pasa t a loadOptions
             placeholder={t('productName')}
             title={t('productName')}
             cacheOptions
             noOptionsMessage={({ inputValue }) =>
-              inputValue ?  `${t('noProduct')}` : `${t('productName')}`
+              inputValue ? `${t('noProduct')}` : `${t('productName')}`
             }
             isClearable
             backspaceRemovesValue
             escapeClearsValue
-            styles = {colourStyles}
+            styles={colourStyles}
           />
         </FormLabel>
 

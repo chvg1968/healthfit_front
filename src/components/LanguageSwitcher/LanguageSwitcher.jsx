@@ -12,13 +12,16 @@ function LanguageSwitcher({ currentPage, page }) {
   const [buttonEN, setButtonEN] = useState(null);
   const [buttonES, setButtonES] = useState(null);
 
-  const changeLang = async (lang) => {
+  const changeLang = async lang => {
     console.log('lng is ', lang);
     i18n.changeLanguage(lang);
 
     try {
-      const response = await fetch(`http://localhost:9000/api/v1/products/${lang}`);
-      console.log(response);
+      const response = await fetch(
+        // `http://localhost:9000/api/v1/products/language/${lang}`,
+        `http://localhost:9000/api/v1/products/language/es`,
+      );
+      console.log('esta se la respuesta del back::::', response);
       if (response.ok) {
         // Cambiar el idioma en el frontend solo si la solicitud fue exitosa
       } else {

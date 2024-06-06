@@ -61,11 +61,14 @@ export const getNewTokens = async payload => {
 
 //================== GET LIST OF PRODUCTS BY QUERY =====================
 
-export const getProductsByQuery = async payload => {
+export const getProductsByQuery = async (payload, langua) => {
   try {
+    console.log('paylod de solicitud', payload);
     const { data } = await instanceClientAPI.get(
-      `/products/search?query=${payload}`,
+      `/products/search?query=${payload}&lang=${langua}`,
     );
+
+    console.log('data retornada del back', data);
     return data;
   } catch (error) {
     console.log(error.message);
@@ -82,7 +85,6 @@ export const adviceForNoAuthUser = async payload => {
     );
     console.log(data);
     return data;
-    
   } catch (error) {
     toast.error('¡Ups, algo salió mal!');
     console.log(error.message);
@@ -97,6 +99,7 @@ export const adviceForLoginUser = async payload => {
       '/users/logged-nutrition-advice',
       payload,
     );
+
     return data;
   } catch (error) {
     toast.error('¡Ups, algo salió mal!');
@@ -107,8 +110,9 @@ export const adviceForLoginUser = async payload => {
 // ================ GET PRODUCTS IN DIETARY BY DATE ================
 export const getProductsByDate = async ({ date }) => {
   try {
+    console.log('calling api to /dietaries?date=', date);
     const { data } = await instanceClientAPI.get(`/dietaries?date=${date}`);
-
+    console.log('respuesta es data', data);
     return data;
   } catch (error) {
     if (error.response.status === 404) {

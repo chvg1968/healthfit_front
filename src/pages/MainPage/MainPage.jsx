@@ -17,11 +17,9 @@ import { themeSelector } from '../../redux/app/theme/themeSlice';
 import { useDispatch } from 'react-redux';
 import { MoonIcon, SunIcon, PageGrid } from './MainPage.styled';
 
-
-
 export default function MainPage() {
   const dispatch = useDispatch();
-  const isDark= useSelector(state=>state.theme.isDark)
+  const isDark = useSelector(state => state.theme.isDark);
   const [userInfo, setUserInfo] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
@@ -32,6 +30,7 @@ export default function MainPage() {
   };
 
   const submitForm = async data => {
+    console.log('data del form', data);
     setIsLoading(true);
     const resp = await adviceForNoAuthUser(data);
 
@@ -41,18 +40,19 @@ export default function MainPage() {
       setIsLoading(false);
     }
   };
-  const themeToggle =()=>{
+  const themeToggle = () => {
     dispatch(themeSelector());
-  }
-
-  
+  };
 
   return (
     <Background>
       <PageGrid>
-        <BtnDN onClick={themeToggle}> {isDark ? <SunIcon>☀️</SunIcon> : <MoonIcon>🌙</MoonIcon>}</BtnDN>
-        <LanguageSwitcher/>
-        
+        <BtnDN onClick={themeToggle}>
+          {' '}
+          {isDark ? <SunIcon>☀️</SunIcon> : <MoonIcon>🌙</MoonIcon>}
+        </BtnDN>
+        <LanguageSwitcher />
+
         <Header localPage="MainPage" />
 
         <DailyCaloriesForm
