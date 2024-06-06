@@ -17,8 +17,16 @@ import {
   BtnThumb,
 } from './Modal.styled';
 
+<<<<<<< HEAD
 export const Modal = ({ closeModalHandle, userData, lang }) => {
   const { userDailyCalorieIntake, userNotRecommendedProducts } = userData;
+=======
+export const Modal = ({
+  closeModalHandle,
+  userData: { userDailyCalorieIntake, userNotRecommendedProducts },
+  lang,
+}) => {
+>>>>>>> ebe72a4 (fixing display by lang)
   const navigate = useNavigate();
 
   const escKeyHandle = event => {
