@@ -2,7 +2,10 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GrClose } from 'react-icons/gr';
 
-import { diaryPerDayOperation, diarySelectors } from '../../redux/app/diaryPerDay';
+import {
+  diaryPerDayOperation,
+  diarySelectors,
+} from '../../redux/app/diaryPerDay';
 import { useTranslation } from 'react-i18next';
 import { ChoiceModal } from '../../components/ChoiceModal';
 
@@ -19,8 +22,9 @@ import { ReactPortal } from '../../components/ReactPortal';
 import { useRef } from 'react';
 import { useLayoutEffect } from 'react';
 
-export const DiaryProductListItem = ({ product }) => {
-  const {t}= useTranslation();
+export const DiaryProductListItem = ({ product, langCodes }) => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const textThumbRef = useRef();
   const textRef = useRef();
@@ -61,13 +65,14 @@ export const DiaryProductListItem = ({ product }) => {
     }
     setShowModal(false);
   };
-
+  const productName =
+    langCodes === 'es' ? product.product.title.es : product.product.title.en;
   return (
     <>
       <Product>
         <ProductInfo>
           <ProductNameThumb ref={textThumbRef}>
-            <ProductName ref={textRef}>{product.product.title}</ProductName>
+            <ProductName ref={textRef}>{productName}</ProductName>
           </ProductNameThumb>
           <ProductWeight>{weightGrm} g</ProductWeight>
           <ProductCalories>{product.product.calories} cal</ProductCalories>

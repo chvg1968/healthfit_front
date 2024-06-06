@@ -1,0 +1,46 @@
+No muestra alimentos no recomendados en EN y ES
+(el back en no retornaba los productos no recomendados ya que faltaba agregar dato en filtracion de datos, en Newhealthfit_back\helpers\notRecommendedProducts.js
+faltaba agragar un .tittle )
+No muestra alimentos al buscar en lista
+Cuando hace la busqueda de alimento, no hace filtracion correctamente, ya que siempre trae la misma lista de 82 elementos
+har   ---- 82
+harina ---82
+harina de trigo ---82
+
+
+se paso la funcion t de cambio de idioma a loadOptions, en DiaryAddProductForm para poder pasar el lang como query al back directamente
+Ya no seria necesario hacer una llamada aparte como http://localhost:9000/api/v1/products/es o 
+http://localhost:9000/api/v1/products/en de forma independiente para la busqueda de productos.
+
+en backend y front se cambio ruta en cambio de idioma para mostrar alimentos, a `http://localhost:9000/api/v1/products/language/${lang}` se agrego language ya que sin este
+lo toma como si search fuese ${lang} y genera error. 
+
+
+Creo que el error debe estar en <DiaryProductsList /> ya que es el mismo componente para los dos casos de En/Es en DiaryPage.jsx
+verificar como hace el guardado de info en el estado
+REVISAR SLICES QUE ES DONDE SE GUARDAN LOS ESTADOS
+
+ERROR EL CALENDARIO ENVIA FECHA CON PUNTOS Y SE DEBE SOLICITAR CON //
+
+
+Guardando alimento seleccionado 
+front: export const addProductByDate = async ({ date, data }) => {
+  try {
+    return await instanceClientAPI.patch('/dietaries', { date, data });
+  } catch (error) {
+    console.log(error);
+  }
+};
+back: await dayInfo.save();
+    products = await Dietary.findOne(dayInfo)
+      .populate("owner", "name email")
+      .populate({
+        path: "products.product",
+        select: "title calories",
+      });
+
+Mostrando alimentos guardados:
+DiaryProductsList
+front:const productsList = useSelector(state => state.diary.products;);
+
+{[...productsList].reverse().map((product, i) => (

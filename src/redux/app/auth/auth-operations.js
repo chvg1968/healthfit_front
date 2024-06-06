@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { clientAPI } from '../../../service/axios.config';
-import  tokenService  from '../../../service/token.service';
+import tokenService from '../../../service/token.service';
 
 const actionRegister = createAsyncThunk(
   'auth/register',
@@ -57,6 +57,7 @@ export const getUsersAdvice = createAsyncThunk(
   async credentials => {
     try {
       const { data } = await clientAPI.adviceForLoginUser(credentials);
+
       return data.user;
     } catch (error) {
       console.log(error.message);

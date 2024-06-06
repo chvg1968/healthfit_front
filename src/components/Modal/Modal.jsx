@@ -59,7 +59,8 @@ export const Modal = ({ closeModalHandle, userData, lang }) => {
     closeModalHandle();
   };
 
-  // Función para obtener el título del producto en el idioma seleccionado
+  console.log('userNotRecommendedProducts:', userNotRecommendedProducts);
+  console.log('userDailyCalorieIntake:', userDailyCalorieIntake);
 
   return (
     <Overlay id="modal-overlay" onClick={onClickOvrlHandle}>
@@ -81,7 +82,7 @@ export const Modal = ({ closeModalHandle, userData, lang }) => {
           <Text>{t('norecommendedProducts')}</Text>
           <ProdList>
             {userNotRecommendedProducts?.map((product, i) => (
-              <li key={i}>{lang === 'en' ? product.en : product.es}</li>
+              <li key={i}>{product}</li>
             ))}
           </ProdList>
 
