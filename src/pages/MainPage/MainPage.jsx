@@ -1,10 +1,20 @@
 import { useState } from 'react';
+
 import { adviceForNoAuthUser } from '../../service/axios.config';
-import { useSelector, useDispatch } from 'react-redux';
-import { Background, DailyCaloriesForm, Header, Loader, Modal } from '../../components';
+import { useSelector } from 'react-redux';
+import {
+  Background,
+  DailyCaloriesForm,
+  Header,
+  Loader,
+  Modal,
+} from '../../components';
+
 import LanguageSwitcher from '../../components/LanguageSwitcher/LanguageSwitcher';
+
 import { BtnDN } from '../../components/Buttons/ButtonDayNight/ButtonDayNight.styled';
 import { themeSelector } from '../../redux/app/theme/themeSlice';
+import { useDispatch } from 'react-redux';
 import { MoonIcon, SunIcon, PageGrid } from './MainPage.styled';
 
 export default function MainPage() {
@@ -13,7 +23,6 @@ export default function MainPage() {
   const [userInfo, setUserInfo] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [selectedLanguage, setSelectedLanguage] = useState('en');
 
   const closeModal = () => {
     setOpenModal(false);
@@ -23,19 +32,11 @@ export default function MainPage() {
   const submitForm = async data => {
     console.log('data del form', data);
     setIsLoading(true);
-    try {
-      const resp = await adviceForNoAuthUser(data);
+    const resp = await adviceForNoAuthUser(data);
 
-      if (resp.code === 200 && resp.data && resp.data.nutritionAdvice) {
-        console.log('Datos recibidos:', resp.data.nutritionAdvice);
-        setUserInfo(resp.data.nutritionAdvice);
-        setOpenModal(true);
-      } else {
-        console.error('Error en la respuesta de la API:', resp);
-      }
-    } catch (error) {
-      console.error('Error al obtener el consejo nutricional:', error);
-    } finally {
+    if (resp.code === 200) {
+      setUserInfo(resp.data.nutritionAdvice);
+      setOpenModal(true);
       setIsLoading(false);
     }
   };
@@ -61,11 +62,7 @@ export default function MainPage() {
         />
         {isLoading && <Loader />}
         {openModal && (
-          <Modal
-            userData={userInfo}
-            closeModalHandle={closeModal}
-            lang={selectedLanguage}
-          />
+          <Modal userData={userInfo} closeModalHandle={closeModal} />
         )}
       </PageGrid>
     </Background>
