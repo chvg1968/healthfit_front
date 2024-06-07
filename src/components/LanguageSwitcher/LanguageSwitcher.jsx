@@ -7,7 +7,6 @@ import {
   LanContainerAuthCalculator,
 } from './LanguageStyled';
 
-
 function LanguageSwitcher({ currentPage, page, onLanguageChange }) {
   const { i18n } = useTranslation();
   const [buttonEN, setButtonEN] = useState(null);
@@ -16,13 +15,15 @@ function LanguageSwitcher({ currentPage, page, onLanguageChange }) {
   const changeLang = async lang => {
     console.log('lng is ', lang);
     i18n.changeLanguage(lang);
-    onLanguageChange(lang);
 
+    // Verifica si onLanguageChange es una función antes de llamarla
+    if (typeof onLanguageChange === 'function') {
+      onLanguageChange(lang);
+    }
 
     try {
       const response = await fetch(
-        // `http://localhost:9000/api/v1/products/language/${lang}`,
-        `http://localhost:9000/api/v1/products/language/es`,
+        `http://localhost:9000/api/v1/products/language/${lang}`
       );
       console.log('esta se la respuesta del back::::', response);
       if (response.ok) {
@@ -54,7 +55,7 @@ function LanguageSwitcher({ currentPage, page, onLanguageChange }) {
     };
   }, []);
 
-  return  currentPage === 'authenticated' ? (
+  return currentPage === 'authenticated' ? (
     page === 'calculator' ? (
       <LanContainerAuthCalculator id="lang-container">
         <ButtonLan id="myButton" onClick={() => changeLang('en')}>
@@ -78,9 +79,6 @@ function LanguageSwitcher({ currentPage, page, onLanguageChange }) {
       <ButtonLan onClick={() => changeLang('es')}>{buttonES}</ButtonLan>
     </LanContainer>
   );
-  
 }
-
-
 
 export default LanguageSwitcher;

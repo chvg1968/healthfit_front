@@ -1,14 +1,9 @@
-import { useState } from 'react';
+import { useState, useRef, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { GrClose } from 'react-icons/gr';
-
-import {
-  diaryPerDayOperation,
-  diarySelectors,
-} from '../../redux/app/diaryPerDay';
+import { diaryPerDayOperation, diarySelectors } from '../../redux/app/diaryPerDay';
 import { useTranslation } from 'react-i18next';
 import { ChoiceModal } from '../../components/ChoiceModal';
-
 import {
   BtnClose,
   Product,
@@ -19,24 +14,18 @@ import {
   ProductWeight,
 } from './DiaryProductListItem.styled';
 import { ReactPortal } from '../../components/ReactPortal';
-import { useRef } from 'react';
-import { useLayoutEffect } from 'react';
 
-export const DiaryProductListItem = ({ product, langCodes }) => {
+export const DiaryProductListItem = ({ product, lang }) => {
   const { t } = useTranslation();
-
   const dispatch = useDispatch();
   const textThumbRef = useRef();
   const textRef = useRef();
-
   const { weightGrm, _id } = product;
   const [showModal, setShowModal] = useState(false);
   const date = useSelector(diarySelectors.getCurrentDate);
   const currentDate = new Date().toLocaleDateString();
   const isCurrentDay = date === currentDate;
-  const isLoadingDeletedProd = useSelector(
-    diarySelectors.getIsDeleteProductLoading,
-  );
+  const isLoadingDeletedProd = useSelector(diarySelectors.getIsDeleteProductLoading);
 
   useLayoutEffect(() => {
     const textThumbWidth = textThumbRef.current.clientWidth;
@@ -65,8 +54,9 @@ export const DiaryProductListItem = ({ product, langCodes }) => {
     }
     setShowModal(false);
   };
-  const productName =
-    langCodes === 'es' ? product.product.title.es : product.product.title.en;
+
+  const productName = lang === 'es' ? product.es : product.en;
+
   return (
     <>
       <Product>

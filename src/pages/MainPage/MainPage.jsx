@@ -21,7 +21,6 @@ export default function MainPage() {
   };
 
   const submitForm = async data => {
-    console.log('data del form', data);
     setIsLoading(true);
     try {
       const resp = await adviceForNoAuthUser(data);
@@ -39,18 +38,22 @@ export default function MainPage() {
       setIsLoading(false);
     }
   };
+
   const themeToggle = () => {
     dispatch(themeSelector());
+  };
+
+  const handleLanguageChange = (lang) => {
+    setSelectedLanguage(lang);
   };
 
   return (
     <Background>
       <PageGrid>
         <BtnDN onClick={themeToggle}>
-          {' '}
           {isDark ? <SunIcon>☀️</SunIcon> : <MoonIcon>🌙</MoonIcon>}
         </BtnDN>
-        <LanguageSwitcher />
+        <LanguageSwitcher onLanguageChange={handleLanguageChange} />
 
         <Header localPage="MainPage" />
 
