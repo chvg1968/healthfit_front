@@ -15,11 +15,12 @@ function LanguageSwitcher({ currentPage, page }) {
   const changeLang = async lang => {
     console.log('lng is ', lang);
     i18n.changeLanguage(lang);
+    onLanguageChange(lang);
+
 
     try {
       const response = await fetch(
-        // `http://localhost:9000/api/v1/products/language/${lang}`,
-        `http://localhost:9000/api/v1/products/language/es`,
+        `http://localhost:9000/api/v1/products/language/${lang}`
       );
       console.log('esta se la respuesta del back::::', response);
       if (response.ok) {

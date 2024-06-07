@@ -1,7 +1,5 @@
 import { useSelector } from 'react-redux';
-
 import { diarySelectors } from '../../redux/app/diaryPerDay';
-
 import { DiaryProductListItem } from '../../components/DiaryProductListItem';
 import { useTranslation } from 'react-i18next';
 import {
@@ -11,8 +9,9 @@ import {
 } from './DiaryProductsList.styled';
 
 export const DiaryProductsList = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const productsList = useSelector(diarySelectors.getDiaryProducts);
+  const lang = i18n.language; // Obtener el idioma actual
 
   const isAnyProducts = productsList !== null && productsList.length > 0;
 
@@ -26,7 +25,7 @@ export const DiaryProductsList = () => {
           <DiaryProductListItem
             key={i}
             product={product}
-            langCodes={t('langCode')}
+            lang={lang} // Pasar el idioma actual al componente
           />
         ))}
       </ProductsList>
