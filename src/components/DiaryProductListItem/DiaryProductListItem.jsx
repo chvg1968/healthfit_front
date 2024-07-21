@@ -14,13 +14,14 @@ import {
   ProductWeight,
 } from './DiaryProductListItem.styled';
 import { ReactPortal } from '../../components/ReactPortal';
+import PropTypes from 'prop-types'; // Importar PropTypes para validar las props
 
 export const DiaryProductListItem = ({ product, lang }) => {
   const { t } = useTranslation();
   const dispatch = useDispatch();
   const textThumbRef = useRef();
   const textRef = useRef();
-  const { weightGrm, _id } = product;
+  const { title, weightGrm, _id } = product;
   const [showModal, setShowModal] = useState(false);
   const date = useSelector(diarySelectors.getCurrentDate);
   const currentDate = new Date().toLocaleDateString();
@@ -55,14 +56,15 @@ export const DiaryProductListItem = ({ product, lang }) => {
     setShowModal(false);
   };
 
-  const productName = lang === 'es' ? product.es : product.en;
+  // Aquí product.title ya es una cadena de texto
+  // const productName = lang === 'en' ? product.title.en : product.title.es;
 
   return (
     <>
       <Product>
         <ProductInfo>
           <ProductNameThumb ref={textThumbRef}>
-            <ProductName ref={textRef}>{productName}</ProductName>
+            <ProductName ref={textRef}>{title}</ProductName>
           </ProductNameThumb>
           <ProductWeight>{weightGrm} g</ProductWeight>
           <ProductCalories>{product.product.calories} cal</ProductCalories>
@@ -84,10 +86,23 @@ export const DiaryProductListItem = ({ product, lang }) => {
           <ChoiceModal
             text={t('deleteOr')}
             choiceHandler={choiceHandler}
-            subText={product}
+            subText={title}
           />
         </ReactPortal>
       )}
     </>
   );
+};
+
+// Usar PropTypes para asegurar que las props sean pasadas correctamente
+DiaryProductListItem.propTypes = {
+  product: PropTypes.shape({
+    title: PropTypes.string.isRequired, // Ahora se espera que title sea una cadena
+    weightGrm: PropTypes.number.isRequired,
+    _id: PropTypes.string.isRequired,
+    product: PropTypes.shape({
+      calories: PropTypes.number.isRequired,
+    }).isRequired,
+  }).isRequired,
+  lang: PropTypes.string.isRequired,
 };

@@ -11,23 +11,34 @@ import {
 export const DiaryProductsList = () => {
   const { t, i18n } = useTranslation();
   const productsList = useSelector(diarySelectors.getDiaryProducts);
-  const lang = i18n.language; // Obtener el idioma actual
+  const lang = i18n.language; // Obtener el idioma actual (es)
 
-  const isAnyProducts = productsList !== null && productsList.length > 0;
+  // Verificar si productsList es un array y no nulo
+  const isAnyProducts = Array.isArray(productsList) && productsList.length > 0;
 
   return !isAnyProducts ? (
     <AlternativeText>{t('emptyList')}</AlternativeText>
   ) : (
     <ProductsListThumb>
       <ProductsList>
-        {console.log('printing products', productsList)}
-        {[...productsList].reverse().map((product, i) => (
-          <DiaryProductListItem
-            key={i}
-            product={product}
-            lang={lang} // Pasar el idioma actual al componente
-          />
-        ))}
+        {[...productsList].reverse().map((product, i) => {
+          // Verificar que product.title existe y tiene las propiedades 'es' y 'en'
+          const title = product.title && (lang === 'es' ? product.title.es : product.title.en);
+
+          // Si title no existe, usa una cadena vacía como valor por defecto
+          const safeTitle = title || '';
+
+          return (
+            <DiaryProductListItem
+              key={i}
+              product={{
+                ...product,
+                title: safeTitle // Usar el título seguro
+              }}
+              lang={['es', 'en'].includes(lang) ? lang : lang} // Pasar el idioma actual al componente
+            />
+          );
+        })}
       </ProductsList>
     </ProductsListThumb>
   );

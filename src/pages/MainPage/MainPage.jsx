@@ -23,6 +23,7 @@ export default function MainPage() {
   const [userInfo, setUserInfo] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [selectedLanguage, setSelectedLanguage] = useState('en');
 
   const closeModal = () => {
     setOpenModal(false);
@@ -45,6 +46,7 @@ export default function MainPage() {
   };
 
   const handleLanguageChange = (lang) => {
+    console.log('Selected language in MainPage:', lang);
     setSelectedLanguage(lang);
   };
 
@@ -65,7 +67,10 @@ export default function MainPage() {
         />
         {isLoading && <Loader />}
         {openModal && (
-          <Modal userData={userInfo} closeModalHandle={closeModal} />
+          <Modal 
+          userData={userInfo} 
+          closeModalHandle={closeModal}
+          lang={['en', 'es'].includes(selectedLanguage) ? selectedLanguage : selectedLanguage[0]}/>
         )}
       </PageGrid>
     </Background>

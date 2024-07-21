@@ -7,7 +7,7 @@ import {
   LanContainerAuthCalculator,
 } from './LanguageStyled';
 
-function LanguageSwitcher({ currentPage, page }) {
+function LanguageSwitcher({ currentPage, page, onLanguageChange }) {
   const { i18n } = useTranslation();
   const [buttonEN, setButtonEN] = useState(null);
   const [buttonES, setButtonES] = useState(null);
@@ -15,9 +15,8 @@ function LanguageSwitcher({ currentPage, page }) {
   const changeLang = async lang => {
     console.log('lng is ', lang);
     i18n.changeLanguage(lang);
-    onLanguageChange(lang);
-
-
+    onLanguageChange(lang); // Llamar a la función onLanguageChange para notificar al componente padre
+    
     try {
       const response = await fetch(
         `http://localhost:9000/api/v1/products/language/${lang}`

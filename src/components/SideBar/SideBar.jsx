@@ -4,7 +4,7 @@ import { DailyCalorieIntake } from '../../components/DailyCalorieIntake';
 import { Thumb, ProdThumb, List, Title, AltText } from './SideBar.styles';
 import { useTranslation } from 'react-i18next';
 
-export const SideBar = ({ date, kcalConsumed, calorie }) => {
+export const SideBar = ({ date, kcalConsumed, calorie, lang }) => {
   const { t } = useTranslation();
   console.log('Sidebar loaded');
   const notRecommendedProd = useSelector(authSelectors.getUserNotRecommendProd);
@@ -19,11 +19,10 @@ export const SideBar = ({ date, kcalConsumed, calorie }) => {
 
       <ProdThumb>
         <Title>{t('recommendedFoods')}</Title>
-        <h2>no recomends</h2>
         {notRecommendedProd.length > 0 ? (
           <List>
             {notRecommendedProd?.map((product, i) => (
-              <li key={i}>{product}</li>
+              <li key={i}>{lang === 'en' ? product.en : product.es}</li>
             ))}
           </List>
         ) : (

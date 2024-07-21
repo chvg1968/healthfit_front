@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Routes, Route, Navigate } from 'react-router-dom';
-
+import  ErrorBoundary   from './components/ErrorBoundary/ErrorBoundary';
 import { authSelectors } from './redux/app/auth';
 import { actionCurrent } from './redux/app/auth/auth-operations';
 import tokenService from './service/token.service';
@@ -50,9 +50,19 @@ function App() {
               <Route path="" element={<CalculatorPage />} />
             </Route>
 
+            
             <Route path="/diary" element={<PrivateRoute />}>
-              <Route path="" element={<DiaryPage />} />
+              <Route
+               path="" 
+               element=
+               {
+               <ErrorBoundary>
+               <DiaryPage />
+               </ErrorBoundary>
+              } 
+               />
             </Route>
+            
 
             <Route path="*" element={<Navigate to="/" />} />
           </Routes>
