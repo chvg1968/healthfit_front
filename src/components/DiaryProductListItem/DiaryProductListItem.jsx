@@ -14,19 +14,21 @@ import {
   ProductWeight,
 } from './DiaryProductListItem.styled';
 import { ReactPortal } from '../../components/ReactPortal';
-import PropTypes from 'prop-types'; // Importar PropTypes para validar las props
+import PropTypes from 'prop-types';
 
-export const DiaryProductListItem = ({ product, lang }) => {
-  const { t } = useTranslation();
+export const DiaryProductListItem = ({ product }) => {
+  const { t, i18n } = useTranslation();
   const dispatch = useDispatch();
   const textThumbRef = useRef();
   const textRef = useRef();
-  const { title, weightGrm, _id } = product;
+  const { weightGrm, _id } = product;
   const [showModal, setShowModal] = useState(false);
   const date = useSelector(diarySelectors.getCurrentDate);
   const currentDate = new Date().toLocaleDateString();
   const isCurrentDay = date === currentDate;
   const isLoadingDeletedProd = useSelector(diarySelectors.getIsDeleteProductLoading);
+
+  const lang = i18n.language; // Obtener el idioma actual
 
   useLayoutEffect(() => {
     const textThumbWidth = textThumbRef.current.clientWidth;
@@ -38,6 +40,16 @@ export const DiaryProductListItem = ({ product, lang }) => {
       textRef.current.classList.remove('animate');
     }
   });
+
+  const getProductTitle = () => {
+    if (product.product && product.product.title) {
+      return product.product.title[lang] || product.product.title.en || product.product.title.es || t('unknownProduct');
+    }
+    return product.title || t('unknownProduct');
+  };
+
+  const productTitle = getProductTitle();
+  const productCalories = product.product ? product.product.calories : 'cal';
 
   const payload = {
     productId: _id,
@@ -56,18 +68,15 @@ export const DiaryProductListItem = ({ product, lang }) => {
     setShowModal(false);
   };
 
-  // Aquí product.title ya es una cadena de texto
-  // const productName = lang === 'en' ? product.title.en : product.title.es;
-
   return (
     <>
       <Product>
         <ProductInfo>
           <ProductNameThumb ref={textThumbRef}>
-            <ProductName ref={textRef}>{title}</ProductName>
+            <ProductName ref={textRef}>{productTitle}</ProductName>
           </ProductNameThumb>
           <ProductWeight>{weightGrm} g</ProductWeight>
-          <ProductCalories>{product.product.calories} cal</ProductCalories>
+          <ProductCalories>{productCalories} cal</ProductCalories>
         </ProductInfo>
 
         {isCurrentDay && (
@@ -86,7 +95,7 @@ export const DiaryProductListItem = ({ product, lang }) => {
           <ChoiceModal
             text={t('deleteOr')}
             choiceHandler={choiceHandler}
-            subText={title}
+            subText={productTitle}
           />
         </ReactPortal>
       )}
@@ -94,15 +103,18 @@ export const DiaryProductListItem = ({ product, lang }) => {
   );
 };
 
-// Usar PropTypes para asegurar que las props sean pasadas correctamente
 DiaryProductListItem.propTypes = {
   product: PropTypes.shape({
-    title: PropTypes.string.isRequired, // Ahora se espera que title sea una cadena
+    product: PropTypes.shape({
+      _id: PropTypes.string,
+      title: PropTypes.shape({
+        en: PropTypes.string,
+        es: PropTypes.string,
+      }),
+      calories: PropTypes.number,
+    }),
     weightGrm: PropTypes.number.isRequired,
     _id: PropTypes.string.isRequired,
-    product: PropTypes.shape({
-      calories: PropTypes.number.isRequired,
-    }).isRequired,
+    title: PropTypes.string,
   }).isRequired,
-  lang: PropTypes.string.isRequired,
 };

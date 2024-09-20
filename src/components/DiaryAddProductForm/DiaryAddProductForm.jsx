@@ -55,25 +55,41 @@ export const DiaryAddProductForm = () => {
 
   const handleSubmit = async e => {
     e.preventDefault();
-
+  
     const weightNumber = parseInt(weight);
-
-    const { data: products } = await getProductsByQuery(
-      selectedProduct.value,
-      langua,
-    );
-    const productId = products.result[0]._id;
-
-    dispatch(
-      diaryPerDayOperation.actionAddProduct({
-        date: currentDate,
-        data: { product: productId, weightGrm: weightNumber },
-      }),
-    );
-
-    dispatch(openModalAction(false));
-    reset();
+  
+    try {
+      // Obtener productos a partir del producto seleccionado
+      const { data: products } = await getProductsByQuery(
+        selectedProduct.value,
+        langua,
+      );
+  
+      // Verificar si hay resultados en la búsqueda
+      if (products && products.result && products.result.length > 0) {
+        const productId = products.result[0]._id;
+  
+        // Despachar la acción para agregar el producto
+        dispatch(
+          diaryPerDayOperation.actionAddProduct({
+            date: currentDate,
+            data: { product: productId, weightGrm: weightNumber },
+          }),
+        );
+  
+        // Cerrar modal y reiniciar formulario
+        dispatch(openModalAction(false));
+        reset();
+      } else {
+        console.error('No se encontraron productos con ese nombre.');
+        alert('No se encontraron productos con ese nombre.');
+      }
+    } catch (error) {
+      console.error('Error en la búsqueda de productos:', error);
+      alert('Hubo un error al intentar añadir el producto.');
+    }
   };
+  
 
   const reset = () => {
     setSelectedProduct(null);
