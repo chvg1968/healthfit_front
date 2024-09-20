@@ -16,6 +16,7 @@ const initialState = {
   isError: false,
   isSuccess: false,
   isLoading: false,
+  products: [],
 };
 
 export const authSlice = createSlice({
