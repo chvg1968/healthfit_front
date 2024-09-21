@@ -1,7 +1,11 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux'; // Importa useDispatch
+<<<<<<< HEAD
 import { setLanguage } from '../../redux/app/diaryPerDay';  // Importa la acción setLanguage
+=======
+import { setLanguage } from '../../redux/app/diaryPerDay'; // Importa la acción setLanguage
+>>>>>>> 4642dbe10f17c0d90dd20f1e3206c4cf30479aa3
 import {
   ButtonLan,
   LanContainer,
@@ -18,7 +22,7 @@ function LanguageSwitcher({ currentPage, page, onLanguageChange }) {
 
   const changeLang = useCallback(async (lang) => {
     try {
-      const response = await fetch(`${API_URL}/api/v1/products/language/${lang}`); // Llama a la ruta de la API para cambiar el idioma
+      const response = await fetch(`${API_URL}/api/v1/products/language/${lang}`);
       if (response.ok) {
         i18n.changeLanguage(lang);
 

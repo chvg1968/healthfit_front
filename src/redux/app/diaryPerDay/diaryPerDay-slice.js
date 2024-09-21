@@ -30,12 +30,7 @@ export const diaryPerDaySlice = createSlice({
     },
     setLanguage: (state, action) => {
       state.language = action.payload;
-    },
-    
-    // Añadir setProducts aquí
-    setProducts: (state, action) => {
-      state.products = action.payload;
-    },
+    }
   },
 
   extraReducers: {
@@ -65,17 +60,88 @@ export const diaryPerDaySlice = createSlice({
       state.isError = true;
       state.getProductsError = action.error.message;
     },
+<<<<<<< HEAD
     // ... (el resto de tu código)
+=======
+
+    // create list products
+    [diaryPerDayOperation.actionCreateProductsList.pending](state) {
+      state.isLoading = true;
+    },
+    [diaryPerDayOperation.actionCreateProductsList.fulfilled](state) {
+      state.isLoading = false;
+      state.isError = false;
+      state.isSuccess = true;
+
+      state.products = [];
+    },
+    [diaryPerDayOperation.actionCreateProductsList.rejected](state, action) {
+      state.isLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+    },
+
+    // update products list
+    [diaryPerDayOperation.actionAddProduct.pending](state) {
+      state.isLoading = true;
+      state.isAddProductLoading = true;
+      state.addProductError = null;
+    },
+    [diaryPerDayOperation.actionAddProduct.fulfilled](state, action) {
+      state.isLoading = false;
+      state.isAddProductLoading = false;
+      state.isError = false;
+      state.isSuccess = true;
+      state.products = action.payload;
+    },
+    [diaryPerDayOperation.actionAddProduct.rejected](state, action) {
+      state.isLoading = false;
+      state.isAddProductLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.addProductError = action.error.message;
+    },
+
+    // delete product from list
+    [diaryPerDayOperation.actionDeleteProduct.pending](state) {
+      
+      state.isDeleteProductLoading = true;
+      state.deleteProductError = null;
+
+    },
+    [diaryPerDayOperation.actionDeleteProduct.fulfilled](state, action) {
+    
+      state.isDeleteProductLoading = false;
+      state.isError = false;
+      state.isSuccess = true;
+      state.products = action.payload;
+    },
+    [diaryPerDayOperation.actionDeleteProduct.rejected](state, action) {
+      
+      state.isDeleteProductLoading = false;
+      state.isSuccess = false;
+      state.isError = true;
+      state.deleteProductError = action.error.message;
+    },
+>>>>>>> 4642dbe10f17c0d90dd20f1e3206c4cf30479aa3
   },
 });
 
 // Exportar la acción
 export const {
   updateDate,
+<<<<<<< HEAD
   setLanguage,
   updateProductPresentation,
   setProducts, // Asegúrate de exportar esta acción
   // otras acciones
+=======
+  getProducts,
+  createProductsList,
+  addProduct,
+  deleteProduct,
+  setLanguage
+>>>>>>> 4642dbe10f17c0d90dd20f1e3206c4cf30479aa3
 } = diaryPerDaySlice.actions;
 
 export const diaryReducer = diaryPerDaySlice.reducer;
