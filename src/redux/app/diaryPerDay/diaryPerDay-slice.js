@@ -31,13 +31,7 @@ export const diaryPerDaySlice = createSlice({
     setLanguage: (state, action) => {
       state.language = action.payload;
     },
-    updateProductPresentation: (state, action) => {
-      const newLang = action.payload;
-      state.products = state.products.map(product => ({
-        ...product,
-        displayTitle: product.titles[newLang] || product.titles.en,
-      }));
-    },
+    
     // Añadir setProducts aquí
     setProducts: (state, action) => {
       state.products = action.payload;
