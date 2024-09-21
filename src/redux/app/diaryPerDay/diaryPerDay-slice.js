@@ -126,18 +126,11 @@ export const diaryPerDaySlice = createSlice({
 // Exportar la acción
 export const {
   updateDate,
-<<<<<<< HEAD
-  setLanguage,
-  updateProductPresentation,
-  setProducts, // Asegúrate de exportar esta acción
-  // otras acciones
-=======
   getProducts,
   createProductsList,
   addProduct,
   deleteProduct,
   setLanguage
->>>>>>> 4642dbe10f17c0d90dd20f1e3206c4cf30479aa3
 } = diaryPerDaySlice.actions;
 
 export const diaryReducer = diaryPerDaySlice.reducer;
