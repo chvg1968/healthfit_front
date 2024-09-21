@@ -1,11 +1,7 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch } from 'react-redux'; // Importa useDispatch
-<<<<<<< HEAD
-import { setLanguage } from '../../redux/app/diaryPerDay';  // Importa la acción setLanguage
-=======
 import { setLanguage } from '../../redux/app/diaryPerDay'; // Importa la acción setLanguage
->>>>>>> 4642dbe10f17c0d90dd20f1e3206c4cf30479aa3
 import {
   ButtonLan,
   LanContainer,

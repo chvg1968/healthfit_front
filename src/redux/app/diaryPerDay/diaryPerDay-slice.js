@@ -60,9 +60,6 @@ export const diaryPerDaySlice = createSlice({
       state.isError = true;
       state.getProductsError = action.error.message;
     },
-<<<<<<< HEAD
-    // ... (el resto de tu código)
-=======
 
     // create list products
     [diaryPerDayOperation.actionCreateProductsList.pending](state) {
@@ -123,7 +120,6 @@ export const diaryPerDaySlice = createSlice({
       state.isError = true;
       state.deleteProductError = action.error.message;
     },
->>>>>>> 4642dbe10f17c0d90dd20f1e3206c4cf30479aa3
   },
 });
 
